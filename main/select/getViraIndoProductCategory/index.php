@@ -29,6 +29,7 @@
         }
         echo json_encode($productArr);
     }
+    //nanti ganti try catch
     else{
         http_response_code(404);
         echo json_encode(
