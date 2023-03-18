@@ -2,6 +2,7 @@ CREATE DATABASE viraindo_demo;
 
 USE viraindo_demo;
 
+
 CREATE TABLE tbl_viraindo_user(
 	user_id INT NOT NULL auto_increment,
     user_email VARCHAR(100) NOT NULL,
@@ -14,11 +15,13 @@ SELECT * FROM tbl_viraindo_user;
 
 CREATE TABLE tbl_viraindo_category (
 	category_id INT NOT NULL auto_increment,
+    shopping_category_id INT,
     category_name VARCHAR(100) NOT NULL,
     category_stock INT NOT NULL,
     isActive INT,
     isUpdate INT,
-    PRIMARY KEY (category_id)
+    PRIMARY KEY (category_id),
+    FOREIGN KEY (shopping_category_id) REFERENCES tbl_viraindo_shopping_category(shopping_category_id)
 );
 
 CREATE TABLE tbl_viraindo_sub_category (
@@ -61,7 +64,14 @@ CREATE TABLE tbl_viraindo_item_detail (
 
 );
 
-DROP TABLE tbl_viraindo_item
+CREATE TABLE tbl_viraindo_shopping_category(
+	shopping_category_id INT NOT NULL auto_increment,
+    shopping_category_name VARCHAR(100),
+    isActive INT,
+    PRIMARY KEY (shopping_category_id)
+);
+
+DROP TABLE tbl_viraindo_category
 
 
 

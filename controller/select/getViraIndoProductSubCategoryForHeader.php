@@ -1,5 +1,5 @@
 <?php
-    class getViraIndoProductSubCategory{
+    class getViraIndoProductSubCategoryForHeader{
         // Connection
         private $conn;
 
@@ -9,7 +9,7 @@
         }
         // GET ALL
         public function getViraIndoProductCategory($categoryId){
-            $sqlQuery = "SELECT sub_category_name, isActive FROM tbl_viraindo_subcategory WHERE category_id = :category_id";
+            $sqlQuery = "SELECT";
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->bindValue(":category_id", $categoryId);
             $stmt->execute();
