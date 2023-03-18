@@ -42,7 +42,6 @@ CREATE TABLE tbl_viraindo_brand (
 CREATE TABLE tbl_viraindo_item (
 	item_id INT NOT NULL auto_increment,
     category_id INT NOT NULL,
-    sub_category_id INT NOT NULL,
     brand_id INT NOT NULL,
     item_name VARCHAR(300) NOT NULL,
     item_picture VARCHAR(10000) NOT NULL,
