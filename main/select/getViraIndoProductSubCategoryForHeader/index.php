@@ -37,40 +37,52 @@
     header("Content-Type: application/json; charset=UTF-8");
     
     include_once '../../../connection/databaseconnect.php';
-    include_once '../../../controller/select/getViraIndoProductSubCategory.php';
+    include_once '../../../controller/select/getViraIndoProductSubCategoryForHeader.php';
     
     $database = new Database();
     $db = $database->getConnection();
     $items = new getViraIndoProductSubCategoryForHeader($db);
-    $stmt = $items->getViraIndoProductCategory($category_id);
+    $stmt = $items->getViraIndoProductSubCategoryForHeader();
     $itemCount = $stmt->rowCount();
 
-    echo json_encode($itemCount);
     if($itemCount > 0){
         
         $productArr = array();
         $productArr["values"] = array();
         $productArr["itemCount"] = $itemCount;
+        // $shoppingCatId = array();
+        // $shoppingCatId[] = $shopping_category_id;
+        // $productArr["shoppingCatId"] = $shoppingCatId; 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
+
+            // foreach($row as $e){
+            //     $e = array(
+            //         "shopping_category_id" => $row["shopping_category_id"]
+            //     );
+            // }
+
+
             $e = array(
                 "shopping_category_id" => $shopping_category_id,
                 "shopping_category_name" => $shopping_category_name,
-                $productArr["category"] = array(
+                "category" => array(
                     "category_id" => $category_id,
                     "category_name" => $category_name,
-                    $productArr["sub_category"] = array(
+                    "sub_category" => array(
                         "sub_category_id" => $sub_category_id,
                         "sub_category_name" => $sub_category_name,
-                        $productArr["item"] = array(
+                        "item" => array(
                             "item_id" => $item_id,
                             "item_name" => $item_name
                         )
                     )
                 )
             );
-            array_push($productArr, $e);
+
+            array_push($productArr["values"], $e);
         }
+
         echo json_encode($productArr);
     }
     //nanti ganti try catch
