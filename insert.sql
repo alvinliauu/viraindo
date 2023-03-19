@@ -47,3 +47,41 @@ ON Cat.category_id = SubCat.category_id
 INNER JOIN tbl_viraindo_item Item
 ON SubCat.sub_category_id = Item.sub_category_id
 INNER JOIN tbl_viraindo_brand Brand
+
+
+
+
+
+
+
+insert into tbl_viraindo_shopping_category (shopping_category_name, isActive) values ('komponen komputer', 1), ('notebook and accessories', 1);
+
+insert into tbl_viraindo_category (shopping_category_id, category_name, category_stock, isActive) values (1, 'processor', 100, 1), (1, 'motherboard', 100, 1), (2, 'notebook', 100, 1), (2, 'ram notebook', 100, 1);
+
+insert into tbl_viraindo_sub_category (category_id, sub_category_name, isActive) values (1, 'intel core i3', 1), (1, 'intel core i5', 1), (1, 'intel core i7', 1),
+(2, 'colorful', 1), (2, 'AMD', 1), (2, 'MSI', 1), (3, 'acer', 1), (3, 'apple', 1), (4, 'ddr2', 1), (4, 'ddr4', 1);
+
+insert into tbl_viraindo_item (sub_category_id, brand_id, item_name, item_picture, item_new_price, item_old_price, isActive) values
+(1, 1, 'Intel Core i3-13100 3.4GHz Up To 4.5GHz - Cache 12MB [Box] Socket LGA 1700 - Raptor Lake Series', 'image', 500000, 450000, 1),
+(1, 1, 'Intel Core i3-12100 3.3GHz Up To 4.3GHz - Cache 12MB [Box] Socket LGA 1700 - Alder Lake Series', 'image', 500000, 450000, 1),
+(2, 1, 'Intel Core i5-13600K 3.5GHz Up To 5.1GHz - Cache 24MB [Box] Socket LGA 1700 - Raptor Lake Series', 'image', 500000, 450000, 1),
+(2, 1, 'Intel Core i5-13500 2.5GHz Up To 4.8GHz - Cache 24MB [Box] Socket LGA 1700 - Raptor Lake Series', 'image', 500000, 450000, 1),
+(3, 1, 'Intel Core i7-13700K 3.4GHz Up To 5.4GHz - Cache 30MB [Box] Socket LGA 1700 - Raptor Lake Series', 'image', 500000, 450000, 1),
+(3, 1, 'Intel Core i7-13700 2.1GHz Up To 5.2GHz - Cache 30MB [Box] Socket LGA 1700 - Raptor Lake Series', 'image', 500000, 450000, 1),
+(5, 1, 'AMD Ryzen 9 5950X 3.4Ghz Up To 4.9Ghz Cache 64MB 105W AM4 [Box] - 16 Core - 100-100000059WOF (Garansi Lokal/AMD Indonesia)', 'image', 500000, 450000, 1),
+(5, 1, 'AMD Ryzen 9 5950Z 3.4Ghz Up To 5.9Ghz Cache 64MB 105W AM4 [Box] - 16 Core - 100-100000F', 'image', 500000, 450000, 1),
+(7, 1, 'Acer Aspire 3 (A314-22-A1M5)', 'image', 500000, 450000, 1),
+(7, 1, 'Acer Aspire 3 Slim (A314-23M-R7VJ)', 'image', 500000, 450000, 1),
+(9, 1, 'ddr2 gigabyte', 'image', 500000, 450000, 1),
+(10, 1, 'ddr4 samsung', 'image', 500000, 450000, 1);
+
+insert into tbl_viraindo_brand (brand_name, isActive) values ('test aja', 1);
+
+
+
+
+select sc.shopping_category_id, sc.shopping_category_name, c.category_id, c.category_name, suc.sub_category_id, suc.sub_category_name, it.item_id, it.item_name
+from tbl_viraindo_shopping_category sc 
+join tbl_viraindo_category c on sc.shopping_category_id = c.shopping_category_id
+join tbl_viraindo_sub_category suc on suc.category_id = c.category_id
+join tbl_viraindo_item it on it.sub_category_id = suc.sub_category_id;
