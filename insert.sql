@@ -46,7 +46,7 @@ INNER JOIN tbl_viraindo_sub_category SubCat
 ON Cat.category_id = SubCat.category_id
 INNER JOIN tbl_viraindo_item Item
 ON SubCat.sub_category_id = Item.sub_category_id
-INNER JOIN tbl_viraindo_brand Brand
+INNER JOIN tbl_viraindo_brand Brand;
 
 
 

@@ -44,24 +44,39 @@
     $items = new getViraIndoProductSubCategoryForHeader($db);
     $stmt = $items->getViraIndoProductSubCategoryForHeader();
     $itemCount = $stmt->rowCount();
-
+    
     if($itemCount > 0){
         
         $productArr = array();
         $productArr["values"] = array();
-        $productArr["itemCount"] = $itemCount;
-        // $shoppingCatId = array();
-        // $shoppingCatId[] = $shopping_category_id;
-        // $productArr["shoppingCatId"] = $shoppingCatId; 
+        
+        // while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+
+        //     extract($row);
+            
+        //     $EachData = new stdClass();
+
+        //     $EachData->shopping_category_id = $row["shopping_category_id"];
+        //     $EachData->shopping_category_name = $row["shopping_category_name"];
+        //     $EachData->category = array(array(
+        //         "category_id" => $row["category_id"],
+        //         "category_name" => $row["category_name"]            
+        //     ));
+            
+
+        //     array_push($productArr["values"], $EachData);
+            
+        // };
+        
+        
+        
+        // echo json_encode($productArr);
+
+    
+
+   
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
-
-            // foreach($row as $e){
-            //     $e = array(
-            //         "shopping_category_id" => $row["shopping_category_id"]
-            //     );
-            // }
-
 
             $e = array(
                 "shopping_category_id" => $shopping_category_id,
@@ -80,10 +95,23 @@
                 )
             );
 
-            array_push($productArr["values"], $e);
+            foreach ($row as $index => $productArr["values"]) {
+                $shopCatArr = array();
+                $shopCatArr["shopping_category_id"] = $index["shopping_category_id"];
+            }
+
+            
+
         }
 
-        echo json_encode($productArr);
+        // $curl = curl_init(); 
+        // curl_setopt($curl, CURLOPT_URL, $url); 
+        // curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json')); 
+        // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        // curl_setopt($curl, CURLOPT_POST, true); 
+        // curl_setopt($curl, CURLOPT_POSTFIELDS, $e);
+        // curl_exec($curl); 
+        // curl_close($curl);  
     }
     //nanti ganti try catch
     else{
