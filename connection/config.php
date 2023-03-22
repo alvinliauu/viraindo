@@ -1,6 +1,6 @@
 <?php
     $servername = "localhost";
-    $database = "viraindo_demo";
-    $username = "root";
-    $password = "";
+    $database = "id19992360_viraindo_demo";
+    $username = "id19992360_viraindo";
+    $password = "12345#Include";
 ?>

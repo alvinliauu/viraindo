@@ -24,9 +24,13 @@ INSERT INTO tbl_viraindo_brand (brand_name, isActive, isUpdate) VALUES
 
 
 INSERT INTO tbl_viraindo_item (sub_category_id, brand_id, item_name, item_picture, item_new_price, item_old_price, isActive, isUpdate) VALUES 
-(4, 2, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
+(1, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
 (2, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
-(3, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0');
+(3, 2, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
+(4, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
+(5, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
+(6, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
+(7, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0');
 
 INSERT INTO tbl_viraindo_shopping_category (shopping_category_id, shopping_category_name, isActive) VALUES
 (1, 'komponen komputer', 1), (2, 'aksesoris komputer', 1), (3, 'headset', 1), (4, 'networking', 1);
