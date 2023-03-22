@@ -64,20 +64,18 @@
         //     ));
             
 
-        //     array_push($productArr["values"], $EachData);
-            
+        
         // };
         
         
         
-        // echo json_encode($productArr);
-
-    
-
-   
+        
+        
+        
+        
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
-
+            
             $e = array(
                 "shopping_category_id" => $shopping_category_id,
                 "shopping_category_name" => $shopping_category_name,
@@ -90,20 +88,16 @@
                         "item" => array(
                             "item_id" => $item_id,
                             "item_name" => $item_name
-                        )
+                            )
+                            )
                     )
-                )
-            );
-
-            foreach ($row as $index => $productArr["values"]) {
-                $shopCatArr = array();
-                $shopCatArr["shopping_category_id"] = $index["shopping_category_id"];
-            }
-
+                );
+                
+                array_push($productArr["values"], $e);
             
-
-        }
-
+            }
+        echo json_encode($productArr);
+        
         // $curl = curl_init(); 
         // curl_setopt($curl, CURLOPT_URL, $url); 
         // curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json')); 

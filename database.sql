@@ -77,4 +77,4 @@ DROP TABLE tbl_viraindo_item;
 select * from tbl_viraindo_item;
 
 
-
+SELECT item_id, item_name FROM tbl_viraindo_item WHERE item_name like '%intel%' LIMIT 10;
