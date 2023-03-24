@@ -30,7 +30,11 @@ INSERT INTO tbl_viraindo_item (sub_category_id, brand_id, item_name, item_pictur
 (4, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
 (5, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
 (6, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
-(7, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0');
+(7, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
+(7, 1, 'A-trend G41 (Logitech G41, Vga, DDR3)', '1', '500000', '600000', '1', '0');
+
+
+
 
 INSERT INTO tbl_viraindo_shopping_category (shopping_category_id, shopping_category_name, isActive) VALUES
 (1, 'komponen komputer', 1), (2, 'aksesoris komputer', 1), (3, 'headset', 1), (4, 'networking', 1);
@@ -41,6 +45,7 @@ USE viraindo_demo;
 SELECT * FROM tbl_viraindo_item;
 
 
+SELECT item_id, item_name FROM tbl_viraindo_item WHERE item_name like '%intel%' LIMIT 5;
 
 
 SELECT * FROM tbl_viraindo_shopping_category ShopCat 

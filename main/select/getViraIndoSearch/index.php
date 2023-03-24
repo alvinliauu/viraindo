@@ -11,9 +11,6 @@
     $db = $database->getConnection();
     $item = new getViraIndoSearch($db);
 
-    
-    
-
     $stmt = $item->getViraIndoSearch();
     $itemCount = $stmt->rowCount();
 

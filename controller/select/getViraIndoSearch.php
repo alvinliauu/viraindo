@@ -18,7 +18,7 @@
             $jsonInput = json_decode(file_get_contents("php://input"), true);
             $this->name = $jsonInput['name'];
 
-            $sqlQuery = "SELECT item_id, item_name FROM tbl_viraindo_item WHERE item_name like '%$this->name%' LIMIT 9;";
+            $sqlQuery = "SELECT item_id, item_name FROM tbl_viraindo_item WHERE item_name like '%$this->name%' LIMIT 5;";
             $stmt = $this->conn->prepare($sqlQuery);
 
             // $stmt->bindValue(':item_name', $this->name);
