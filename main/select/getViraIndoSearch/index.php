@@ -17,7 +17,7 @@
     if($itemCount > 0){
         
         $productArr = array();
-        $productArr["list"] = array();
+        // $productArr["list"] = array();
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
@@ -27,7 +27,7 @@
                     "id" => $item_id,
                     "name" => $item_name
                 );
-                array_push($productArr["list"], $e);
+                array_push($productArr, $e);
           
             http_response_code(200);
         }
