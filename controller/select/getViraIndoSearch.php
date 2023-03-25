@@ -23,7 +23,7 @@
             // var_dump($arr[1]);
             // die();
 
-            if($arr[1] == true){
+            if($arr[0] == true){
                 $arrTotal = "";
                 foreach($arr as $index => $count){
                     if($index == 0){
