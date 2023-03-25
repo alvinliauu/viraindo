@@ -15,37 +15,45 @@
             // GET ALL
             public function getViraIndoSearch(){
 
-            $jsonInput = json_decode(file_get_contents("php://input"), true);
+            $jsonInput = json_decode(file_get_contents("php://input"), true);            
             $this->name = $jsonInput['name'];
 
-            $sqlQuery = "SELECT item_id, item_name FROM tbl_viraindo_item WHERE item_name like '%$this->name%' LIMIT 5;";
-            $stmt = $this->conn->prepare($sqlQuery);
+            $arr = explode(" ", $this->name);
 
-            // $stmt->bindValue(':item_name', $this->name);
-            // $rowCount = '2';
-            // $stmt->bindValue(':rowCount', $rowCount);
+            // var_dump($arr[1]);
+            // die();
 
-            $stmt->execute();
+            if($arr[1] == true){
+                $arrTotal = "";
+                foreach($arr as $index => $count){
+                    if($index == 0){
+                        $arrTotal .= "SELECT item_id, item_name FROM tbl_viraindo_item WHERE 
+                        item_name like '%$count%' ";
+                        continue;
+                    }
+                    $arrLoop = "AND item_name like '%$count%' ";                             
+                
+                    $arrTotal .= $arrLoop;
+                }           
 
-            return $stmt;
+                $sqlQuery = "$arrTotal LIMIT 5;";
+
+                $stmt = $this->conn->prepare($sqlQuery);
+                $stmt->execute();
+                return $stmt;
+            }
+            else{
+                $sqlQuery = "SELECT item_id, item_name FROM tbl_viraindo_item WHERE 
+                item_name like '%$this->name%'
+                LIMIT 5;";
+                $stmt = $this->conn->prepare($sqlQuery);
+                
+                $stmt->execute();
+                return $stmt;
+            }
+
+
         }
-
-    //     public  function getTest($itemName = null) {
-
-    //         if ($itemName === false) {
-    //             return false;
-    //         }
-
-    //         $list = [];
-    //         $req = $this->conn->prepare('SELECT * FROM tbl_viraindo_item where item_name=:item_name');
-
-    //         $req->execute(array(':item_name' => $itemName));
-
-    //         foreach($req->fetchAll() as $res) {
-    //         //   $list[]= new Researchers($res['item_id'], $res['item_name']);
-    //         }
-    //         return $list;
-    //   }
 
     }
 ?>

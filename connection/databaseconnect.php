@@ -1,10 +1,16 @@
 <?php 
     class Database {
 
+        // private $host = "localhost";
+        // private $database_name = "id19992360_viraindo_demo";
+        // private $username = "id19992360_viraindo";
+        // private $password = "12345#Include";
+
         private $host = "localhost";
         private $database_name = "viraindo_demo";
         private $username = "root";
         private $password = "";
+
         public $conn;
         public function getConnection(){
     
