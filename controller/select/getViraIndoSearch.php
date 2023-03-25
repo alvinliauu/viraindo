@@ -20,9 +20,6 @@
 
             $arr = explode(" ", $this->name);
 
-            // var_dump($arr[1]);
-            // die();
-
             if($arr[0] == true){
                 $arrTotal = "";
                 foreach($arr as $index => $count){
