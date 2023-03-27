@@ -62,6 +62,11 @@ CREATE TABLE tbl_viraindo_item (
     FOREIGN KEY (brand_id) REFERENCES tbl_viraindo_brand(brand_id)
 );
 
+CREATE TABLE tbl_viraindo_processor (
+	processor_id INT,
+    processor_name VARCHAR(20)
+);
+
 CREATE TABLE tbl_viraindo_item_detail (
 	item_detail_id INT NOT NULL auto_increment,
     item_id INT NOT NULL
@@ -78,3 +83,6 @@ select * from tbl_viraindo_item;
 
 
 SELECT item_id, item_name FROM tbl_viraindo_item WHERE item_name like '%intel%' LIMIT 10;
+
+
+SELECT item_id, item_name, item_picture, item_new_price, brand_name FROM tbl_viraindo_item TVI JOIN tbl_viraindo_brand TVB ON TVI.brand_id = TVB.brand_id LIMIT 100;

@@ -2,8 +2,8 @@
     class Database {
 
         // private $host = "localhost";
-        // private $database_name = "id19992360_viraindo_demo";
-        // private $username = "id19992360_viraindo";
+        // private $database_name = "id20509939_viraindo";
+        // private $username = "id20509939_viraindo_demo";
         // private $password = "12345#Include";
 
         private $host = "localhost";

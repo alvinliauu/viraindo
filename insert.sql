@@ -40,6 +40,10 @@ INSERT INTO tbl_viraindo_shopping_category (shopping_category_id, shopping_categ
 (1, 'komponen komputer', 1), (2, 'aksesoris komputer', 1), (3, 'headset', 1), (4, 'networking', 1);
 
 
+INSERT INTO tbl_viraindo_processor (processor_id, processor_name) VALUES
+(1, 'Intel'), (2, 'AMD');
+
+
 USE viraindo_demo;
 
 SELECT * FROM tbl_viraindo_item;
