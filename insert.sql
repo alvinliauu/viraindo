@@ -98,3 +98,10 @@ from tbl_viraindo_shopping_category sc
 join tbl_viraindo_category c on sc.shopping_category_id = c.shopping_category_id
 join tbl_viraindo_sub_category suc on suc.category_id = c.category_id
 join tbl_viraindo_item it on it.sub_category_id = suc.sub_category_id;
+
+
+
+SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl_viraindo_item TVI 
+        JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
+        JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id
+        WHERE TVC.category_name = 'processor' AND TVI.item_name LIKE '%i3%';

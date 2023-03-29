@@ -19,13 +19,31 @@
         $productArr = array();
         // $productArr["list"] = array();
 
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        $data = [];
 
-            // create array
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
+            
+            //======================================= UNTUK NESTED ARRAY (BELUM SELESAI) ================================
+            // if(!isset($data[$row['category_id']])){
+            //     $data[] = [
+            //         'id' => $row['category_id'],
+            //         'name' => $row['category_name']
+            //     ];
+            // }
+            // $data[$row['category_id']]['item'][] = [
+            //     'id' => $row['item_id'],
+            //     'name' => $row['item_name'],
+            //     'price' => $row['item_new_price'],
+            //     'image' => $row['item_picture']
+            // ];
+            //======================================= UNTUK NESTED ARRAY (BELUM SELESAI) ================================
+
                 $e = array(
-                    "id" => $processor_id,
-                    "name" => $processor_name
+                    "id" => $item_id,
+                    "name" => $item_name,
+                    "price" => $item_new_price,
+                    "image" => $item_picture
                 );
                 array_push($productArr, $e);
           
