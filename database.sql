@@ -29,6 +29,15 @@ CREATE TABLE tbl_viraindo_category (
     FOREIGN KEY (shopping_category_id) REFERENCES tbl_viraindo_shopping_category(shopping_category_id)
 );
 
+CREATE TABLE tbl_viraindo_category (
+	category_id INT NOT NULL auto_increment,
+    category_name VARCHAR(100),
+    category_stock INT,
+    isActive INT,
+    isUpdate INT,
+    PRIMARY KEY (category_id)
+);
+
 CREATE TABLE tbl_viraindo_sub_category (
 	sub_category_id INT NOT NULL auto_increment,
 	category_id INT NOT NULL,

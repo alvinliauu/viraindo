@@ -24,7 +24,7 @@
                 $arrTotal = "";
                 foreach($arr as $index => $count){
                     if($index == 0){
-                        $arrTotal .= "SELECT item_id, item_name FROM tbl_viraindo_item WHERE 
+                        $arrTotal .= "SELECT item_id, item_name FROM tbl_viraindo_item WHERE
                         item_name like '%$count%' ";
                         continue;
                     }

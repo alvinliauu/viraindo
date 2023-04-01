@@ -69,27 +69,50 @@ INNER JOIN tbl_viraindo_brand Brand;
 
 insert into tbl_viraindo_shopping_category (shopping_category_name, isActive) values ('komponen komputer', 1), ('notebook and accessories', 1);
 
-insert into tbl_viraindo_category (shopping_category_id, category_name, category_stock, isActive) values (1, 'processor', 100, 1), (1, 'motherboard', 100, 1), (2, 'notebook', 100, 1), (2, 'ram notebook', 100, 1);
+insert into tbl_viraindo_category (category_name, category_stock, isActive) values ('motherboard', 100, 1), ('processor', 100, 1), ('storage', 100, 1), 
+('memory ram', 100, 1), ('casing', 100, 1), ('VGA', 100, 1), ('PSU', 100, 1), ('mouse', 100, 1), ('keyboard', 100, 1);
 
-insert into tbl_viraindo_sub_category (category_id, sub_category_name, isActive) values (1, 'intel core i3', 1), (1, 'intel core i5', 1), (1, 'intel core i7', 1),
-(2, 'colorful', 1), (2, 'AMD', 1), (2, 'MSI', 1), (3, 'acer', 1), (3, 'apple', 1), (4, 'ddr2', 1), (4, 'ddr4', 1);
+insert into tbl_viraindo_sub_category (category_id, sub_category_name, isActive) values 
+(1, 'M/B Intel Socket LGA 775', 1), 
+(1, 'M/B Intel Socket 1151', 1),
+(1, 'M/B AMD Socket AM4', 1),
+(2, 'Processor Intel Socket LGA 775', 1), 
+(2, 'Processor Intel Core i3 / i5 / i7 Socket 1151', 1), 
+(2, 'Processor Intel Pentium/Core i3 / i5 / i7 Socket 1155', 1),
+(2, 'Processor AMD Socket FM2+', 1),
+(2, 'Processor AMD Socket AM4', 1),
+(2, 'Processor AMD Socket AM5', 1),
+(3, 'Hard Disk 3.5', 1), 
+
+(3, 'Hard Disk 2.5', 1), 
+(4, 'Memory PC DDR3', 1), 
+(4, 'Memory PC DDR4', 1);
 
 insert into tbl_viraindo_item (sub_category_id, brand_id, item_name, item_picture, item_new_price, item_old_price, isActive) values
-(1, 1, 'Intel Core i3-13100 3.4GHz Up To 4.5GHz - Cache 12MB [Box] Socket LGA 1700 - Raptor Lake Series', 'image', 500000, 450000, 1),
-(1, 1, 'Intel Core i3-12100 3.3GHz Up To 4.3GHz - Cache 12MB [Box] Socket LGA 1700 - Alder Lake Series', 'image', 500000, 450000, 1),
-(2, 1, 'Intel Core i5-13600K 3.5GHz Up To 5.1GHz - Cache 24MB [Box] Socket LGA 1700 - Raptor Lake Series', 'image', 500000, 450000, 1),
-(2, 1, 'Intel Core i5-13500 2.5GHz Up To 4.8GHz - Cache 24MB [Box] Socket LGA 1700 - Raptor Lake Series', 'image', 500000, 450000, 1),
-(3, 1, 'Intel Core i7-13700K 3.4GHz Up To 5.4GHz - Cache 30MB [Box] Socket LGA 1700 - Raptor Lake Series', 'image', 500000, 450000, 1),
-(3, 1, 'Intel Core i7-13700 2.1GHz Up To 5.2GHz - Cache 30MB [Box] Socket LGA 1700 - Raptor Lake Series', 'image', 500000, 450000, 1),
-(5, 1, 'AMD Ryzen 9 5950X 3.4Ghz Up To 4.9Ghz Cache 64MB 105W AM4 [Box] - 16 Core - 100-100000059WOF (Garansi Lokal/AMD Indonesia)', 'image', 500000, 450000, 1),
-(5, 1, 'AMD Ryzen 9 5950Z 3.4Ghz Up To 5.9Ghz Cache 64MB 105W AM4 [Box] - 16 Core - 100-100000F', 'image', 500000, 450000, 1),
-(7, 1, 'Acer Aspire 3 (A314-22-A1M5)', 'image', 500000, 450000, 1),
-(7, 1, 'Acer Aspire 3 Slim (A314-23M-R7VJ)', 'image', 500000, 450000, 1),
-(9, 1, 'ddr2 gigabyte', 'image', 500000, 450000, 1),
-(10, 1, 'ddr4 samsung', 'image', 500000, 450000, 1);
+(1, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', 'image', 500000, 450000, 1),
+(1, 1, 'Afox IG41-MA7 (Intel G41, Vga, DDR3)', 'image', 500000, 450000, 1),
+(2, 1, 'Afox IH61-MA (Intel H61, DDR3)', 'image', 500000, 450000, 1),
+(2, 1, 'Asus P8H61-M (Intel H61, DDR3)', 'image', 500000, 450000, 1),
+(3, 2, 'ASRock A320MH PRO (AMD A320, DDR4)', 'image', 500000, 450000, 1),
+(3, 2, 'ASRock A320M-HDV R4.0 (AMD A320, DDR4)', 'image', 500000, 450000, 1),
+(4, 1, 'Celeron 3.0 Ghz (FSB 533 Mhz) 347 Cache 512 KB (Tray)', 'image', 500000, 450000, 1),
+(4, 1, 'Pentium 4 3.2 Ghz (FSB 800 Mhz) 541 Cache 1 MB (Tray)', 'image', 500000, 450000, 1),
+(5, 1, 'Pentium G4400 (3.3 Ghz) Cache 8 MB (Tray)', 'image', 500000, 450000, 1),
+(5, 1, 'Core i5 6400 (2.7 Ghz up to 3.3 Ghz) Cache 6 MB (Tray)', 'image', 500000, 450000, 1),
+(6, 1, 'Celeron G530 2.4 Ghz Cache 2 MB (BOX)', 'image', 500000, 450000, 1),
+(6, 1, 'Pentium G630 2.7 Ghz Cache 3 MB (Tray)', 'image', 500000, 450000, 1),
+(7, 1, 'AMD Godavari A6-7480 (Radeon R5 Series) 3.7Ghz Cache 2x1MB 65W Socket FM2+ - AD7480ACABBOX', 'image', 500000, 450000, 1),
+(7, 1, 'AMD Carrizo A8-7680 (Radeon R7 Series) 3.5Ghz Cache 2MB 45W Socket FM2+ - D7680ACABBOX - With 65W Quiet Cooler', 'image', 500000, 450000, 1),
+(8, 1, 'AMD Bristol Ridge A6-9500 (Radeon R5 Series) 3.5Ghz Up To 3.8Ghz Cache 1MB 65W Socket AM4 [Box] - 3 Core - AD9500AGABBOX', 'image', 500000, 450000, 1),
+(8, 1, 'AMD Bristol Ridge A8-9600 (Radeon R7 Series) 3.1Ghz Up To 3.4Ghz Cache 2MB 65W Socket AM4 [Box] - 4 Core - AD9600AGABBOX', 'image', 500000, 450000, 1),
+(9, 1, 'AMD Ryzen 5 7600 3.8Ghz Up To 5.1Ghz Cache 32MB 65W AM5 [Box] - 6 Core - 100-000001015BOX - with Wraith Stealth Cooler', 'image', 500000, 450000, 1),
+(9, 1, 'AMD Ryzen 7 7700X 4.5Ghz Up To 5.4Ghz Cache 32MB 105W AM5 [Box] - 8 Core - 100-100000591WOF', 'image', 500000, 450000, 1),
+(10, 1, 'Seagate 3.5" 80 GB IDE', 'image', 500000, 450000, 1),
+(10, 1, 'Seagate 3.5" 1 TB Sata3 Barracuda (Ready Stock)', 'image', 500000, 450000, 1),
+(13, 1, 'ADATA DDR4 PC21300 2666MHz 4GB Single Channel AD4U26664G19-RGN', 'image', 50000, 40000, 1),
+(13, 1, 'ADATA DDR4 PC25600 3200MHz 16GB Single Channel AD4U320016G22-SGN', 'image', 50000, 40000, 1);
 
-insert into tbl_viraindo_brand (brand_name, isActive) values ('test aja', 1);
-
+insert into tbl_viraindo_brand (brand_name, isActive) values ('intel', 1), ('AMD', 1), ('logitech', 1), ('razer', 1);
 
 
 
@@ -105,3 +128,20 @@ SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl
         JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
         JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id
         WHERE TVC.category_name = 'processor' AND TVI.item_name LIKE '%i3%';
+        
+        
+SELECT sub_category_id, SUBSTRING_INDEX(sub_category_name, "Socket ", 1) as socket FROM tbl_viraindo_sub_category
+                WHERE sub_category_name LIKE '%amd%' AND sub_category_name LIKE '%processor%' LIMIT 100;
+                
+                SELECT sub_category_id, SUBSTRING_INDEX(sub_category_name, "Socket ", -1) as socket FROM tbl_viraindo_sub_category
+                WHERE sub_category_name LIKE '%amd%' AND sub_category_name LIKE '%processor%' LIMIT 100;
+                
+                
+SELECT LOCATE("DDR", "MSI MAG Z690 Tomahawk WiFi DDR4 (LGA1700, Z690, DDR4, USB3.2, SATA3)") AS MatchPosition;
+
+SELECT SUBSTR("MSI MAG Z690 Tomahawk WiFi DDR4 (LGA1700, Z690, DDR4, USB3.2, SATA3)", "28", 4) AS ExtractString;
+
+
+
+        
+                

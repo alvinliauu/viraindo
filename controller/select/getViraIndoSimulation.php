@@ -18,44 +18,257 @@ class getViraIndoSimulation{
         $jsonInput = json_decode(file_get_contents("php://input"), true);
         $this->keyword = $jsonInput["keyword"];
         $this->name = $jsonInput["name"];
-        
-        if($this->keyword == ""){
+        $this->depends = $jsonInput["depends"];
 
-            $sqlQuery = "SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl_viraindo_item TVI 
-            JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
-            JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id
-            WHERE TVC.category_name = '$this->name' LIMIT 100;";
-
-            $stmt = $this->conn->prepare($sqlQuery);
-            $stmt->execute();
-            return $stmt;
-
-        }
-        else{
-            $arr = explode(" ", $this->keyword);
-    
-            if($arr[0] == true){
-                $arrTotal = "";
-                foreach($arr as $index => $count){
-                    if($index == 0){
-                        $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl_viraindo_item TVI 
-                        JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
-                        JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id
-                        WHERE TVC.category_name = '$this->name' AND item_name like '%$count%' ";
-                        continue;
-                    }
-                    $arrLoop = "AND item_name like '%$count%' ";                             
+        switch ($this->name) {
+            case 'Brand Processor':
                 
-                    $arrTotal .= $arrLoop;
-                }           
-    
-                $sqlQuery = "$arrTotal LIMIT 100;";
-    
+                $brandProcessor = ['Intel', 'AMD'];
+                $brandProcImage = ['imageIntel', 'imageAmd'];
+
+                foreach($brandProcessor as $proc => $index){
+                    $val = $brandProcImage[$proc];
+
+                    $results[$proc] = array(
+                        "brandProcessor" => $index,
+                        "brandPicture" => array(
+                            "url" => $val
+                        )
+                    );
+                }
+
+                echo json_encode($results);
+
+                break;
+            
+            case 'Socket':
+
+                $sqlQuery = "SELECT sub_category_id, SUBSTRING_INDEX(sub_category_name, \"Socket \", -1) as socket FROM tbl_viraindo_sub_category
+                WHERE sub_category_name LIKE '%$this->depends%' AND sub_category_name LIKE '%processor%' LIMIT 100;";
+
                 $stmt = $this->conn->prepare($sqlQuery);
                 $stmt->execute();
-                return $stmt;
-            }         
-        }
+
+                $productArr = array();
+
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    extract($row);
+
+                        $e = array(
+                            "id" => $sub_category_id,
+                            "name" => $socket
+                        );
+                        array_push($productArr, $e);
+                
+                    http_response_code(200);
+                }
+                echo json_encode($productArr);
+
+                break;
+
+            case 'Processor':
+
+                if($this->keyword == ""){
+
+                    $sqlQuery = "SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl_viraindo_item TVI
+                    JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
+                    JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id
+                    WHERE TVC.category_name = 'processor' AND TVSC.sub_category_name LIKE '%$this->depends%' LIMIT 100;";
+    
+                    $stmt = $this->conn->prepare($sqlQuery);
+                    $stmt->execute();
+    
+                    return $stmt;
+
+                }
+                else{
+                    $arr = explode(" ", $this->keyword);
+            
+                    if($arr[0] == true){
+                        $arrTotal = "";
+                        foreach($arr as $index => $count){
+                            if($index == 0){
+                                $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl_viraindo_item TVI 
+                                JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
+                                JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id
+                                WHERE TVC.category_name = 'processor' AND TVSC.sub_category_name LIKE '%$this->depends%' AND TVI.item_name like '%$count%' ";
+                                continue;
+                            }
+                            $arrLoop = "AND TVI.item_name like '%$count%' ";                             
+                        
+                            $arrTotal .= $arrLoop;
+                        }           
+            
+                        $sqlQuery = "$arrTotal LIMIT 100;";
+            
+                        $stmt = $this->conn->prepare($sqlQuery);
+                        $stmt->execute();
+                        return $stmt;
+                    }         
+                }
+
+                break;
+
+            case 'Motherboard':
+
+                if($this->keyword == ""){
+
+                    $sqlQuery = "SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl_viraindo_item TVI
+                    JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
+                    JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id
+                    WHERE TVC.category_name = 'motherboard' AND TVSC.sub_category_name LIKE '%$this->depends%' LIMIT 100;";
+    
+                    $stmt = $this->conn->prepare($sqlQuery);
+                    $stmt->execute();
+    
+                    return $stmt;
+
+                }
+                else{
+                    $arr = explode(" ", $this->keyword);
+            
+                    if($arr[0] == true){
+                        $arrTotal = "";
+                        foreach($arr as $index => $count){
+                            if($index == 0){
+                                $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl_viraindo_item TVI 
+                                JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
+                                JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id
+                                WHERE TVC.category_name = 'motherboard' AND TVSC.sub_category_name LIKE '%$this->depends%' AND TVI.item_name like '%$count%' ";
+                                continue;
+                            }
+                            $arrLoop = "AND TVI.item_name like '%$count%' ";                             
+                        
+                            $arrTotal .= $arrLoop;
+                        }           
+            
+                        $sqlQuery = "$arrTotal LIMIT 100;";
+            
+                        $stmt = $this->conn->prepare($sqlQuery);
+                        $stmt->execute();
+                        return $stmt;
+                    }         
+                }
+
+                break;
+
+            case 'RAM':
+
+                if($this->keyword == ""){
+
+                    $SqlGetNumberPosition = "SELECT LOCATE(\"DDR\", \"$this->depends\") AS NumberPosition;";
+                    $stmtNumberPosition = $this->conn->prepare($SqlGetNumberPosition);
+
+                    $stmtNumberPosition->execute();
+                    $NumberPosition = $stmtNumberPosition->fetch(PDO::FETCH_ASSOC);
+                    $getNumberPosition .= $NumberPosition["NumberPosition"];
+
+                    $SqlGetDDRType = "SELECT SUBSTR(\"$this->depends\", $getNumberPosition, 4) AS DDR;";
+                    $stmtGetDDRType = $this->conn->prepare($SqlGetDDRType);
+
+                    $stmtGetDDRType->execute();
+                    $DDRType = $stmtGetDDRType->fetch(PDO::FETCH_ASSOC);
+                    $getDDRType .= $DDRType["DDR"];
+                    
+
+                    $sqlQuery = "SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl_viraindo_item TVI
+                    JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
+                    JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id
+                    WHERE TVC.category_name = 'memory ram' AND TVSC.sub_category_name LIKE '%$getDDRType%' LIMIT 100;";
+
+                    $stmt = $this->conn->prepare($sqlQuery);
+                    $stmt->execute();
+
+                    return $stmt;
+
+                }
+                else{
+                    $SqlGetNumberPosition = "SELECT LOCATE(\"DDR\", \"$this->depends\") AS NumberPosition;";
+                    $stmtNumberPosition = $this->conn->prepare($SqlGetNumberPosition);
+
+                    $stmtNumberPosition->execute();
+                    $NumberPosition = $stmtNumberPosition->fetch(PDO::FETCH_ASSOC);
+                    $getNumberPosition .= $NumberPosition["NumberPosition"];
+
+                    $SqlGetDDRType = "SELECT SUBSTR(\"$this->depends\", $getNumberPosition, 4) AS DDR;";
+                    $stmtGetDDRType = $this->conn->prepare($SqlGetDDRType);
+
+                    $stmtGetDDRType->execute();
+                    $DDRType = $stmtGetDDRType->fetch(PDO::FETCH_ASSOC);
+                    $getDDRType .= $DDRType["DDR"];
+
+                    $arr = explode(" ", $this->keyword);
+            
+                    if($arr[0] == true){
+                        $arrTotal = "";
+                        foreach($arr as $index => $count){
+                            if($index == 0){
+                                $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl_viraindo_item TVI
+                                JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
+                                JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id
+                                WHERE TVC.category_name = 'memory ram' AND TVSC.sub_category_name LIKE '%$getDDRType%' AND TVI.item_name like '%$count%' ";
+                                continue;
+                            }
+                            $arrLoop = "AND TVI.item_name like '%$count%' ";                             
+                        
+                            $arrTotal .= $arrLoop;
+                        }           
+            
+                        $sqlQuery = "$arrTotal LIMIT 100;";
+            
+                        $stmt = $this->conn->prepare($sqlQuery);
+                        $stmt->execute();
+                        return $stmt;
+                    }
+                }
+                
+
+                break;
+
+            default:
+
+                if($this->keyword == ""){
+
+                    $sqlQuery = "SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl_viraindo_item TVI
+                    JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
+                    JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id
+                    WHERE TVC.category_name = '$this->name' LIMIT 100;";
+    
+                    $stmt = $this->conn->prepare($sqlQuery);
+                    $stmt->execute();
+    
+                    return $stmt;
+
+                }
+                else{
+                    $arr = explode(" ", $this->keyword);
+            
+                    if($arr[0] == true){
+                        $arrTotal = "";
+                        foreach($arr as $index => $count){
+                            if($index == 0){
+                                $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl_viraindo_item TVI 
+                                JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
+                                JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id
+                                WHERE TVC.category_name = '$this->name' AND TVI.item_name like '%$count%' ";
+                                continue;
+                            }
+                            $arrLoop = "AND TVI.item_name like '%$count%' ";                             
+                        
+                            $arrTotal .= $arrLoop;
+                        }           
+            
+                        $sqlQuery = "$arrTotal LIMIT 100;";
+            
+                        $stmt = $this->conn->prepare($sqlQuery);
+                        $stmt->execute();
+                        return $stmt;
+                    }         
+                }
+
+                break;
+
+        }        
 
     }
 

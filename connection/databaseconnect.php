@@ -7,14 +7,9 @@
         // private $password = "12345#Include";
 
         private $host = "localhost";
-        private $database_name = "u1589432_videmo";
-        private $username = "u1589432_janjijiwa";
-        private $password = "135#Include";
-
-        // private $host = "localhost";
-        // private $database_name = "viraindo_demo";
-        // private $username = "root";
-        // private $password = "";
+        private $database_name = "viraindo_demo";
+        private $username = "root";
+        private $password = "";
 
         public $conn;
         public function getConnection(){
