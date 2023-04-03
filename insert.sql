@@ -69,8 +69,12 @@ INNER JOIN tbl_viraindo_brand Brand;
 
 insert into tbl_viraindo_shopping_category (shopping_category_name, isActive) values ('komponen komputer', 1), ('notebook and accessories', 1);
 
-insert into tbl_viraindo_category (category_name, category_stock, isActive) values ('motherboard', 100, 1), ('processor', 100, 1), ('storage', 100, 1), 
-('memory ram', 100, 1), ('casing', 100, 1), ('VGA', 100, 1), ('PSU', 100, 1), ('mouse', 100, 1), ('keyboard', 100, 1);
+insert into tbl_viraindo_category (category_name, category_stock, isActive) values 
+('motherboard', 100, 1), ('processor', 100, 1), ('storage', 100, 1), 
+('memory ram', 100, 1), ('casing', 100, 1), ('VGA', 100, 1), 
+('PSU', 100, 1), ('mouse', 100, 1), ('keyboard', 100, 1), 
+('ssd', 100, 1), ('mousepad', 100, 1), ('monitor', 100, 1),
+('cooler', 100, 1);
 
 insert into tbl_viraindo_sub_category (category_id, sub_category_name, isActive) values 
 (1, 'M/B Intel Socket LGA 775', 1), 
@@ -83,10 +87,25 @@ insert into tbl_viraindo_sub_category (category_id, sub_category_name, isActive)
 (2, 'Processor AMD Socket AM4', 1),
 (2, 'Processor AMD Socket AM5', 1),
 (3, 'Hard Disk 3.5', 1), 
-
 (3, 'Hard Disk 2.5', 1), 
 (4, 'Memory PC DDR3', 1), 
-(4, 'Memory PC DDR4', 1);
+(4, 'Memory PC DDR4', 1),
+(5, 'Casing', 1),
+(6, 'VGA Card', 1),
+(7, 'Power Supply', 1),
+(8, 'Logitech', 1),
+(8, 'A4Tech', 1),
+(8, 'Corsair', 1),
+(9, 'Logitech', 1),
+(9, 'Cyborg', 1),
+(10, 'SSD', 1),
+(11, 'Logitech', 1),
+(12, 'LED Monitor', 1),
+(13, 'Fan Processor', 1),
+(13, 'Fan Vga / Vga Cooler', 1);
+
+
+insert into tbl_viraindo_brand (brand_name, isActive) values ('intel', 1), ('AMD', 1), ('logitech', 1), ('razer', 1);
 
 insert into tbl_viraindo_item (sub_category_id, brand_id, item_name, item_picture, item_new_price, item_old_price, isActive) values
 (1, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', 'image', 500000, 450000, 1),
@@ -110,9 +129,33 @@ insert into tbl_viraindo_item (sub_category_id, brand_id, item_name, item_pictur
 (10, 1, 'Seagate 3.5" 80 GB IDE', 'image', 500000, 450000, 1),
 (10, 1, 'Seagate 3.5" 1 TB Sata3 Barracuda (Ready Stock)', 'image', 500000, 450000, 1),
 (13, 1, 'ADATA DDR4 PC21300 2666MHz 4GB Single Channel AD4U26664G19-RGN', 'image', 50000, 40000, 1),
-(13, 1, 'ADATA DDR4 PC25600 3200MHz 16GB Single Channel AD4U320016G22-SGN', 'image', 50000, 40000, 1);
+(13, 1, 'ADATA DDR4 PC25600 3200MHz 16GB Single Channel AD4U320016G22-SGN', 'image', 50000, 40000, 1),
+(14, 1, 'Abkoncore Cronos 510S', 'image', 500000, 450000, 1),
+(14, 1, 'ADATA XPG BATTLECRUISER - BLACK - SIDE TEMPERED GLASS - FREE 4 PCS ARGB FAN', 'image', 500000, 450000, 1),
+(15, 1, 'ASRock Radeon RX 6400 4 GB 64 Bit DDR6 - Challenger ITX 4G', 'image', 500000, 450000, 1),
+(15, 1, 'Asus GeForce GT 1030 2 GB 64 Bit DDR5', 'image', 500000, 450000, 1),
+(15, 1, 'Inno 3D GeForce RTX 3060 Ti 8 GB 256 GB GDDR6 ICHILL X3-LHR', 'image', 500000, 450000, 1),
+(16, 1, '1STPLAYER Gaming PSU DK5.0 500W - PS-500AX (80Plus Bronze) - 3 Years Warranty Replacement', 'image', 500000, 450000, 1),
+(16, 1, 'Super Flower LEGION GX PRO 650W - SF- 650P14XE - 80 PLUS GOLD - Semi Modular - 5 Years', 'image', 500000, 450000, 1),
+(17, 1, 'Logitech M100r Optical Mouse USB - Black ', 'image', 500000, 450000, 1),
+(17, 1, 'Logitech M 325 Cordless Notebook Mouse ', 'image', 500000, 450000, 1),
+(18, 1, 'A4Tech D - 500F', 'image', 500000, 450000, 1),
+(18, 1, 'A4Tech N - 370FX', 'image', 500000, 450000, 1),
+(19, 1, 'Corsair Gaming Scimitar RGB Elite (Black)', 'image', 500000, 450000, 1),
+(20, 1, 'Logitech Keyboard K380 Bluetooth (Black / Blue) ', 'image', 500000, 450000, 1),
+(20, 1, 'Logitech G715 TKL Wireless Mechanical Gaming Keyboard - Tactile', 'image', 500000, 450000, 1),
+(21, 1, 'PC MCZ R.A.T.3 (All Colors) + G.L.I.D.E.9 Gaming Surface', 'image', 500000, 450000, 1),
+(22, 1, 'Ace Power SSD A1 512GB SATA3', 'image', 500000, 450000, 1),
+(22, 1, 'ADATA SSD SU650 M.2 2280 240GB SATA III ( R/W Up to 550 / 500MB/s ) ASU650NS38-240GT-C', 'image', 500000, 450000, 1),
+(23, 1, 'Logitech G840 XL Gaming Mouse Pad - Pink 629.000', 'image', 500000, 450000, 1),
+(24, 1, 'ACER 27" KG271 Frameless Gaming Monitor', 'image', 500000, 450000, 1),
+(24, 1, 'MSI Optix G241VC 24" Curved Gaming Monitor', 'image', 500000, 450000, 1),
+(25, 1, 'Deepcool LT520 A-RGB 240mm High-Performance Liquid CPU Cooler', 'image', 500000, 450000, 1),
+(25, 1, 'Deepcool AS500 Plus A-RGB Strip LED With Fan 2x14cm Universal Socket - LGA1700 Support', 'image', 500000, 450000, 1),
+(26, 1, 'XFX Hard Swap Fan Kit - BLUE LED x 2 Fan - MA-AP01-BLED (Only For RX 4 Series)', 'image', 500000, 450000, 1);
 
-insert into tbl_viraindo_brand (brand_name, isActive) values ('intel', 1), ('AMD', 1), ('logitech', 1), ('razer', 1);
+
+
 
 
 

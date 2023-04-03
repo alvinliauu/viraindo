@@ -15,13 +15,14 @@ class getViraIndoSimulation{
     //GET KEYWORD
     public function getViraIndoSimulation(){
 
+
         $jsonInput = json_decode(file_get_contents("php://input"), true);
         $this->keyword = $jsonInput["keyword"];
         $this->name = $jsonInput["name"];
         $this->depends = $jsonInput["depends"];
 
-        switch ($this->name) {
-            case 'Brand Processor':
+        switch (strtolower($this->name)) {
+            case 'brand processor':
                 
                 $brandProcessor = ['Intel', 'AMD'];
                 $brandProcImage = ['imageIntel', 'imageAmd'];
@@ -41,32 +42,48 @@ class getViraIndoSimulation{
 
                 break;
             
-            case 'Socket':
+            case 'socket':
 
-                $sqlQuery = "SELECT sub_category_id, SUBSTRING_INDEX(sub_category_name, \"Socket \", -1) as socket FROM tbl_viraindo_sub_category
-                WHERE sub_category_name LIKE '%$this->depends%' AND sub_category_name LIKE '%processor%' LIMIT 100;";
+                if($this->keyword == ""){
 
-                $stmt = $this->conn->prepare($sqlQuery);
-                $stmt->execute();
+                    $sqlQuery = "SELECT sub_category_id as item_id, SUBSTRING_INDEX(sub_category_name, \"Socket \", -1) as item_name, 
+                    \"\" as item_new_price, \"\" as item_picture FROM tbl_viraindo_sub_category
+                    WHERE sub_category_name LIKE '%$this->depends%' AND sub_category_name LIKE '%processor%' LIMIT 100;";
+    
+                    $stmt = $this->conn->prepare($sqlQuery);
+                    $stmt->execute();
+    
+                    return $stmt;
 
-                $productArr = array();
-
-                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                    extract($row);
-
-                        $e = array(
-                            "id" => $sub_category_id,
-                            "name" => $socket
-                        );
-                        array_push($productArr, $e);
-                
-                    http_response_code(200);
                 }
-                echo json_encode($productArr);
+                else{
+                    $arr = explode(" ", $this->keyword);
+            
+                    if($arr[0] == true){
+                        $arrTotal = "";
+                        foreach($arr as $index => $count){
+                            if($index == 0){
+                                $arrTotal .= "SELECT sub_category_id as item_id, SUBSTRING_INDEX(sub_category_name, \"Socket \", -1) as item_name,
+                                \"\" as item_new_price, \"\" as item_picture FROM tbl_viraindo_sub_category
+                                WHERE sub_category_name LIKE '%$this->depends%' AND sub_category_name LIKE '%processor%' AND sub_category_name like '%$count%' ";
+                                continue;
+                            }
+                            $arrLoop = "AND sub_category_name like '%$count%' ";                             
+                        
+                            $arrTotal .= $arrLoop;
+                        }           
+            
+                        $sqlQuery = "$arrTotal LIMIT 100;";
+            
+                        $stmt = $this->conn->prepare($sqlQuery);
+                        $stmt->execute();
+                        return $stmt;
+                    }         
+                }
 
                 break;
 
-            case 'Processor':
+            case 'processor':
 
                 if($this->keyword == ""){
 
@@ -109,7 +126,7 @@ class getViraIndoSimulation{
 
                 break;
 
-            case 'Motherboard':
+            case 'motherboard':
 
                 if($this->keyword == ""){
 
@@ -152,9 +169,13 @@ class getViraIndoSimulation{
 
                 break;
 
-            case 'RAM':
+            case 'ram':
+                
+                $getNumberPosition = "";
+                $getDDRType = "";
 
                 if($this->keyword == ""){
+
 
                     $SqlGetNumberPosition = "SELECT LOCATE(\"DDR\", \"$this->depends\") AS NumberPosition;";
                     $stmtNumberPosition = $this->conn->prepare($SqlGetNumberPosition);
