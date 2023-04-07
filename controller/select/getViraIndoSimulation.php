@@ -25,7 +25,7 @@ class getViraIndoSimulation{
             case 'brand processor':
                 
                 $brandProcessor = ['Intel', 'AMD'];
-                $brandProcImage = ['imageIntel', 'imageAmd'];
+                $brandProcImage = ['https://ibb.co/m5WF8f7', 'https://ibb.co/YdXzdXp'];
 
                 foreach($brandProcessor as $proc => $index){
                     $val = $brandProcImage[$proc];
@@ -40,7 +40,7 @@ class getViraIndoSimulation{
 
                 echo json_encode($results);
 
-                break;
+                die();
             
             case 'socket':
 

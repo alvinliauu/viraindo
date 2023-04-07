@@ -12,7 +12,7 @@
 
     
     try {
-        if($token == "brainli"){
+        // if($token == "brainli"){
             $database = new Database();
             $db = $database->getConnection();
             $item = new getViraIndoSimulation($db);
@@ -41,7 +41,7 @@
                 }
                 echo json_encode($productArr);
             }
-        }
+        // }
         
         else{
             http_response_code(404);

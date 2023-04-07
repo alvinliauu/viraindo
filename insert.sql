@@ -74,7 +74,7 @@ insert into tbl_viraindo_category (category_name, category_stock, isActive) valu
 ('memory ram', 100, 1), ('casing', 100, 1), ('VGA', 100, 1), 
 ('PSU', 100, 1), ('mouse', 100, 1), ('keyboard', 100, 1), 
 ('ssd', 100, 1), ('mousepad', 100, 1), ('monitor', 100, 1),
-('cooler', 100, 1);
+('cooler', 100, 1), ('accessories', 100, 1);
 
 insert into tbl_viraindo_sub_category (category_id, sub_category_name, isActive) values 
 (1, 'M/B Intel Socket LGA 775', 1), 
@@ -102,7 +102,9 @@ insert into tbl_viraindo_sub_category (category_id, sub_category_name, isActive)
 (11, 'Logitech', 1),
 (12, 'LED Monitor', 1),
 (13, 'Fan Processor', 1),
-(13, 'Fan Vga / Vga Cooler', 1);
+(13, 'Fan Vga / Vga Cooler', 1),
+(14, 'ORICO', 1),
+(14, 'Bafo', 1);
 
 
 insert into tbl_viraindo_brand (brand_name, isActive) values ('intel', 1), ('AMD', 1), ('logitech', 1), ('razer', 1);
@@ -152,7 +154,9 @@ insert into tbl_viraindo_item (sub_category_id, brand_id, item_name, item_pictur
 (24, 1, 'MSI Optix G241VC 24" Curved Gaming Monitor', 'image', 500000, 450000, 1),
 (25, 1, 'Deepcool LT520 A-RGB 240mm High-Performance Liquid CPU Cooler', 'image', 500000, 450000, 1),
 (25, 1, 'Deepcool AS500 Plus A-RGB Strip LED With Fan 2x14cm Universal Socket - LGA1700 Support', 'image', 500000, 450000, 1),
-(26, 1, 'XFX Hard Swap Fan Kit - BLUE LED x 2 Fan - MA-AP01-BLED (Only For RX 4 Series)', 'image', 500000, 450000, 1);
+(26, 1, 'XFX Hard Swap Fan Kit - BLUE LED x 2 Fan - MA-AP01-BLED (Only For RX 4 Series)', 'image', 500000, 450000, 1),
+(27, 1, 'Orico L127SS 2.5 To 3.5 inch Hard Drive Caddy', 'image', 500000, 450000, 1),
+(28, 1, 'Bafo PCI-Express To Firewire 2 Port 1394B', 'image', 500000, 450000, 1);
 
 
 
