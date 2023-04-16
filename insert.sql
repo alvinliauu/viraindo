@@ -175,7 +175,7 @@ insert into tbl_viraindo_item (sub_category_id, brand_id, item_name, item_pictur
 (28, 1, 'Bafo PCI-Express To Firewire 2 Port 1394B', 'image', 500000, 450000, 1);
 
 
-
+1;
 
 
 
