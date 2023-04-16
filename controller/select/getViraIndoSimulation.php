@@ -24,15 +24,19 @@ class getViraIndoSimulation{
         switch (strtolower($this->name)) {
             case 'brand processor':
                 
+                $brandProcId = ['1', '2'];
                 $brandProcessor = ['Intel', 'AMD'];
                 $brandProcImage = ['https://ibb.co/m5WF8f7', 'https://ibb.co/YdXzdXp'];
 
                 foreach($brandProcessor as $proc => $index){
                     $val = $brandProcImage[$proc];
+                    $id = $brandProcId[$proc];
 
                     $results[$proc] = array(
-                        "brandProcessor" => $index,
-                        "brandPicture" => array(
+                        "id" => $id,
+                        "name" => $index,
+                        "price" => "",
+                        "image" => array(
                             "url" => $val
                         )
                     );

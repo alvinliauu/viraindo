@@ -46,10 +46,26 @@ INSERT INTO tbl_viraindo_processor (processor_id, processor_name) VALUES
 
 USE viraindo_demo;
 
-SELECT * FROM tbl_viraindo_item;
+TRUNCATE TABLE tbl_viraindo_item;
 
+SELECT * FROM tbl_viraindo_item;
+select * from tbl_viraindo_category;
+select * from tbl_viraindo_sub_category;
 
 SELECT item_id, item_name FROM tbl_viraindo_item WHERE item_name like '%intel%' LIMIT 5;
+
+SELECT TVI.item_name FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC
+ON TVI.sub_category_id = TVSC.sub_category_id JOIN tbl_viraindo_category TVC
+ON TVC.category_id = TVSC.category_id WHERE TVC.category_id = '34';
+
+SELECT * FROM tbl_viraindo_item;
+
+TRUNCATE TABLE tbl_viraindo_item;
+
+TRUNCATE TABLE tbl_viraindo_sub_category;
+
+SELECT * FROM tbl_viraindo_sub_category;
+
 
 
 SELECT * FROM tbl_viraindo_shopping_category ShopCat 
@@ -62,7 +78,7 @@ ON SubCat.sub_category_id = Item.sub_category_id
 INNER JOIN tbl_viraindo_brand Brand;
 
 
-
+SELECT * FROM tbl_viraindo_sub_category WHERE sub_category_name = 'Processor Intel Pentium/Core i3 / i5 / i7 Socket 0192';
 
 
 
@@ -188,7 +204,17 @@ SELECT LOCATE("DDR", "MSI MAG Z690 Tomahawk WiFi DDR4 (LGA1700, Z690, DDR4, USB3
 
 SELECT SUBSTR("MSI MAG Z690 Tomahawk WiFi DDR4 (LGA1700, Z690, DDR4, USB3.2, SATA3)", "28", 4) AS ExtractString;
 
+SELECT TVI.item_name, TVI.item_new_price, TVI.item_old_price FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC
+        ON TVI.sub_category_id = TVSC.sub_category_id JOIN tbl_viraindo_category TVC
+        ON TVC.category_id = TVSC.category_id WHERE TVC.category_id = '31';
 
+
+SELECT TVC.category_id, TVC.category_name, TVI.item_id, TVI.item_name FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC
+        ON TVI.sub_category_id = TVSC.sub_category_id JOIN tbl_viraindo_category TVC
+        ON TVC.category_id = TVSC.category_id WHERE TVC.category_id = '31';
+
+
+TRUNCATE TABLE tbl_viraindo_item;
 
         
                 

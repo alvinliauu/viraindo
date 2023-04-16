@@ -13,10 +13,10 @@
 
     $stmt = $item->getViraIndoSearch();
     $itemCount = $stmt->rowCount();
+    $productArr = array();
 
     if($itemCount > 0){
         
-        $productArr = array();
         // $productArr["list"] = array();
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -36,6 +36,6 @@
       
     else{
         http_response_code(404);
-        echo json_encode("Item not found.");
+        echo json_encode($productArr);
     }
 ?>

@@ -7,8 +7,8 @@
     include_once '../../../connection/databaseconnect.php';
     include_once '../../../controller/select/getViraIndoSimulation.php';
 
-    $input = json_decode(file_get_contents("php://input"), true);
-    $token = $input['token'];
+    // $input = json_decode(file_get_contents("php://input"), true);
+    // $token = $input['token'];
 
     
     try {
@@ -19,10 +19,10 @@
 
             $stmt = $item->getViraIndoSimulation();
             $itemCount = $stmt->rowCount();
+            $productArr = array();
 
             if($itemCount > 0){
                 
-                $productArr = array();
 
                 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                     extract($row);
@@ -44,8 +44,7 @@
         // }
         
         else{
-            http_response_code(404);
-            throw new Exception;
+            echo json_encode($productArr);
         }
         
     } catch (Exception $e) {

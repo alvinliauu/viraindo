@@ -59,6 +59,19 @@ CREATE TABLE tbl_viraindo_brand (
 CREATE TABLE tbl_viraindo_item (
 	item_id INT NOT NULL auto_increment,
     sub_category_id INT NOT NULL,
+    item_name VARCHAR(300) NOT NULL,
+    item_picture VARCHAR(10000) NOT NULL,
+    item_new_price INT NOT NULL,
+    item_old_price INT NOT NULL,
+    isActive INT,
+    isUpdate INT,
+    PRIMARY KEY (item_id),
+    FOREIGN KEY (sub_category_id) REFERENCES tbl_viraindo_sub_category(sub_category_id)
+);
+
+CREATE TABLE tbl_viraindo_item (
+	item_id INT NOT NULL auto_increment,
+    sub_category_id INT NOT NULL,
     brand_id INT NOT NULL,
     item_name VARCHAR(300) NOT NULL,
     item_picture VARCHAR(10000) NOT NULL,

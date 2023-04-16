@@ -20,34 +20,40 @@
 
             $arr = explode(" ", $this->name);
 
-            if($arr[0] == true){
-                $arrTotal = "";
-                foreach($arr as $index => $count){
-                    if($index == 0){
-                        $arrTotal .= "SELECT item_id, item_name FROM tbl_viraindo_item WHERE
-                        item_name like '%$count%' ";
-                        continue;
-                    }
-                    $arrLoop = "AND item_name like '%$count%' ";                             
-                
-                    $arrTotal .= $arrLoop;
-                }           
-
-                $sqlQuery = "$arrTotal LIMIT 5;";
-
-                $stmt = $this->conn->prepare($sqlQuery);
-                $stmt->execute();
-                return $stmt;
+            if($jsonInput == null){
+                echo "item not found";
             }
             else{
-                $sqlQuery = "SELECT item_id, item_name FROM tbl_viraindo_item WHERE 
-                item_name like '%$this->name%'
-                LIMIT 5;";
-                $stmt = $this->conn->prepare($sqlQuery);
-                
-                $stmt->execute();
-                return $stmt;
+                if($arr[0] == true){
+                    $arrTotal = "";
+                    foreach($arr as $index => $count){
+                        if($index == 0){
+                            $arrTotal .= "SELECT item_id, item_name FROM tbl_viraindo_item WHERE
+                            item_name like '%$count%' ";
+                            continue;
+                        }
+                        $arrLoop = "AND item_name like '%$count%' ";                             
+                    
+                        $arrTotal .= $arrLoop;
+                    }           
+    
+                    $sqlQuery = "$arrTotal LIMIT 5;";
+    
+                    $stmt = $this->conn->prepare($sqlQuery);
+                    $stmt->execute();
+                    return $stmt;
+                }
+                else{
+                    $sqlQuery = "SELECT item_id, item_name FROM tbl_viraindo_item WHERE 
+                    item_name like '%$this->name%'
+                    LIMIT 5;";
+                    $stmt = $this->conn->prepare($sqlQuery);
+                    
+                    $stmt->execute();
+                    return $stmt;
+                }                
             }
+
 
 
         }
