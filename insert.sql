@@ -23,15 +23,9 @@ INSERT INTO tbl_viraindo_brand (brand_name, isActive, isUpdate) VALUES
 ('Intel', '1', '0'), ('Afox', '1', '0'), ('Digital Alliance', '1', '0'), ('Toshiba', '1', '0'), ('Seagate', '1', '0');
 
 
-INSERT INTO tbl_viraindo_item (sub_category_id, brand_id, item_name, item_picture, item_new_price, item_old_price, isActive, isUpdate) VALUES 
-(1, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
-(2, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
-(3, 2, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
-(4, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
-(5, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
-(6, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
-(7, 1, 'A-trend G41 (Intel G41, Vga, DDR3)', '1', '500000', '600000', '1', '0'),
-(7, 1, 'A-trend G41 (Logitech G41, Vga, DDR3)', '1', '500000', '600000', '1', '0');
+INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive, isUpdate) VALUES 
+(11, 'A-trend G41 (Intel G41, Vga, DDR3)', 'tst', '500000', '600000', '1', '0'),
+(12, 'A-trend G41 (Intel G41, Vga, DDR3)', 'tst', '500000', '600000', '1', '0');
 
 
 
@@ -52,7 +46,13 @@ SELECT * FROM tbl_viraindo_item;
 select * from tbl_viraindo_category;
 select * from tbl_viraindo_sub_category;
 
-SELECT item_id, item_name FROM tbl_viraindo_item WHERE item_name like '%intel%' LIMIT 5;
+SELECT TVI.item_name, TVI.item_new_price FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC
+                    ON TVI.sub_category_id = TVSC.sub_category_id JOIN tbl_viraindo_category TVC
+                    ON TVC.category_id = TVSC.category_id WHERE TVC.category_id = '31';
+                    
+UPDATE tbl_viraindo_item
+SET item_new_price = value1, item_old_price = value2
+WHERE item_name = "";
 
 SELECT TVI.item_name FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC
 ON TVI.sub_category_id = TVSC.sub_category_id JOIN tbl_viraindo_category TVC
@@ -178,6 +178,7 @@ insert into tbl_viraindo_item (sub_category_id, brand_id, item_name, item_pictur
 
 
 
+
 select sc.shopping_category_id, sc.shopping_category_name, c.category_id, c.category_name, suc.sub_category_id, suc.sub_category_name, it.item_id, it.item_name
 from tbl_viraindo_shopping_category sc 
 join tbl_viraindo_category c on sc.shopping_category_id = c.shopping_category_id
@@ -215,5 +216,9 @@ SELECT TVC.category_id, TVC.category_name, TVI.item_id, TVI.item_name FROM tbl_v
 
 TRUNCATE TABLE tbl_viraindo_item;
 
-        
+
+SELECT distinct TVI.item_name, TVI.item_new_price FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC
+                    ON TVI.sub_category_id = TVSC.sub_category_id JOIN tbl_viraindo_category TVC
+                    ON TVC.category_id = TVSC.category_id WHERE TVC.category_id = '31'
+
                 
