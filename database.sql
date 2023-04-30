@@ -101,8 +101,28 @@ DROP TABLE tbl_viraindo_sub_category;
 DROP TABLE tbl_viraindo_brand;
 DROP TABLE tbl_viraindo_item;
 
-select * from tbl_viraindo_item;
+	
 
+SELECT Lap.iLaporanId, Lap.cKodeTransaksi, Lap.cNamaMaster, Lap.cNamaLaporan, Lap.cJenisLaporan, 
+        Trans.cNamaPIC, Trans.cEmailPIC, Lap.cMediaLaporan, Lap.iTanggalSLA, Lap.iBulanSLA,
+        GROUP_CONCAT(SLA.cKategori SEPARATOR '$^$') AS Kategori,
+        GROUP_CONCAT(SLA.iTanggalDeadline SEPARATOR '$^$') AS TanggalDeadline
+        FROM tbl_ceed_m_laporan Lap JOIN tbl_ceed_t_transaksi Trans
+        ON Lap.iLaporanId = Trans.iLaporanId JOIN tbl_ceed_m_sla SLA
+        ON SLA.iLaporanId = Lap.iLaporanId GROUP BY Lap.iLaporanId;
+        
+select * from tbl_viraindo_item;
+	select * from tbl_viraindo_category;
+	select * from tbl_viraindo_sub_category;
+
+SELECT TVSC.sub_category_id, TVSC.sub_category_name, GROUP_CONCAT(TVI.item_name SEPARATOR '$^$') AS item_name,
+GROUP_CONCAT(TVI.item_picture SEPARATOR '$^$') AS item_picture, GROUP_CONCAT(TVI.item_new_price SEPARATOR '$^$') AS item_price
+FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id 
+WHERE TVI.item_name LIKE "%fan%"
+GROUP BY TVSC.sub_category_id;
+
+
+truncate table tbl_viraindo_item;
 
 SELECT item_id, item_name FROM tbl_viraindo_item WHERE item_name like '%intel%' LIMIT 10;
 

@@ -209,9 +209,9 @@ SELECT TVI.item_name, TVI.item_new_price, TVI.item_old_price FROM tbl_viraindo_i
         ON TVC.category_id = TVSC.category_id WHERE TVC.category_id = '31';
 
 
-SELECT TVC.category_id, TVC.category_name, TVI.item_id, TVI.item_name FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC
+SELECT TVI.item_id, TVI.item_name, TVI.item_new_price, TVI.item_picture FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC
         ON TVI.sub_category_id = TVSC.sub_category_id JOIN tbl_viraindo_category TVC
-        ON TVC.category_id = TVSC.category_id WHERE TVC.category_id = '31';
+        ON TVC.category_id = TVSC.category_id WHERE TVC.category_name IN ('keyboard', 'mouse', 'headset');
 
 
 TRUNCATE TABLE tbl_viraindo_item;
@@ -219,6 +219,6 @@ TRUNCATE TABLE tbl_viraindo_item;
 
 SELECT distinct TVI.item_name, TVI.item_new_price FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC
                     ON TVI.sub_category_id = TVSC.sub_category_id JOIN tbl_viraindo_category TVC
-                    ON TVC.category_id = TVSC.category_id WHERE TVC.category_id = '31'
+                    ON TVC.category_id = TVSC.category_id WHERE TVC.category_id = '31';
 
                 
