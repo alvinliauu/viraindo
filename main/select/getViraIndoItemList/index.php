@@ -24,7 +24,7 @@
             extract($row);
 
             // print_r($row);
-            
+            $explodeItemId = explode("$^$", $row['item_id']);
             $explodeItemName = explode("$^$", $row['item_name']);
             $explodeItemPrice = explode("$^$", $row['item_price']);
             $explodeItemPicture = explode("$^$", $row['item_picture']);
@@ -34,8 +34,9 @@
 
                 $val = $explodeItemPrice[$key];
                 $itemPict = $explodeItemPicture[$key];
+                $itemId = $explodeItemId[$key];
 
-                $theArray = array("name" => $value, "price" => $val, "picture" => array("url" => $itemPict));
+                $theArray = array("id" => $itemId, "name" => $value, "price" => $val, "picture" => array("url" => $itemPict));
 
                 array_push($results, $theArray);
             
