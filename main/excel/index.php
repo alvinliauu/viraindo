@@ -140,7 +140,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             $obj = new stdClass();
                             
                             $obj->sub_category_id = $ArrayOfGetSubCategoryId;
-                            $obj->item_name = $ArrayOfGetItemNameString;
+                            $obj->item_name = trim(preg_replace('/\s+/', ' ', $ArrayOfGetItemNameString));
                             $obj->item_picture = "https://images.tokopedia.net/img/cache/215-square/GAnVPX/2021/9/14/4f680add-d304-41a1-af8b-e77129a4cf61.jpg";
                             $obj->item_new_price = $ArrayOfGetItemPriceString;
                             $obj->item_old_price = $ArrayOfGetItemPriceString;
@@ -284,7 +284,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             $obj = new stdClass();
                             
                             $obj->sub_category_id = $ArrayOfGetSubCategoryId;
-                            $obj->item_name = $ArrayOfGetItemNameString;
+                            $obj->item_name = trim(preg_replace('/\s+/', ' ', $ArrayOfGetItemNameString));
                             $obj->item_picture = "https://images.tokopedia.net/img/cache/215-square/GAnVPX/2021/9/14/4f680add-d304-41a1-af8b-e77129a4cf61.jpg";
                             $obj->item_new_price = $ArrayOfGetItemPriceString;
                             $obj->item_old_price = $ArrayOfGetItemPriceString;
@@ -462,7 +462,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                                 $obj = new stdClass();
                                 
                                 $obj->sub_category_id = $ArrayOfGetSubCategoryId;
-                                $obj->item_name = $ArrayOfGetItemNameString;
+                                $obj->item_name = trim(preg_replace('/\s+/', ' ', $ArrayOfGetItemNameString));
                                 $obj->item_picture = "https://images.tokopedia.net/img/cache/215-square/GAnVPX/2021/9/14/4f680add-d304-41a1-af8b-e77129a4cf61.jpg";
                                 $obj->item_new_price = $ArrayOfGetItemPriceString;
                                 $obj->item_old_price = $ArrayOfGetItemPriceString;
@@ -606,7 +606,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                                 $obj = new stdClass();
                                 
                                 $obj->sub_category_id = $ArrayOfGetSubCategoryId;
-                                $obj->item_name = $ArrayOfGetItemNameString;
+                                $obj->item_name = trim(preg_replace('/\s+/', ' ', $ArrayOfGetItemNameString));
                                 $obj->item_picture = "https://images.tokopedia.net/img/cache/215-square/GAnVPX/2021/9/14/4f680add-d304-41a1-af8b-e77129a4cf61.jpg";
                                 $obj->item_new_price = $ArrayOfGetItemPriceString;
                                 $obj->item_old_price = $ArrayOfGetItemPriceString;
