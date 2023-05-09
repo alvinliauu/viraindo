@@ -1,6 +1,6 @@
 <?php 
 
-    include_once('../function.php');
+    require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/function.php';
     
     class Database {
 
