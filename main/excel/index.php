@@ -131,10 +131,10 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             $getColorSheetWhiteData = $sheetData[$getColorForExcel-1];
                             $getColorSheetWhiteDataWithArr[] = $sheetData[$getColorForExcel-1];
                             
-                            $ArrayOfGetItemNameFromSheet[] = $getColorSheetWhiteData[0];
+                            $ArrayOfGetItemNameFromSheet[] = trim(preg_replace('/\s+/', ' ', $getColorSheetWhiteData[0]));
                             $ArrayOfGetItemPriceFromSheet[] = $getColorSheetWhiteData[1];
                             
-                            $ArrayOfGetItemNameString = $getColorSheetWhiteData[0];
+                            $ArrayOfGetItemNameString = trim(preg_replace('/\s+/', ' ', $getColorSheetWhiteData[0]));
                             $ArrayOfGetItemPriceString = $getColorSheetWhiteData[1];   
 
                             $obj = new stdClass();
@@ -275,10 +275,10 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             $getColorSheetWhiteData = $sheetData[$getColorForExcel-1];
                             $getColorSheetWhiteDataWithArr[] = $sheetData[$getColorForExcel-1];
                             
-                            $ArrayOfGetItemNameFromSheet[] = $getColorSheetWhiteData[0];
+                            $ArrayOfGetItemNameFromSheet[] = trim(preg_replace('/\s+/', ' ', $getColorSheetWhiteData[0]));
                             $ArrayOfGetItemPriceFromSheet[] = $getColorSheetWhiteData[1];
                             
-                            $ArrayOfGetItemNameString = $getColorSheetWhiteData[0];
+                            $ArrayOfGetItemNameString = trim(preg_replace('/\s+/', ' ', $getColorSheetWhiteData[0]));
                             $ArrayOfGetItemPriceString = $getColorSheetWhiteData[1];   
 
                             $obj = new stdClass();
@@ -453,10 +453,10 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                                 $getColorSheetWhiteData = $sheetData[$getColorForExcel-1];
                                 $getColorSheetWhiteDataWithArr[] = $sheetData[$getColorForExcel-1];
                                 
-                                $ArrayOfGetItemNameFromSheet[] = $getColorSheetWhiteData[0];
+                                $ArrayOfGetItemNameFromSheet[] = trim(preg_replace('/\s+/', ' ', $getColorSheetWhiteData[0]));
                                 $ArrayOfGetItemPriceFromSheet[] = $getColorSheetWhiteData[1];
                                 
-                                $ArrayOfGetItemNameString = $getColorSheetWhiteData[0];
+                                $ArrayOfGetItemNameString = trim(preg_replace('/\s+/', ' ', $getColorSheetWhiteData[0]));
                                 $ArrayOfGetItemPriceString = $getColorSheetWhiteData[1];   
 
                                 $obj = new stdClass();
@@ -597,10 +597,10 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                                 $getColorSheetWhiteData = $sheetData[$getColorForExcel-1];
                                 $getColorSheetWhiteDataWithArr[] = $sheetData[$getColorForExcel-1];
                                 
-                                $ArrayOfGetItemNameFromSheet[] = $getColorSheetWhiteData[0];
+                                $ArrayOfGetItemNameFromSheet[] = trim(preg_replace('/\s+/', ' ', $getColorSheetWhiteData[0]));
                                 $ArrayOfGetItemPriceFromSheet[] = $getColorSheetWhiteData[1];
                                 
-                                $ArrayOfGetItemNameString = $getColorSheetWhiteData[0];
+                                $ArrayOfGetItemNameString = trim(preg_replace('/\s+/', ' ', $getColorSheetWhiteData[0]));
                                 $ArrayOfGetItemPriceString = $getColorSheetWhiteData[1];   
 
                                 $obj = new stdClass();
