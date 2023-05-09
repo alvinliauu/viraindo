@@ -54,11 +54,11 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                 $getColorSheetData = $spreadsheet->getActiveSheet()->getStyle($i)->getFill()->getStartColor()->getARGB();                       
                 
                 if($getColorSheetData == 'FFFFFFFF'){                        
-                    $ArrayOfGetItemsFromSheet[] = trim(iconv("UTF-8","ISO-8859-1", $sheetData[$i-1][0]), " \t\n\r\0\x0B\xA0");                        
+                    $ArrayOfGetItemsFromSheet[] = $sheetData[$i-1][0];                        
                 }
     
                 if($getColorSheetData == 'FFFFFF00'){                        
-                    $ArrayOfGetSubCategoryFromSheet[] = trim(iconv("UTF-8","ISO-8859-1", $sheetData[$i-1][0]), " \t\n\r\0\x0B\xA0");                
+                    $ArrayOfGetSubCategoryFromSheet[] = $sheetData[$i-1][0];                        
                 }
             }
             //BUAT DAPETIN VALUE DARI COLOR KUNING DAN PUTIH
