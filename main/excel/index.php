@@ -51,7 +51,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
             
             //BUAT DAPETIN VALUE DARI COLOR KUNING DAN PUTIH
             for($i = 1; $i <= count($sheetData); $i++){
-                $getColorSheetData = $spreadsheet->getActiveSheet()->getStyle($i)->getFill()->getStartColor()->getARGB();                       
+                $getColorSheetData = trim(utf8_decode($spreadsheet->getActiveSheet()->getStyle($i)->getFill()->getStartColor()->getARGB()), " \t\n\r\0\x0B\xA0");                       
                 
                 if($getColorSheetData == 'FFFFFFFF'){                        
                     $ArrayOfGetItemsFromSheet[] = $sheetData[$i-1][0];                        
@@ -156,7 +156,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                         for($diffItem = 0; $diffItem <= count($GetDifferentOfItem) + 1; $diffItem++){
 
                             $sub_category_id = $ArrayOfGetSubCatFromSheet[$diffItem]['sub_category_id'];
-                            $item_name       = trim(preg_replace('/\s+/', ' ', $ArrayOfGetSubCatFromSheet[$diffItem]['item_name']));
+                            $item_name       = $ArrayOfGetSubCatFromSheet[$diffItem]['item_name'];
                             $item_picture    = $ArrayOfGetSubCatFromSheet[$diffItem]['item_picture'];
                             $item_new_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_new_price']);
                             $item_old_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_old_price']);
@@ -300,7 +300,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                         foreach ($GetDifferentOfItem as $key => $value) {
                             
                             $sub_category_id = $ArrayOfGetSubCatFromSheet[$key]['sub_category_id'];
-                            $item_name       = trim(preg_replace('/\s+/', ' ', $ArrayOfGetSubCatFromSheet[$key]['item_name']));
+                            $item_name       = $ArrayOfGetSubCatFromSheet[$key]['item_name'];
                             $item_picture    = $ArrayOfGetSubCatFromSheet[$key]['item_picture'];
                             $item_new_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$key]['item_new_price']);
                             $item_old_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$key]['item_old_price']);
@@ -478,7 +478,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             for($diffItem = 0; $diffItem <= count($GetDifferentOfItem) + 1; $diffItem++){
 
                                 $sub_category_id = $ArrayOfGetSubCatFromSheet[$diffItem]['sub_category_id'];
-                                $item_name       = trim(preg_replace('/\s+/', ' ', $ArrayOfGetSubCatFromSheet[$diffItem]['item_name']));
+                                $item_name       = $ArrayOfGetSubCatFromSheet[$diffItem]['item_name'];
                                 $item_picture    = $ArrayOfGetSubCatFromSheet[$diffItem]['item_picture'];
                                 $item_new_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_new_price']);
                                 $item_old_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_old_price']);
@@ -622,7 +622,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             for($diffItem = 0; $diffItem <= count($GetDifferentOfItem) + 1; $diffItem++){
 
                                 $sub_category_id = $ArrayOfGetSubCatFromSheet[$diffItem]['sub_category_id'];
-                                $item_name       = trim(preg_replace('/\s+/', ' ', $ArrayOfGetSubCatFromSheet[$diffItem]['item_name']));
+                                $item_name       = $ArrayOfGetSubCatFromSheet[$diffItem]['item_name'];
                                 $item_picture    = $ArrayOfGetSubCatFromSheet[$diffItem]['item_picture'];
                                 $item_new_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_new_price']);
                                 $item_old_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_old_price']);
