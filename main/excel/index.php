@@ -51,7 +51,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
             
             //BUAT DAPETIN VALUE DARI COLOR KUNING DAN PUTIH
             for($i = 1; $i <= count($sheetData); $i++){
-                $getColorSheetData = trim(utf8_decode($spreadsheet->getActiveSheet()->getStyle($i)->getFill()->getStartColor()->getARGB()), " \t\n\r\0\x0B\xA0");                       
+                $getColorSheetData = $spreadsheet->getActiveSheet()->getStyle($i)->getFill()->getStartColor()->getARGB();                       
                 
                 if($getColorSheetData == 'FFFFFFFF'){                        
                     $ArrayOfGetItemsFromSheet[] = $sheetData[$i-1][0];                        
@@ -163,7 +163,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             $isActive        = $ArrayOfGetSubCatFromSheet[$diffItem]['isActive'];                
 
                             $QueryInsertItem = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive)
-                            VALUES ('$sub_category_id', '$item_name', '$item_picture', '$item_new_price', '$item_old_price', '$isActive');";
+                            VALUES ('$sub_category_id', trim($item_name), '$item_picture', '$item_new_price', '$item_old_price', '$isActive');";
                             mysqli_query($konek, $QueryInsertItem);
                         }                                                                                            
 
@@ -307,7 +307,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             $isActive        = $ArrayOfGetSubCatFromSheet[$key]['isActive'];                                         
                             
                             $QueryInsertItem = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive)
-                            VALUES ('$sub_category_id', '$item_name', '$item_picture', '$item_new_price', '$item_old_price', '$isActive');";
+                            VALUES ('$sub_category_id', trim($item_name), '$item_picture', '$item_new_price', '$item_old_price', '$isActive');";
                             mysqli_query($konek, $QueryInsertItem);
 
                         }                                                                                    
@@ -485,7 +485,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                                 $isActive        = $ArrayOfGetSubCatFromSheet[$diffItem]['isActive'];                 
 
                                 $QueryInsertItem = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive)
-                                VALUES ('$sub_category_id', '$item_name', '$item_picture', '$item_new_price', '$item_old_price', '$isActive');";
+                                VALUES ('$sub_category_id', trim($item_name), '$item_picture', '$item_new_price', '$item_old_price', '$isActive');";
                                 mysqli_query($konek, $QueryInsertItem);
                             }                                                                                            
 
@@ -629,7 +629,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                                 $isActive        = $ArrayOfGetSubCatFromSheet[$diffItem]['isActive'];      
 
                                 $QueryInsertItem = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive)
-                                VALUES ('$sub_category_id', '$item_name', '$item_picture', '$item_new_price', '$item_old_price', '$isActive');";
+                                VALUES ('$sub_category_id', trim($item_name), '$item_picture', '$item_new_price', '$item_old_price', '$isActive');";
                                 mysqli_query($konek, $QueryInsertItem);
                             }                                                                                            
 
