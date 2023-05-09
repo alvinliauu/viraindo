@@ -140,7 +140,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             $obj = new stdClass();
                             
                             $obj->sub_category_id = $ArrayOfGetSubCategoryId;
-                            $obj->item_name = trim(preg_replace('/\s+/', ' ', $ArrayOfGetItemNameString));
+                            $obj->item_name = $ArrayOfGetItemNameString;
                             $obj->item_picture = "https://images.tokopedia.net/img/cache/215-square/GAnVPX/2021/9/14/4f680add-d304-41a1-af8b-e77129a4cf61.jpg";
                             $obj->item_new_price = $ArrayOfGetItemPriceString;
                             $obj->item_old_price = $ArrayOfGetItemPriceString;
@@ -156,7 +156,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                         for($diffItem = 0; $diffItem <= count($GetDifferentOfItem) + 1; $diffItem++){
 
                             $sub_category_id = $ArrayOfGetSubCatFromSheet[$diffItem]['sub_category_id'];
-                            $item_name       = $ArrayOfGetSubCatFromSheet[$diffItem]['item_name'];
+                            $item_name       = trim(preg_replace('/\s+/', ' ', $ArrayOfGetSubCatFromSheet[$diffItem]['item_name']));
                             $item_picture    = $ArrayOfGetSubCatFromSheet[$diffItem]['item_picture'];
                             $item_new_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_new_price']);
                             $item_old_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_old_price']);
@@ -284,7 +284,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             $obj = new stdClass();
                             
                             $obj->sub_category_id = $ArrayOfGetSubCategoryId;
-                            $obj->item_name = trim(preg_replace('/\s+/', ' ', $ArrayOfGetItemNameString));
+                            $obj->item_name = $ArrayOfGetItemNameString;
                             $obj->item_picture = "https://images.tokopedia.net/img/cache/215-square/GAnVPX/2021/9/14/4f680add-d304-41a1-af8b-e77129a4cf61.jpg";
                             $obj->item_new_price = $ArrayOfGetItemPriceString;
                             $obj->item_old_price = $ArrayOfGetItemPriceString;
@@ -300,7 +300,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                         foreach ($GetDifferentOfItem as $key => $value) {
                             
                             $sub_category_id = $ArrayOfGetSubCatFromSheet[$key]['sub_category_id'];
-                            $item_name       = $ArrayOfGetSubCatFromSheet[$key]['item_name'];
+                            $item_name       = trim(preg_replace('/\s+/', ' ', $ArrayOfGetSubCatFromSheet[$key]['item_name']));
                             $item_picture    = $ArrayOfGetSubCatFromSheet[$key]['item_picture'];
                             $item_new_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$key]['item_new_price']);
                             $item_old_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$key]['item_old_price']);
@@ -462,7 +462,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                                 $obj = new stdClass();
                                 
                                 $obj->sub_category_id = $ArrayOfGetSubCategoryId;
-                                $obj->item_name = trim(preg_replace('/\s+/', ' ', $ArrayOfGetItemNameString));
+                                $obj->item_name = $ArrayOfGetItemNameString;
                                 $obj->item_picture = "https://images.tokopedia.net/img/cache/215-square/GAnVPX/2021/9/14/4f680add-d304-41a1-af8b-e77129a4cf61.jpg";
                                 $obj->item_new_price = $ArrayOfGetItemPriceString;
                                 $obj->item_old_price = $ArrayOfGetItemPriceString;
@@ -478,7 +478,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             for($diffItem = 0; $diffItem <= count($GetDifferentOfItem) + 1; $diffItem++){
 
                                 $sub_category_id = $ArrayOfGetSubCatFromSheet[$diffItem]['sub_category_id'];
-                                $item_name       = $ArrayOfGetSubCatFromSheet[$diffItem]['item_name'];
+                                $item_name       = trim(preg_replace('/\s+/', ' ', $ArrayOfGetSubCatFromSheet[$diffItem]['item_name']));
                                 $item_picture    = $ArrayOfGetSubCatFromSheet[$diffItem]['item_picture'];
                                 $item_new_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_new_price']);
                                 $item_old_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_old_price']);
@@ -606,7 +606,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                                 $obj = new stdClass();
                                 
                                 $obj->sub_category_id = $ArrayOfGetSubCategoryId;
-                                $obj->item_name = trim(preg_replace('/\s+/', ' ', $ArrayOfGetItemNameString));
+                                $obj->item_name = $ArrayOfGetItemNameString;
                                 $obj->item_picture = "https://images.tokopedia.net/img/cache/215-square/GAnVPX/2021/9/14/4f680add-d304-41a1-af8b-e77129a4cf61.jpg";
                                 $obj->item_new_price = $ArrayOfGetItemPriceString;
                                 $obj->item_old_price = $ArrayOfGetItemPriceString;
@@ -622,7 +622,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             for($diffItem = 0; $diffItem <= count($GetDifferentOfItem) + 1; $diffItem++){
 
                                 $sub_category_id = $ArrayOfGetSubCatFromSheet[$diffItem]['sub_category_id'];
-                                $item_name       = $ArrayOfGetSubCatFromSheet[$diffItem]['item_name'];
+                                $item_name       = trim(preg_replace('/\s+/', ' ', $ArrayOfGetSubCatFromSheet[$diffItem]['item_name']));
                                 $item_picture    = $ArrayOfGetSubCatFromSheet[$diffItem]['item_picture'];
                                 $item_new_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_new_price']);
                                 $item_old_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_old_price']);
