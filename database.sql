@@ -8,37 +8,19 @@ CREATE TABLE tbl_viraindo_user(
     user_email VARCHAR(100) NOT NULL,
     user_name VARCHAR(100) NOT NULL,
     user_password VARCHAR(50) NOT NULL,
+    createOn DATETIME,
+    createBy INT,
+    modifyOn DATETIME,
+    modifyBy INT,
     PRIMARY KEY (user_id)
-);
-
-CREATE TABLE tbl_viraindo_shopping_category(
-	shopping_category_id INT NOT NULL auto_increment,
-    shopping_category_name VARCHAR(100),
-    isActive INT,
-    PRIMARY KEY (shopping_category_id)
 );
 
 CREATE TABLE tbl_viraindo_category (
 	category_id INT NOT NULL auto_increment,
-    shopping_category_id INT,
     category_name VARCHAR(100),
     category_stock INT,
     isActive INT,
     isUpdate INT,
-    PRIMARY KEY (category_id),
-    FOREIGN KEY (shopping_category_id) REFERENCES tbl_viraindo_shopping_category(shopping_category_id)
-);
-
-CREATE TABLE tbl_viraindo_category (
-	category_id INT NOT NULL auto_increment,
-    category_name VARCHAR(100),
-    category_stock INT,
-    isActive INT,
-    createdOn DATETIME,
-    createdBy VARCHAR(50),
-    updatedOn DATETIME,
-    updatedBy VARCHAR(50),
-    updatedCount INT,
     PRIMARY KEY (category_id)
 );
 
@@ -47,22 +29,12 @@ CREATE TABLE tbl_viraindo_sub_category (
 	category_id INT NOT NULL,
     sub_category_name VARCHAR(100) NOT NULL,
     isActive INT,
-    createdOn DATETIME,
-    createdBy VARCHAR(50),
-    updatedOn DATETIME,
-    updatedBy VARCHAR(50),
-    updatedCount INT,
+    isUpdate INT,
     PRIMARY KEY (sub_category_id),
     FOREIGN KEY (category_id) REFERENCES tbl_viraindo_category (category_id)
 );
 
-CREATE TABLE tbl_viraindo_brand (
-	brand_id INT NOT NULL auto_increment,
-    brand_name VARCHAR(50) NOT NULL,
-    isActive INT,
-    isUpdate INT,
-    PRIMARY KEY (brand_id)
-);
+
 
 CREATE TABLE tbl_viraindo_item (
 	item_id INT NOT NULL auto_increment,
@@ -72,13 +44,20 @@ CREATE TABLE tbl_viraindo_item (
     item_new_price INT NOT NULL,
     item_old_price INT NOT NULL,
     isActive INT,
-    createdOn DATETIME,
-    createdBy VARCHAR(50),
-    updatedOn DATETIME,
-    updatedBy VARCHAR(50),
-    updatedCount INT,
+    isUpdate INT,
     PRIMARY KEY (item_id),
     FOREIGN KEY (sub_category_id) REFERENCES tbl_viraindo_sub_category(sub_category_id)
+);
+
+CREATE TABLE tbl_viraindo_brand (
+	brand_id INT NOT NULL auto_increment,
+    brand_name VARCHAR(50) NOT NULL,
+    isActive INT,
+    createOn DATETIME,
+    createBy INT,
+    modifyOn DATETIME,
+    modifyBy INT,
+    PRIMARY KEY (brand_id)
 );
 
 
