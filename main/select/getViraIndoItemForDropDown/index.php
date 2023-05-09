@@ -19,9 +19,12 @@
         [
             {
                 "name":"Komponen Komputer",
+                "image":{
+					"url":"https://cdn-icons-png.flaticon.com/512/2206/2206860.png"
+				},
                 "category":[
                     {
-                        "name":"processor",
+                        "name":"Processor",
                         "subcategory":[
                             {
                                 "name":"intel",
@@ -44,26 +47,26 @@
                                 "name":"AMD",
                                 "item":[
                                     {
-                                        "name":"AMD AM4"
+                                        "name":"AM4"
                                     },
                                     {
-                                        "name":"AMD FM2"
+                                        "name":"FM2"
                                     },
                                     {
-                                        "name":"AMD FM2+"
+                                        "name":"FM2+"
                                     },
                                     {
-                                        "name":"AMD TR4"
+                                        "name":"TR4"
                                     },
                                     {
-                                        "name":"AMD sTRX4"
+                                        "name":"sTRX4"
                                     }
                                 ]                                   
                             }
                         ]
                     },
                     {
-                        "name":"motherboard",
+                        "name":"Motherboard",
                         "subcategory":[
                             {
                                 "name":"",
@@ -284,6 +287,9 @@
             },
             {
                 "name":"Audio",
+				"image":{
+					"url":"https://cdn-icons-png.flaticon.com/512/4305/4305621.png"
+				},
                 "category":[
                     {
                         "name":"Headset",
@@ -339,29 +345,32 @@
             },
             {
                 "name":"PC Branded",
+                "image":{
+					"url":"https://cdn-icons-png.flaticon.com/512/2292/2292007.png"
+				},
                 "category":[
                     {
                         "name":"PC Built Up",
                         "subcategory":[
                             {
-                                "name":"",
-                                "item":[
-                                    {
-                                        "name":"Acer"
-                                    },
-                                    {
-                                        "name":"Asus"
-                                    },
-                                    {
-                                        "name":"MSI"
-                                    },
-                                    {
-                                        "name":"Lenovo"
-                                    },
-                                    {
-                                        "name":"HP"
-                                    }
-                                ]
+                                "name":"Acer",
+                                "item":[]
+                            },
+                            {
+                                "name":"Asus",
+                                "item":[]
+                            },
+                            {
+                                "name":"MSI",
+                                "item":[]
+                            },
+                            {
+                                "name":"Lenovo",
+                                "item":[]
+                            },
+                            {
+                                "name":"HP",
+                                "item":[]
                             }
                         ]                        
                     }                    
