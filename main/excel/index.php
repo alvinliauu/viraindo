@@ -82,7 +82,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                 }
                 
                 //Untuk ngecek apakah ada perbedaan antara array subcategory di sheet dengan di database
-                if($differentOfArraySubCategory = array_diff_ukey($ArrayOfGetSubCategoryFromSheet, $ArrayOfGetSubCategory, "strcasecmp")){
+                if($differentOfArraySubCategory = array_diff($ArrayOfGetSubCategoryFromSheet, $ArrayOfGetSubCategory)){
                     
                     //Jika ada perbedaan array maka akan melakukan insert subcategory dari sheet ke database
                     foreach ($differentOfArraySubCategory as $key => $value) {
@@ -151,7 +151,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                     }               
                     $ArrayOfGetSubCatFromSheet = json_decode(json_encode($ArrayOfGetSubCategoryFromSheet), true);                      
                     
-                    if($GetDifferentOfItem = array_diff_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                    
+                    if($GetDifferentOfItem = array_diff($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                    
                     
                         for($diffItem = 0; $diffItem <= count($GetDifferentOfItem) + 1; $diffItem++){
 
@@ -167,7 +167,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             mysqli_query($konek, $QueryInsertItem);
                         }                                                                                            
 
-                        if($GetSameOfItem = array_intersect_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                                                                                                                                                          
+                        if($GetSameOfItem = array_intersect($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                                                                                                                                                          
 
                             $ArrayOfSubCatFromSheet = [];
                             foreach ($ArrayOfGetSubCatFromSheet as $key => $val) {
@@ -201,7 +201,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                     }
                     else{
                         // buat update harga aja                                              
-                        if($GetSameOfItem = array_intersect_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                                                                                                                                                          
+                        if($GetSameOfItem = array_intersect($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                                                                                                                                                          
 
                             $ArrayOfSubCatFromSheet = [];
                             foreach ($ArrayOfGetSubCatFromSheet as $key => $val) {
@@ -295,7 +295,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                     }               
                     $ArrayOfGetSubCatFromSheet = json_decode(json_encode($ArrayOfGetSubCategoryFromSheet), true);                      
                     
-                    if($GetDifferentOfItem = array_diff_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                    
+                    if($GetDifferentOfItem = array_diff($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                    
                         
                         foreach ($GetDifferentOfItem as $key => $value) {
                             
@@ -312,7 +312,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
 
                         }                                                                                    
 
-                        if($GetSameOfItem = array_intersect_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                                                                                                                                                          
+                        if($GetSameOfItem = array_intersect($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                                                                                                                                                          
 
                             $ArrayOfSubCatFromSheet = [];
                             foreach ($ArrayOfGetSubCatFromSheet as $key => $val) {
@@ -346,7 +346,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                     }
                     else{
                         // buat update harga aja                                              
-                        if($GetSameOfItem = array_intersect_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                                                                                                                                                          
+                        if($GetSameOfItem = array_intersect($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                                                                                                                                                          
 
                             $ArrayOfSubCatFromSheet = [];
                             foreach ($ArrayOfGetSubCatFromSheet as $key => $val) {
@@ -404,7 +404,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                     }
 
                     //Untuk ngecek apakah ada perbedaan antara array subcategory di sheet dengan di database
-                    if($differentOfArraySubCategory = array_diff_ukey($ArrayOfGetSubCategoryFromSheet, $ArrayOfGetSubCategory, "strcasecmp")){
+                    if($differentOfArraySubCategory = array_diff($ArrayOfGetSubCategoryFromSheet, $ArrayOfGetSubCategory)){
 
                         //Jika ada perbedaan array maka akan melakukan insert subcategory dari sheet ke database
                         foreach ($differentOfArraySubCategory as $key => $value) {
@@ -473,7 +473,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                         }               
                         $ArrayOfGetSubCatFromSheet = json_decode(json_encode($ArrayOfGetSubCategoryFromSheet), true);                      
                         
-                        if($GetDifferentOfItem = array_diff_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                    
+                        if($GetDifferentOfItem = array_diff($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                    
                         
                             for($diffItem = 0; $diffItem <= count($GetDifferentOfItem) + 1; $diffItem++){
 
@@ -489,7 +489,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                                 mysqli_query($konek, $QueryInsertItem);
                             }                                                                                            
 
-                            if($GetSameOfItem = array_intersect_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                                                                                                                                                          
+                            if($GetSameOfItem = array_intersect($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                                                                                                                                                          
 
                                 $ArrayOfSubCatFromSheet = [];
                                 foreach ($ArrayOfGetSubCatFromSheet as $key => $val) {
@@ -523,7 +523,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                         }
                         else{
                             // buat update harga aja                                              
-                            if($GetSameOfItem = array_intersect_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                                                                                                                                                          
+                            if($GetSameOfItem = array_intersect($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                                                                                                                                                          
 
                                 $ArrayOfSubCatFromSheet = [];
                                 foreach ($ArrayOfGetSubCatFromSheet as $key => $val) {
@@ -617,7 +617,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                         }               
                         $ArrayOfGetSubCatFromSheet = json_decode(json_encode($ArrayOfGetSubCategoryFromSheet), true);                      
                         
-                        if($GetDifferentOfItem = array_diff_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                    
+                        if($GetDifferentOfItem = array_diff($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                    
                         
                             for($diffItem = 0; $diffItem <= count($GetDifferentOfItem) + 1; $diffItem++){
 
@@ -633,7 +633,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                                 mysqli_query($konek, $QueryInsertItem);
                             }                                                                                            
 
-                            if($GetSameOfItem = array_intersect_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                                                                                                                                                          
+                            if($GetSameOfItem = array_intersect($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                                                                                                                                                          
 
                                 $ArrayOfSubCatFromSheet = [];
                                 foreach ($ArrayOfGetSubCatFromSheet as $key => $val) {
@@ -667,7 +667,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                         }
                         else{
                             // buat update harga aja                                              
-                            if($GetSameOfItem = array_intersect_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                                                                                                                                                          
+                            if($GetSameOfItem = array_intersect($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                                                                                                                                                          
 
                                 $ArrayOfSubCatFromSheet = [];
                                 foreach ($ArrayOfGetSubCatFromSheet as $key => $val) {
@@ -721,7 +721,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
             }
 
             //Buat dapetin different array dari category dan di insert
-            if($differentOfArray = array_diff_ukey($getSheetName, $ArrayOfGetCategory, "strcasecmp")){
+            if($differentOfArray = array_diff($getSheetName, $ArrayOfGetCategory)){
 
                 foreach ($differentOfArray as $key => $value) {
                     
