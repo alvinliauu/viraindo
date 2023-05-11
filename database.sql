@@ -20,7 +20,11 @@ CREATE TABLE tbl_viraindo_category (
     category_name VARCHAR(100),
     category_stock INT,
     isActive INT,
-    isUpdate INT,
+    updatedOn DATETIME,
+    updatedBy VARCHAR(100) NULL,
+    updatedCount INT NULL,
+    insertedOn DATETIME,
+    insertedBy VARCHAR(100) NULL,
     PRIMARY KEY (category_id)
 );
 
@@ -29,7 +33,11 @@ CREATE TABLE tbl_viraindo_sub_category (
 	category_id INT NOT NULL,
     sub_category_name VARCHAR(100) NOT NULL,
     isActive INT,
-    isUpdate INT,
+    updatedOn DATETIME,
+    updatedBy VARCHAR(100) NULL,
+    updatedCount INT NULL,
+    insertedOn DATETIME,
+    insertedBy VARCHAR(100) NULL,
     PRIMARY KEY (sub_category_id),
     FOREIGN KEY (category_id) REFERENCES tbl_viraindo_category (category_id)
 );
@@ -44,7 +52,11 @@ CREATE TABLE tbl_viraindo_item (
     item_new_price INT NOT NULL,
     item_old_price INT NOT NULL,
     isActive INT,
-    isUpdate INT,
+    updatedOn DATETIME,
+    updatedBy VARCHAR(100) NULL,
+    updatedCount INT NULL,
+    insertedOn DATETIME,
+    insertedBy VARCHAR(100) NULL,
     PRIMARY KEY (item_id),
     FOREIGN KEY (sub_category_id) REFERENCES tbl_viraindo_sub_category(sub_category_id)
 );
