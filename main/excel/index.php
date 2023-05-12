@@ -295,7 +295,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                     }               
                     $ArrayOfGetSubCatFromSheet = json_decode(json_encode($ArrayOfGetSubCategoryFromSheet), true);                      
                     
-                    if($GetDifferentOfItem = array_diff($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                    
+                    if($GetDifferentOfItem = array_diff_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                    
                         
                         foreach ($GetDifferentOfItem as $key => $value) {
                             
@@ -312,7 +312,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
 
                         }                                                                                    
 
-                        if($GetSameOfItem = array_intersect($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName)){                                                                                                                                                          
+                        if($GetSameOfItem = array_intersect_ukey($ArrayOfGetItemNameFromSheet, $ArrayOfGetItemName, "strcasecmp")){                                                                                                                                                          
 
                             $ArrayOfSubCatFromSheet = [];
                             foreach ($ArrayOfGetSubCatFromSheet as $key => $val) {
