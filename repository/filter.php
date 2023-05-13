@@ -2,8 +2,6 @@
 
 function filter($category){
 
-    $theArray = [];
-
     if($category == "motherboard"){
         $e = '[
             {
