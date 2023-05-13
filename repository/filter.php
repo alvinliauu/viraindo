@@ -321,7 +321,7 @@ function filter($category){
         ]';
     } 
 
-    $json_data = json_encode(json_decode($e));
+    $json_data = json_decode($e);
     return $json_data;
 
 }
