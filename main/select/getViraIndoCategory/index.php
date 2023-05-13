@@ -18,7 +18,9 @@
     $mouse = $items->getViraIndoMouse();
     $keyboard = $items->getViraIndoKeyboard();
 
-    if($motherboard > 0 || $processor > 0 || $ssd > 0 || $hdd > 0 || $ram > 0 || $vga > 0 || $mouse > 0 || $keyboard > 0){
+    $rowCount = $motherboard->rowCount();
+
+    if($rowCount > 0){
         
         $productArr = array();
         $arrmotherboard = [];
