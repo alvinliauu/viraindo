@@ -36,18 +36,25 @@
                 $itemPict = $explodeItemPicture[$key];
                 $itemId = $explodeItemId[$key];
 
-                $theArray = array("id" => $itemId, "name" => $value, "price" => $val, "picture" => array("url" => $itemPict));
+                $theArray = array(
+                    "id" => $itemId,
+                    "name" => $value, 
+                    "price" => $val, 
+                    "picture" => array(
+                        "url" => $itemPict
+                    )
+                );
 
                 array_push($results, $theArray);
             
             }
 
-                $e = array(
-                    "id" => $sub_category_id,
-                    "name" => $sub_category_name,
-                    "item" => $results
-                );
-                array_push($productArr, $e);
+            $e = array(
+                "id" => $sub_category_id,
+                "name" => $sub_category_name,
+                "item" => $results
+            );
+            array_push($productArr, $e);    
           
             http_response_code(200);
         }

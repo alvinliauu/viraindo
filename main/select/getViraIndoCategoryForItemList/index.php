@@ -4,6 +4,8 @@
     header("Access-Control-Max-Age: 3600");
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
+    require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/repository/filter.php';
+
     include_once '../../../connection/databaseconnect.php';
     include_once '../../../controller/select/getViraIndoCategoryForItemList.php';
 
@@ -42,12 +44,13 @@
             
             }
 
-                $e = array(
-                    "id" => $sub_category_id,
-                    "name" => $sub_category_name,
-                    "item" => $results
-                );
-                array_push($productArr, $e);
+            $e = array(
+                "id" => $sub_category_id,
+                "name" => $sub_category_name,
+                "filter" => filter($category_name),
+                "item" => $results
+            );
+            array_push($productArr, $e);
           
             http_response_code(200);
         }
