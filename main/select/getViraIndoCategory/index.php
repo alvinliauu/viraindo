@@ -4,7 +4,7 @@
     header("Content-Type: application/json; charset=UTF-8");
     
     include_once '../../../connection/databaseconnect.php';
-    include_once '../../../controller/select/getViraIndoHome.php';
+    include_once '../../../controller/select/getViraIndoCategory.php';
 
     $database = new Database();
     $db = $database->getConnection();
