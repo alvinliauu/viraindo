@@ -1,6 +1,6 @@
 <?php
 
-function filter($category){
+function filter($category, $arr){
 
     $theArray = [];
 
@@ -22,9 +22,16 @@ function filter($category){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
 
+    if($e == $arr){
+        $flag = 1;
+    } else $flag = 0;
+
     foreach ($e as $key => $value) {
+
+
         $obj = new stdClass();
         $obj->name = $value;
+        $obj->flag = $flag;
 
         array_push($theArray, $obj);
     }

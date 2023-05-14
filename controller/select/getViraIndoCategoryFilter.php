@@ -1,5 +1,7 @@
 <?php
 
+    require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/repository/filter.php';
+
     class getViraIndoCategoryFilter{
         // Connection
         private $conn;
@@ -28,6 +30,8 @@
             }
 
             $arr = explode(" ", $this->name);
+
+            filter("", $arr);
 
             if($jsonInput == null){
                 echo "item not found";
