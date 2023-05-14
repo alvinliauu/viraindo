@@ -22,11 +22,10 @@ function filter($category, $arr){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
 
-    $arrayData[] = json_encode($e);
+    $arrayData[] = json_decode(json_encode($e), true);
 
     for($x = 0; $x < count($arrayData); $x++){
-        print_r($x);
-        die();
+    
         if($arrayData[$x] == $arr){
             $flag = 1;
         } else $flag = 0;
