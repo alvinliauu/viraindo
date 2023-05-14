@@ -22,11 +22,11 @@ function filter($category, $arr){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
 
-    foreach ($e as $key => $value) {
+    if(array_intersect($e, $arr)){
+        $flag = 1;
+    } else $flag = 0;
 
-        if($arr == $value){
-            $flag = 1;
-        } else $flag = 0;
+    foreach ($e as $key => $value) {
 
         $obj = new stdClass();
         $obj->name = $value;
