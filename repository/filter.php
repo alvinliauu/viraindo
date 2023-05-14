@@ -25,7 +25,8 @@ function filter($category, $arr){
     $arrayData[] = json_encode($e);
 
     for($x = 0; $x < count($arrayData); $x++){
-
+        print_r($x);
+        die();
         if($arrayData[$x] == $arr){
             $flag = 1;
         } else $flag = 0;
