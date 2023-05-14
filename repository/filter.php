@@ -30,7 +30,7 @@ function filter($category, $arr){
 
         $obj = new stdClass();
         $obj->name = $value;
-        $obj->flag = $flag;
+        $obj->flag = 1;
 
         array_push($theArray, $obj);
     }
