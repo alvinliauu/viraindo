@@ -22,18 +22,24 @@ function filter($category, $arr){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
 
-    if($e == $arr){
-        $flag = 1;
-    } else $flag = 0;
+    for($x = 0; $x < count($e); $x++){
 
-    foreach ($e as $key => $value) {
+        if($e[$x] == $arr){
+            $flag = 1;
+        } else $flag = 0;
 
         $obj = new stdClass();
-        $obj->name = $value;
+        $obj->name = $e[$x];
         $obj->flag = $flag;
 
         array_push($theArray, $obj);
+
     }
+
+    // foreach ($e as $key => $value) {
+
+        
+    // }
 
     return $theArray;
 
