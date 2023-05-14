@@ -3,6 +3,7 @@
 function filter($category, $arr){
 
     $theArray = [];
+    $arrayOfCat = [];
 
     if($category == "motherboard"){
         $e = ["Intel", "AMD", "Asus", "ASRock", "Biostar", "Gigabyte", "MSI"];
@@ -22,16 +23,23 @@ function filter($category, $arr){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
 
-    $arrayData[] = json_decode(json_encode($e), true);
+    foreach ($e as $key => $value) {
+        
+        $objOfCat = new stdClass();
+        $objOfCat->name = $value;
 
-    for($x = 0; $x < count($arrayData); $x++){
+        array_push($arrayOfCat, $objOfCat);
+
+    }
+
+    for($x = 0; $x < count($arrayOfCat); $x++){
     
-        if($arrayData[$x] == $arr){
+        if($arrayOfCat[$x] == $arr){
             $flag = 1;
         } else $flag = 0;
 
         $obj = new stdClass();
-        $obj->name = $arrayData;
+        $obj->name = $arrayOfCat;
         $obj->flag = $flag;
 
         array_push($theArray, $obj);
