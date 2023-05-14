@@ -47,7 +47,7 @@
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
-                "filter" => filter($category_name),
+                "filter" => filter($category_name, 0),
                 "item" => $results
             );
             array_push($productArr, $e);
