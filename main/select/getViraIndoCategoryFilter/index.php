@@ -11,9 +11,21 @@
 
     $database = new Database();
     $db = $database->getConnection();
-    $item = new getViraIndoCategoryFilter($db);
 
-    $stmt = $item->getViraIndoCategoryFilter();
+    $jsonInput = json_decode(file_get_contents("php://input"), true);
+    $id = $jsonInput['id'];         
+    $name = $jsonInput['name'];
+    $price = $jsonInput['price'];
+
+    if($price == ""){
+        $price = "asc";
+    }
+            
+    $arr = explode(" ", $name);
+
+    $stmt = new getViraIndoCategoryFilter($db, $id, $arr, $price);
+
+    $stmt = $item->getViraIndoCategoryForItemList();
     $itemCount = $stmt->rowCount();
     $productArr = array();
 
@@ -47,7 +59,7 @@
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
-                "filter" => filter($category_name),
+                "filter" => filter($category_name, $arr),
                 "item" => $results
             );
             array_push($productArr, $e);

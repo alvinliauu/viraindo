@@ -1,4 +1,5 @@
 <?php
+
     class getViraIndoCategoryFilter{
         // Connection
         private $conn;
@@ -8,33 +9,23 @@
         public $price;
 
         // Db connection
-        public function __construct(
-            $db
-            ){
+        public function __construct($db, $id, $name, $price){
                 $this->conn = $db;
+                $this->$id = $id;
+                $this->$name = $name;
+                $this->$price = $price;
             }
 
             // GET ALL
             public function getViraIndoCategoryFilter(){
 
-            $jsonInput = json_decode(file_get_contents("php://input"), true);
-            $this->id = $jsonInput['id'];         
-            $this->name = $jsonInput['name'];
-            $this->price = $jsonInput['price'];
-
-            if($this->price == ""){
-                $this->price = "asc";
-            }
-
-            $arr = explode(" ", $this->name);
-
-            if($jsonInput == null){
+            if($this->name == null){
                 echo "item not found";
             }
             else{
-                if($arr[0] == true){
+                if($this->name[0] == true){
                     $arrTotal = "";
-                    foreach($arr as $index => $count){
+                    foreach($this->name as $index => $count){
                         if($index == 0){
                             $arrTotal .= "SELECT TVC.category_name, TVSC.sub_category_id, TVSC.sub_category_name, GROUP_CONCAT(TVI.item_id ORDER BY TVI.item_new_price $this->price SEPARATOR '$^$') AS item_id, GROUP_CONCAT(TVI.item_name ORDER BY TVI.item_new_price $this->price SEPARATOR '$^$') AS item_name,
                             GROUP_CONCAT(TVI.item_picture ORDER BY TVI.item_new_price $this->price SEPARATOR '$^$') AS item_picture, GROUP_CONCAT(TVI.item_new_price ORDER BY TVI.item_new_price $this->price SEPARATOR '$^$') AS item_price
