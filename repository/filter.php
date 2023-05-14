@@ -2,6 +2,8 @@
 
 function filter($category){
 
+    $theArray = [];
+
     if($category == "motherboard"){
         $e = ["Intel", "AMD", "Asus", "ASRock", "Biostar", "Gigabyte", "MSI"];
     } elseif ($category == "processor") {
@@ -20,7 +22,14 @@ function filter($category){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
 
-    return $e;
+    foreach ($e as $key => $value) {
+        $obj = new stdClass();
+        $obj->name = $value;
+
+        array_push($theArray, $obj);
+    }
+
+    return $theArray;
 
     // if($category == "motherboard"){
     //     $e = '[
