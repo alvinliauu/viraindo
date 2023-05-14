@@ -22,9 +22,6 @@ function filter($category, $arr){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
 
-    print_r($e);
-    die();
-
     if($e == $arr){
         $flag = 1;
     } else $flag = 0;
