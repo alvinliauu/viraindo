@@ -29,7 +29,7 @@ function filter($category, $arr){
         } else $flag = 0;
 
         $obj = new stdClass();
-        $obj->name = $e[$x];
+        $obj->name = $e;
         $obj->flag = $flag;
 
         array_push($theArray, $obj);
