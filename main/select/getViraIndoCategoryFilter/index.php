@@ -17,6 +17,17 @@
     $itemCount = $stmt->rowCount();
     $productArr = array();
 
+    $jsonInput = json_decode(file_get_contents("php://input"), true);
+    $filter = $jsonInput['filter'];
+
+    if(isset($filter)){
+        foreach ($filter as $filt){
+            $name = $filt["name"];
+            
+            $arr[] = $name;
+        }
+    }
+
     if($itemCount > 0){
         
         // $productArr["list"] = array();
@@ -47,7 +58,7 @@
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
-                "filter" => filter($category_name),
+                "filter" => filter($category_name, $arr[]),
                 "item" => $results
             );
             array_push($productArr, $e);
