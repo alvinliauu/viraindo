@@ -54,7 +54,7 @@
                 $this->price = "asc";
             }
 
-            // filter("", $arr);
+            filter("", $arr);
 
             if($jsonInput == null){
                 echo "item not found";

@@ -23,7 +23,9 @@ function filter($category, $array){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
 
-    print_r("test");
+    $intersect = array_intersect($e, $array);
+
+    print_r($intersect);
     die();
 
     foreach ($e as $key => $value) {
