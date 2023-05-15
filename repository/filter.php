@@ -1,6 +1,6 @@
 <?php
 
-function filter($category){
+function filter($category, $array){
 
     $theArray = [];
     $arrayOfCat = [];
@@ -22,6 +22,9 @@ function filter($category){
     } elseif ($category == "keyboard") {
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
+
+    print_r("test");
+    die();
 
     foreach ($e as $key => $value) {
         
