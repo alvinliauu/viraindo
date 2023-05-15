@@ -21,6 +21,35 @@
             // GET ALL
             public function getViraIndoCategoryFilter(){
 
+                $arrTest1 = [];
+                $arrTest2 = [];
+
+                $test1 = ["Adata", "Apacer", "Corsair", "Crucial Ballistix", "Team T-Force", "Team Elite Plus", "V-Color", "V-GeN", "4GB", "8GB", "16GB", "32GB", "64GB"];
+            
+                $test2 = ["AMD", "ASRock", "Asus", "Colorful", "Galax", "Gigabyte", "2GB", "4GB", "6GB", "8GB", "10GB", "12GB", "24GB"];
+
+                foreach($test1 as $key => $value){
+                    $obj = new stdClass();
+                    $obj->name = $value;
+
+                    array_push($arrTest1, $obj);
+                    
+                }
+
+                foreach($test2 as $key => $value){
+                    $obj = new stdClass();
+                    $obj->name = $value;
+
+                    array_push($arrTest2, $obj);
+                    
+                }
+
+                print_r($arrTest1);
+
+                die();
+
+
+
             $jsonInput = json_decode(file_get_contents("php://input"), true);
             $this->id = $jsonInput['id'];
             $this->filter = $jsonInput['filter'];
