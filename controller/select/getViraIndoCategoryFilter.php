@@ -62,9 +62,9 @@
                     $sqlQuery = "$arrTotal AND TVSC.sub_category_id = $this->id GROUP BY TVSC.sub_category_id;";
     
                     $stmt = $this->conn->prepare($sqlQuery);
-                    $getStmt = $stmt->execute();
+                    $stmt->execute();
 
-                    print_r($getStmt);
+                    print_r($stmt);
                     die();
 
                     if(empty($getStmt)){
