@@ -34,7 +34,6 @@ function filter($category){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
 
-    print_r("tes");
     $intersect = array_intersect($e, $arr);
     print_r($intersect);
     die();
