@@ -65,6 +65,8 @@
                     $getStmt = $stmt->execute();
 
                     if($getStmt == []){
+                        print_r("test");
+                        die();
                         $arrTotal .= "SELECT TVC.category_name, TVSC.sub_category_id, TVSC.sub_category_name
                         FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
                         JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id WHERE TVSC.sub_category_id = $this->id;";
