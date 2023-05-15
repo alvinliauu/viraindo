@@ -64,7 +64,7 @@
                     $stmt = $this->conn->prepare($sqlQuery);
                     $getStmt = $stmt->execute();
 
-                    if($getStmt == []){
+                    if(empty($getStmt)){
                         print_r("test");
                         die();
                         $arrTotal .= "SELECT TVC.category_name, TVSC.sub_category_id, TVSC.sub_category_name
