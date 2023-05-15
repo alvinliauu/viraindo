@@ -39,9 +39,9 @@
 
                 foreach($test1 as $key => $value){
 
-                    if(array_diff($test1, $test2)){
+                    if(array_intersect($test1, $test2)){
                         $val = 1;
-                    }else $val = 2;
+                    }else $val = 0;
 
                     $obj = new stdClass();
                     $obj->name = $value;
