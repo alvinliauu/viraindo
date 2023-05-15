@@ -29,15 +29,9 @@
             
                 $test2 = ["AMD", "ASRock", "Asus", "Colorful", "Galax", "Gigabyte", "2GB", "4GB", "6GB", "8GB", "10GB", "12GB", "24GB"]; //keyword
 
+                $intersect = array_intersect($test1, $test2);
 
-                for($x = 0; $x < count($test1); $x++){
-                    
-                    $theArr = $test1[$x];
-
-                }
-
-
-                print_r($theArr);
+                print_r($intersect);
 
                 die();
 
