@@ -74,10 +74,10 @@
                 "filter" => filter($category_name),
                 "item" => $results
             );
-            array_push($productArr, $e);
-          
+            
             http_response_code(200);
         }
+        array_push($productArr, $e);
 
         echo json_encode($productArr);
     }
