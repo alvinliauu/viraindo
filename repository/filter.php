@@ -1,6 +1,6 @@
 <?php
 
-function filter($category, $arr){
+function filter($category){
 
     $theArray = [];
     $arrayOfCat = [];
@@ -32,26 +32,26 @@ function filter($category, $arr){
 
     }
 
-    for($x = 0; $x < count($arrayOfCat); $x++){
+    // for($x = 0; $x < count($arrayOfCat); $x++){
     
-        if($arrayOfCat[$x] == $arr){
-            $flag = 1;
-        } else $flag = 0;
+    //     if($arrayOfCat[$x] == $arr){
+    //         $flag = 1;
+    //     } else $flag = 0;
 
-        $obj = new stdClass();
-        $obj->name = $arrayOfCat;
-        $obj->flag = $flag;
+    //     $obj = new stdClass();
+    //     $obj->name = $arrayOfCat;
+    //     $obj->flag = $flag;
 
-        array_push($theArray, $obj);
+    //     array_push($theArray, $obj);
 
-    }
+    // }
 
     // foreach ($e as $key => $value) {
 
         
     // }
 
-    return $theArray;
+    return $arrayOfCat;
 
     // if($category == "motherboard"){
     //     $e = '[
