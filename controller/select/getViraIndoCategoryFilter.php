@@ -26,17 +26,15 @@
             $this->filter = $jsonInput['filter'];
             $this->price = $jsonInput['price'];
 
-            // if(isset($this->filter)){
-            //     foreach ($this->filter as $filt){
-            //         $name = $filt["name"];
+            if(isset($this->filter)){
+                foreach ($this->filter as $filt){
+                    $name = $filt["name"];
                     
-            //         $arr[] = $name;
-            //     }
-            // }
+                    $arr[] = $name;
+                }
+            }
 
-            $arr = explode(" ", $this->filter);
             print_r($arr);
-            
             die();
 
             if($this->price == ""){
