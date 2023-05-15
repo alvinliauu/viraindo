@@ -31,14 +31,13 @@
 
 
                 for($x = 0; $x < count($test1); $x++){
-                    $obj = new stdClass();
-                    $obj->name = $test1[$x];
+                    
+                    $theArr = $test1[$x];
 
-                    array_push($arrTest1, $obj);
                 }
 
 
-                print_r($arrTest1);
+                print_r($theArr);
 
                 die();
 
