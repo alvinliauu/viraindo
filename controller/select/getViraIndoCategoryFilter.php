@@ -64,7 +64,7 @@
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
 
-                    print_r($stmt);
+                    print_r($stmt->execute());
                     die();
 
                     if(empty($getStmt)){
