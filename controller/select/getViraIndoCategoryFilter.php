@@ -30,38 +30,15 @@
                 $test2 = ["AMD", "ASRock", "Asus", "Colorful", "Galax", "Gigabyte", "2GB", "4GB", "6GB", "8GB", "10GB", "12GB", "24GB"]; //keyword
 
 
-                foreach($test2 as $key => $value){
+                for($x = 0; $x < count($test1); $x++){
                     $obj = new stdClass();
-                    $obj->name = $value;
-
-                    array_push($arrTest2, $obj);
-                    
-                }
-
-                foreach($test1 as $key => $value){
-
-                    $obj = new stdClass();
-                    $obj->name = $value;
+                    $obj->name = $test1[$x];
 
                     array_push($arrTest1, $obj);
-                    
-                }
-
-                foreach ($arrTest1 as $key => $value) {
-                    
-                    if(array_intersect($arrTest1, $arrTest2)){
-                        $val = 1;
-                    }else $val = 0;
-
-                    $obj = new stdClass();
-                    $obj->name = $value;
-                    $obj->val = $val;
-
-                    array_push($theArr, $obj);
                 }
 
 
-                print_r($theArr);
+                print_r($arrTest1);
 
                 die();
 
