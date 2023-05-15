@@ -51,6 +51,9 @@
                 "filter" => filter($category_name),
                 "item" => $results
             );
+
+            print_r("test");
+            die();
             array_push($productArr, $e);
           
             http_response_code(200);
