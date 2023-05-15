@@ -16,6 +16,8 @@ function filter($category){
         }
     }       
 
+    print_r($arr);
+
     if($category == "motherboard"){
         $e = ["Intel", "AMD", "Asus", "ASRock", "Biostar", "Gigabyte", "MSI"];
     } elseif ($category == "processor") {
