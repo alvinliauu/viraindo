@@ -54,7 +54,7 @@
                     }else $val = 0;
 
                     $obj = new stdClass();
-                    $obj->name = $arrTest1[$key]['name'];
+                    $obj->name = $arrTest1[$key];
                     $obj->val = $val;
 
                     array_push($theArr, $obj);
