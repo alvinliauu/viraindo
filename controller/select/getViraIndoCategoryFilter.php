@@ -23,6 +23,7 @@
 
                 $arrTest1 = [];
                 $arrTest2 = [];
+                $theArr = [];
 
                 $test1 = ["Adata", "Apacer", "Corsair", "Crucial Ballistix", "Team T-Force", "Team Elite Plus", "V-Color", "V-GeN", "4GB", "8GB", "16GB", "32GB", "64GB"]; //filter
             
@@ -39,19 +40,28 @@
 
                 foreach($test1 as $key => $value){
 
-                    if(array_intersect($test1, $test2)){
-                        $val = 1;
-                    }else $val = 0;
-
                     $obj = new stdClass();
                     $obj->name = $value;
-                    $obj->sama = $val;
 
                     array_push($arrTest1, $obj);
                     
                 }
 
-                print_r($arrTest1);
+                foreach ($arrTest1 as $key => $value) {
+                    
+                    if(array_intersect($arrTest1, $arrTest2)){
+                        $val = 1;
+                    }else $val = 0;
+
+                    $obj = new stdClass();
+                    $obj->name = $arrTest1[$key]['name'];
+                    $obj->val = $val;
+
+                    array_push($theArr, $obj);
+                }
+
+
+                print_r($theArr);
 
                 die();
 
