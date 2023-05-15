@@ -59,7 +59,23 @@
     }
       
     else{
-        http_response_code(404);
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            // create array
+            extract($row);
+
+            $results = [];
+
+            $e = array(
+                "id" => $sub_category_id,
+                "name" => $sub_category_name,
+                "filter" => filter($category_name),
+                "item" => $results
+            );
+            array_push($productArr, $e);
+          
+            http_response_code(200);
+        }
+
         echo json_encode($productArr);
     }
 ?>
