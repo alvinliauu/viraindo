@@ -29,9 +29,12 @@
             if(isset($this->filter)){
                 foreach ($this->filter as $filt){
                     $name = $filt["name"];
-                    print_r($name);
+                    
+                    $arr[] = $name;
                 }
             }
+
+            print_r($arr);
             
             die();
 
