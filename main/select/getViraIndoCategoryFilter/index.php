@@ -59,7 +59,10 @@
     }
       
     else{
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+
+        $stmtElse = $item->getViraIndoCategoryFilterItemNull();
+
+        while($row = $stmtElse->fetch(PDO::FETCH_ASSOC)){
             // create array
             extract($row);
 
