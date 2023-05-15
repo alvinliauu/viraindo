@@ -7,6 +7,7 @@
         private $conn;
         public $id;
         public $name;
+        public $filter;
         public $category;
         public $price;
 
@@ -22,16 +23,16 @@
 
             $jsonInput = json_decode(file_get_contents("php://input"), true);
             $this->id = $jsonInput['id'];         
-            $this->name = $jsonInput['name'];
+            $this->filter = $jsonInput['filter'];
             $this->price = $jsonInput['price'];
 
-            if(isset($this->name)){
-                foreach ($this->name as $name){
-                    $filter = $name["filter"];
+            if(isset($this->filter)){
+                foreach ($this->filter as $filt){
+                    $name = $filt["name"];
+                    print_r($name);
                 }
             }
             
-            print_r("test");
             die();
 
             if($this->price == ""){
