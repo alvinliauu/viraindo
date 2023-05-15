@@ -1,9 +1,20 @@
 <?php
 
-function filter($category, $array){
+function filter($category){
 
     $theArray = [];
     $arrayOfCat = [];
+
+    $jsonInput = json_decode(file_get_contents("php://input"), true);
+    $filter = $jsonInput['filter'];
+
+    if(isset($filter)){
+        foreach ($filter as $filt){
+            $name = $filt["name"];
+            
+            $arr[] = $name;
+        }
+    }       
 
     if($category == "motherboard"){
         $e = ["Intel", "AMD", "Asus", "ASRock", "Biostar", "Gigabyte", "MSI"];
@@ -23,8 +34,7 @@ function filter($category, $array){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
 
-    $intersect = array_intersect($e, $array);
-
+    $intersect = array_intersect($e, $arr);
     print_r($intersect);
     die();
 

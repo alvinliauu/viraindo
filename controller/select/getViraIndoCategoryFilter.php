@@ -21,22 +21,6 @@
             // GET ALL
             public function getViraIndoCategoryFilter(){
 
-                // $arrTest1 = [];
-                // $arrTest2 = [];
-                // $theArr = [];
-
-                // $test1 = ["Adata", "Apacer", "Corsair", "Crucial Ballistix", "Team T-Force", "Team Elite Plus", "V-Color", "V-GeN", "4GB", "8GB", "16GB", "32GB", "64GB"]; //filter
-            
-                // $test2 = ["AMD", "ASRock", "Asus", "Colorful", "Galax", "Gigabyte", "2GB", "4GB", "6GB", "8GB", "10GB", "12GB", "24GB"]; //keyword
-
-                // $intersect = array_intersect($test1, $test2);
-
-                // print_r($intersect);
-
-                // die();
-
-
-
             $jsonInput = json_decode(file_get_contents("php://input"), true);
             $this->id = $jsonInput['id'];
             $this->filter = $jsonInput['filter'];
@@ -53,8 +37,6 @@
             if($this->price == ""){
                 $this->price = "asc";
             }
-
-            filter("", $arr);
 
             if($jsonInput == null){
                 echo "item not found";

@@ -44,12 +44,11 @@
             
             }
 
-            $array = [];
 
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
-                "filter" => filter($category_name, $array),
+                "filter" => filter($category_name),
                 "item" => $results
             );
             array_push($productArr, $e);
