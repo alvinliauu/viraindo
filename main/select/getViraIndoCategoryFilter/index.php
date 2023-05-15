@@ -44,9 +44,6 @@
             
             }
 
-
-            print_r("test");
-            die();
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
