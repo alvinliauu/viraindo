@@ -63,27 +63,7 @@
     
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
-
-                    print_r($stmt->execute());
-                    die();
-
-                    if(empty($getStmt)){
-                        
-                        $arrTotal .= "SELECT TVC.category_name, TVSC.sub_category_id, TVSC.sub_category_name
-                        FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
-                        JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id WHERE TVSC.sub_category_id = $this->id;";
-
-                        $stmt = $this->conn->prepare($sqlQuery);
-                        $getStmt = $stmt->execute();
-
-                        return $getStmt;
-
-                    } else {
-
-                        return $getStmt;
-
-                    }
-
+                    return $stmt;
                 }                
                 else{
                     $sqlQuery = "SELECT TVC.category_name, TVSC.sub_category_id, TVSC.sub_category_name, GROUP_CONCAT(TVI.item_id ORDER BY TVI.item_new_price $this->price SEPARATOR '$^$') AS item_id, GROUP_CONCAT(TVI.item_name ORDER BY TVI.item_new_price $this->price SEPARATOR '$^$') AS item_name,
