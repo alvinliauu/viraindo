@@ -34,7 +34,7 @@
             //     }
             // }
 
-            $arr[] = explode(" ", $this->name);
+            $arr = explode(" ", $this->filter);
             print_r($arr);
             
             die();
