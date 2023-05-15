@@ -34,13 +34,9 @@
                 }
             }
 
-            print_r($arr);
-            die();
-
             if($this->price == ""){
                 $this->price = "asc";
             }
-
 
             filter("", $arr);
 
