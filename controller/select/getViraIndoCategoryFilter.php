@@ -22,18 +22,19 @@
             public function getViraIndoCategoryFilter(){
 
             $jsonInput = json_decode(file_get_contents("php://input"), true);
-            $this->id = $jsonInput['id'];         
+            $this->id = $jsonInput['id'];
             $this->filter = $jsonInput['filter'];
             $this->price = $jsonInput['price'];
 
-            if(isset($this->filter)){
-                foreach ($this->filter as $filt){
-                    $name = $filt["name"];
+            // if(isset($this->filter)){
+            //     foreach ($this->filter as $filt){
+            //         $name = $filt["name"];
                     
-                    $arr[] = $name;
-                }
-            }
+            //         $arr[] = $name;
+            //     }
+            // }
 
+            $arr = explode(" ", $this->name);
             print_r($arr);
             
             die();
@@ -42,7 +43,6 @@
                 $this->price = "asc";
             }
 
-            $arr = explode(" ", $this->name);
 
             filter("", $arr);
 
