@@ -24,7 +24,16 @@
             $this->id = $jsonInput['id'];         
             $this->name = $jsonInput['name'];
             $this->price = $jsonInput['price'];
+
+            if(isset($this->name)){
+                foreach ($this->name as $name){
+                    $filter = $name["filter"];
+                }
+            }
             
+            print_r("test");
+            die();
+
             if($this->price == ""){
                 $this->price = "asc";
             }
