@@ -30,6 +30,8 @@
     }
 
     $item = new getViraIndoCategoryFilter($db, $id, $arr, $price);
+    print_r("test");
+        die();
     
     $stmt = $item->getViraIndoCategoryFilter();
 
@@ -78,8 +80,7 @@
     }
       
     else{
-        print_r("test");
-        die();
+
         $stmtElse = $item->getViraIndoCategoryFilterItemNull();
 
         while($row = $stmtElse->fetch(PDO::FETCH_ASSOC)){
