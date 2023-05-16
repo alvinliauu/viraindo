@@ -24,9 +24,6 @@
             // GET ALL
             public function getViraIndoCategoryFilter(){
 
-                print_r($this->filter);
-                die();
-
                 if($this->filter == true){
                     $arrTotal = "";
                     foreach($this->filter as $index => $count){
