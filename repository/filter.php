@@ -26,14 +26,15 @@ function filter($category, $arr){
     }
     
     $diff = array_diff($e, $arr);
-    print_r($diff);
-    die();
-    
+    if($diff){
+        $val = "false";
+    } else $val = "true";
+
     foreach ($e as $key => $value) {
         
         $objOfCat = new stdClass();
         $objOfCat->name = $value;
-        // $objOfCat->flag = $val;
+        $objOfCat->flag = $val;
 
         array_push($arrayOfCat, $objOfCat);
 
