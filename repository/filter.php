@@ -25,11 +25,10 @@ function filter($category, $arr){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
     
-    print_r($e);
-    print_r($arr);
-
-    die();
+    
     foreach ($e as $key => $value) {
+        print_r($arr);
+        print_r($value);
         
         if($value == $arr){
             $val = "true";
@@ -44,7 +43,7 @@ function filter($category, $arr){
         array_push($arrayOfCat, $objOfCat);
 
     }
-
+    die();
     // for($x = 0; $x < count($arrayOfCat); $x++){
     
     //     if($arrayOfCat[$x] == $arr){
