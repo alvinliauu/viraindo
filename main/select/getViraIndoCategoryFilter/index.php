@@ -32,10 +32,10 @@
     $item = new getViraIndoCategoryFilter($db, $id, $arr, $price);
     
     $stmt = $item->getViraIndoCategoryFilter();
-    print_r("test");
+    $itemCount = $stmt->rowCount();
+    print_r($itemCount);
     die();
 
-    $itemCount = $stmt->rowCount();
     $productArr = array();
 
     if($itemCount > 0){
