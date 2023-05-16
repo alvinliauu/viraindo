@@ -28,6 +28,7 @@ function filter($category, $arr){
     print_r($e);
     print_r($arr);
 
+    die();
     foreach ($e as $key => $value) {
         
         if($value == $arr){
