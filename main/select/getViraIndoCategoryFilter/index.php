@@ -6,14 +6,33 @@
 
     require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/repository/filter.php';
 
-    include_once '../../../connection/databaseconnect.php';
+    // include_once '../../../connection/databaseconnect.php';
     include_once '../../../controller/select/getViraIndoCategoryFilter.php';
 
-    $database = new Database();
-    $db = $database->getConnection();
-    $item = new getViraIndoCategoryFilter($db);
+    // $database = new Database();
+    // $db = $database->getConnection();
 
+    $jsonInput = json_decode(file_get_contents("php://input"), true);
+    $id = $jsonInput['id'];
+    $filter = $jsonInput['filter'];
+    $price = $jsonInput['price'];
+
+    if(isset($filter)){
+        foreach ($filter as $filt){
+            $name = $filt["name"];
+            
+            $arr[] = $name;
+        }
+    }
+
+    if($price == ""){
+        $price = "asc";
+    }
+
+    $item = new getViraIndoCategoryFilter($db, $id, $arr, $price);
+    
     $stmt = $item->getViraIndoCategoryFilter();
+
     $itemCount = $stmt->rowCount();
     $productArr = array();
 
