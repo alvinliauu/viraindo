@@ -1,6 +1,6 @@
 <?php
 
-function filter($category){
+function filter($category, $arr){
 
     $theArray = [];
     $arrayOfCat = [];
@@ -29,8 +29,15 @@ function filter($category){
 
     foreach ($e as $key => $value) {
         
+        if($value == $arr){
+            $val = "true";
+        } else {
+            $val = "false";
+        }
+
         $objOfCat = new stdClass();
         $objOfCat->name = $value;
+        $objOfCat->flag = $val;
 
         array_push($arrayOfCat, $objOfCat);
 

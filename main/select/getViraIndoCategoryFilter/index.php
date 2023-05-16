@@ -68,7 +68,7 @@
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
-                "filter" => filter($category_name),
+                "filter" => filter($category_name, $arr),
                 "item" => $results
             );
             array_push($productArr, $e);
@@ -92,7 +92,7 @@
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
-                "filter" => filter($category_name),
+                "filter" => filter($category_name, $arr),
                 "item" => $results
             );
             
