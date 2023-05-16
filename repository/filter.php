@@ -25,7 +25,8 @@ function filter($category, $arr){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
     
-
+    print_r($e);
+    print_r($arr);
 
     foreach ($e as $key => $value) {
         
