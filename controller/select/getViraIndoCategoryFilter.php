@@ -29,9 +29,9 @@
                     
                     $arrTotal = "";
                     foreach($this->filter as $index => $count){
+                        print_r($count);
                         if($index == 0){
 
-                            print_r($count);
                             
 
                             $arrTotal .= "SELECT TVC.category_name, TVSC.sub_category_id, TVSC.sub_category_name, GROUP_CONCAT(TVI.item_id ORDER BY TVI.item_new_price $this->price SEPARATOR '$^$') AS item_id, GROUP_CONCAT(TVI.item_name ORDER BY TVI.item_new_price $this->price SEPARATOR '$^$') AS item_name,
