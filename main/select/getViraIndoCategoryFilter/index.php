@@ -33,12 +33,13 @@
     
     $stmt = $item->getViraIndoCategoryFilter();
     $itemCount = $stmt->rowCount();
+    // print_r($itemCount);
+    die();
 
     $productArr = array();
 
     if($itemCount > 0){
-        print_r($itemCount);
-    die();
+    
         // $productArr["list"] = array();
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
