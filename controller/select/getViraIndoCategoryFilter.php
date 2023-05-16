@@ -31,8 +31,8 @@
                     foreach($this->filter as $index => $count){
                         if($index == 0){
 
-                            print_r($index);
-                            die();
+                            print_r($count);
+                            
 
                             $arrTotal .= "SELECT TVC.category_name, TVSC.sub_category_id, TVSC.sub_category_name, GROUP_CONCAT(TVI.item_id ORDER BY TVI.item_new_price $this->price SEPARATOR '$^$') AS item_id, GROUP_CONCAT(TVI.item_name ORDER BY TVI.item_new_price $this->price SEPARATOR '$^$') AS item_name,
                             GROUP_CONCAT(TVI.item_picture ORDER BY TVI.item_new_price $this->price SEPARATOR '$^$') AS item_picture, GROUP_CONCAT(TVI.item_new_price ORDER BY TVI.item_new_price $this->price SEPARATOR '$^$') AS item_price
@@ -46,7 +46,7 @@
                     
                         $arrTotal .= $arrLoop;
                     }           
-    
+                    die();
                     $sqlQuery = "$arrTotal AND TVSC.sub_category_id = $this->id GROUP BY TVSC.sub_category_id;";
     
                     $stmt = $this->conn->prepare($sqlQuery);
