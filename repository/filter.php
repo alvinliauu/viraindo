@@ -25,19 +25,14 @@ function filter($category, $arr){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
     
-    if(array_intersect($e, $arr)){
-        print_r("test");
-    } else print_r("hmm");
-
-    die();
     
     foreach ($e as $key => $value) {
-        
-        if($value == $arr){
+
+        if(array_intersect($e, $arr)){
             $val = "true";
-        } else {
-            $val = "false";
-        }
+        } else $val = "false";
+        
+        
 
         $objOfCat = new stdClass();
         $objOfCat->name = $value;
