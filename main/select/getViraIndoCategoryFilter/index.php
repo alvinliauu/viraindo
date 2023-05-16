@@ -37,8 +37,7 @@
     $productArr = array();
 
     if($itemCount > 0){
-        print_r("test");
-        die();
+    
         // $productArr["list"] = array();
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -79,7 +78,8 @@
     }
       
     else{
-
+        print_r("test");
+        die();
         $stmtElse = $item->getViraIndoCategoryFilterItemNull();
 
         while($row = $stmtElse->fetch(PDO::FETCH_ASSOC)){
