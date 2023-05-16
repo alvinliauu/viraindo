@@ -25,20 +25,15 @@ function filter($category, $arr){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
     
+    $diff = array_diff($e, $arr);
+    print_r($diff);
+    die();
     
     foreach ($e as $key => $value) {
         
-        if($arr[$key] == $e[$key]){
-            $val = "true";
-        } else {
-            $val = "false";
-        }
-        
-        
-
         $objOfCat = new stdClass();
         $objOfCat->name = $value;
-        $objOfCat->flag = $val;
+        // $objOfCat->flag = $val;
 
         array_push($arrayOfCat, $objOfCat);
 
