@@ -28,7 +28,7 @@ function filter($category, $arr){
     
     foreach ($e as $key => $value) {
         
-        if($value[$key] == $arr[$key]){
+        if(array_intersect($e, $arr)){
             $val = "true";
         } else $val = "false";
         
