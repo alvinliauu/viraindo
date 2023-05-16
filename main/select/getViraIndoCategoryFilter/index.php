@@ -34,7 +34,7 @@
     $stmt = $item->getViraIndoCategoryFilter();
     $itemCount = $stmt->rowCount();
     // print_r($itemCount);
-    die();
+    // die();
 
     $productArr = array();
 

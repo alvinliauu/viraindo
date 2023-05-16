@@ -42,9 +42,6 @@
                         $arrTotal .= $arrLoop;
                     }     
                     $sqlQuery = "$arrTotal AND TVSC.sub_category_id = $this->id GROUP BY TVSC.sub_category_id;";
-    
-                    print_r($sqlQuery);
-                    die();
 
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
