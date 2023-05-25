@@ -18,7 +18,7 @@
     $price = $jsonInput['price'];
 
     if(isset($filter)){
-        if($filter == []){
+        if(empty($filter)){
             $arr[] = "";
         } else {
             foreach ($filter as $filt){
