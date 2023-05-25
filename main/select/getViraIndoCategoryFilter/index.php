@@ -23,6 +23,8 @@
             
             $arr[] = $name;
         }
+    } elseif ($filter == []){
+        $arr = "";
     }
 
     if($price == ""){
