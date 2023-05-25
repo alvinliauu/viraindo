@@ -18,13 +18,15 @@
     $price = $jsonInput['price'];
 
     if(isset($filter)){
-        foreach ($filter as $filt){
-            $name = $filt["name"];
-            
-            $arr[] = $name;
+        if($filter == []){
+            $arr[] = "";
+        } else {
+            foreach ($filter as $filt){
+                $name = $filt["name"];
+                
+                $arr[] = $name;
+            }
         }
-    } elseif ($jsonInput['filter'] == []){
-        $arr[] = "";
     }
 
     if($price == ""){
