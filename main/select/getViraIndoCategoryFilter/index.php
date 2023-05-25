@@ -23,7 +23,7 @@
             
             $arr[] = $name;
         }
-    } elseif ($jsonInput['filter'] = []){
+    } elseif ($jsonInput['filter'] == []){
         $arr[] = "";
     }
 
