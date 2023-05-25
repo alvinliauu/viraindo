@@ -23,8 +23,8 @@
             
             $arr[] = $name;
         }
-    } elseif ($filter == []){
-        $arr = "";
+    } elseif ($jsonInput['filter'] = []){
+        $arr[] = "";
     }
 
     if($price == ""){
