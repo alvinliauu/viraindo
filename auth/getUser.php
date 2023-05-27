@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require __DIR__.'/classes/Database.php';
 require __DIR__.'/AuthMiddleware.php';
 
-$allHeaders = getallheaders();
+// $allHeaders = getallheaders();
 if (isset($_SERVER['Authorization'])) {
     $cTokenFromClient = trim($_SERVER['Authorization']);
 } else if (isset($_SERVER['HTTP_AUTHORIZATION'])) { //Nginx or fast CGI
