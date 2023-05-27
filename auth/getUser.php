@@ -5,13 +5,12 @@ header("Access-Control-Allow-Methods: GET");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-// require __DIR__.'/classes/Database.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/connection/databaseconnect.php';
+require __DIR__.'/classes/Database.php';
 require __DIR__.'/AuthMiddleware.php';
 
 $allHeaders = getallheaders();
 $db_connection = new Database();
-$conn = $db_connection->getConnection();
+$conn = $db_connection->dbConnection();
 $auth = new Auth($conn, $allHeaders);
 
 $valid = json_decode(json_encode($auth->isValid()), true);
