@@ -33,6 +33,7 @@
 
             try{
                 $this->conn = new PDO("mysql:host=" . $dbhost . ";dbname=" . $dbname, $dbusername, $dbpassword);
+                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $this->conn->exec("set names utf8");
             }catch(PDOException $exception){
                 echo "Database could not be connected: " . $exception->getMessage();
