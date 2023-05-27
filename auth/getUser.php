@@ -8,6 +8,9 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require __DIR__.'/classes/Database.php';
 require __DIR__.'/AuthMiddleware.php';
 
+$headers = apache_request_headers();
+print_r($headers);die();
+
 $allHeaders = getallheaders();
 $db_connection = new Database();
 $conn = $db_connection->dbConnection();
