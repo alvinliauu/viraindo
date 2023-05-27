@@ -15,10 +15,10 @@ $getHeader = apache_request_headers();
 print_r($getHeader);
 
 
+$valid = json_decode(json_encode($auth->isValid()), true);
 $allHeaders = getallheaders();
 print_r($allHeaders);die();
 
-$valid = json_decode(json_encode($auth->isValid()), true);
 
 
 if($valid["success"] == 1){
