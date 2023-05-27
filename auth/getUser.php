@@ -14,6 +14,8 @@ $db_connection = new Database();
 $conn = $db_connection->getConnection();
 $auth = new Auth($conn, $allHeaders);
 
+$valid =  json_decode(json_encode($auth->isValid()), true);
+
 if($valid["success"] == 1){
     print_r("true");
 } else {
