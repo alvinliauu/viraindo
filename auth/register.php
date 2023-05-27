@@ -12,7 +12,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/connection/databaseconnect.php
 
 // require __DIR__ . '/classes/Database.php';
 $db_connection = new Database();
-$conn = $db_connection->dbConnection();
+$conn = $db_connection->getConnection();
 
 function msg($success, $status, $message, $extra = [])
 {

@@ -11,7 +11,7 @@ require __DIR__.'/AuthMiddleware.php';
 
 $allHeaders = getallheaders();
 $db_connection = new Database();
-$conn = $db_connection->dbConnection();
+$conn = $db_connection->getConnection();
 $auth = new Auth($conn, $allHeaders);
 
 $valid = json_decode(json_encode($auth->isValid()), true);
