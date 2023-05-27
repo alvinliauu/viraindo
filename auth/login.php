@@ -5,9 +5,10 @@ header("Access-Control-Allow-Methods: POST");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-require __DIR__.'/classes/Database.php';
+// require __DIR__.'/classes/Database.php';
 require __DIR__.'/classes/JwtHandler.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/function.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/connection/databaseconnect.php';
 function msg($success,$status,$message,$extra = []){
     return array_merge([
         'success' => $success,
