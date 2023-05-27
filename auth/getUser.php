@@ -9,7 +9,18 @@ require __DIR__.'/classes/Database.php';
 require __DIR__.'/AuthMiddleware.php';
 
 $allHeaders = getallheaders();
-print_r($allHeaders);die();
+if (isset($_SERVER['Authorization'])) {
+    $cTokenFromClient = trim($_SERVER['Authorization']);
+} else if (isset($_SERVER['HTTP_AUTHORIZATION'])) { //Nginx or fast CGI
+    $cTokenFromClient = trim($_SERVER["HTTP_AUTHORIZATION"]);
+} else if (function_exists('apache_request_headers')) {
+    $requestHeaders = apache_request_headers();
+    $requestHeaders = array_combine(array_map('ucwords', array_keys($requestHeaders)), array_values($requestHeaders));
+    if (isset($requestHeaders['Authorization'])) {
+        $cTokenFromClient = trim($requestHeaders['Authorization']);
+    }
+}
+print_r($cTokenFromClient);die();
 $db_connection = new Database();
 $conn = $db_connection->dbConnection();
 $auth = new Auth($conn, $allHeaders);
