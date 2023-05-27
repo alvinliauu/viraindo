@@ -15,7 +15,9 @@ $getHeader = apache_request_headers();
 print_r($getHeader);
 
 
-$valid = json_decode(json_encode($auth->isValid()), true);
+// $valid = json_decode(json_encode($auth->isValid()), true);
+print_r($auth);
+
 $allHeaders = getallheaders();
 print_r($allHeaders);die();
 
