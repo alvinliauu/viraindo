@@ -5,12 +5,12 @@ header("Access-Control-Allow-Methods: GET");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
+print_r(($_SERVER['Authorization']));die();
+print_r("test");die();
 require __DIR__.'/classes/Database.php';
 require __DIR__.'/AuthMiddleware.php';
 
 // $allHeaders = getallheaders();
-print_r(($_SERVER['Authorization']));die();
-print_r("test");die();
 if (isset($_SERVER['Authorization'])) {
     $cTokenFromClient = trim($_SERVER['Authorization']);
 } else if (isset($_SERVER['HTTP_AUTHORIZATION'])) { //Nginx or fast CGI
