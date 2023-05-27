@@ -46,7 +46,7 @@ class Auth extends JwtHandler
     protected function fetchUser($user_id)
     {
         try {
-            $fetch_user_by_id = "SELECT `user_name`,`user_email` FROM `tbl_viraindo_user` WHERE `user_id`=:id";
+            $fetch_user_by_id = "SELECT `user_name`, `user_email`, `user_role` FROM `tbl_viraindo_user` WHERE `user_id`=:id";
             $query_stmt = $this->db->prepare($fetch_user_by_id);
             $query_stmt->bindValue(':id', $user_id, PDO::PARAM_INT);
             $query_stmt->execute();

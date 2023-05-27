@@ -11,6 +11,8 @@
     $items = new getViraIndoHome($db);
     $stmt = $items->getViraIndoHome();
     $underPrice = $items->getViraIndoItemUnderPrice();
+    $ComponentComputer = $items->getViraIndoComputerComponent();
+    $recommendItem = $items->getViraIndoRecommended();
 
     $itemCount = $stmt->rowCount();
 
@@ -19,7 +21,9 @@
         $productArr = array();
         $arrayOfGamingGears = [];
         $arrayOfItemUnderPrice = [];
+        $arrayOfComponentComputer = [];
         $imageOfBanner = [];
+        $arrayOfRecommendItem = [];
 		
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
@@ -55,6 +59,40 @@
 
         }
 
+        while ($rowOfComponentComputer = $ComponentComputer->fetch(PDO::FETCH_ASSOC)){
+            extract($rowOfComponentComputer);
+
+            $objOfComponentComputer = array(
+                "id" => $item_id,
+                "name" => $item_name,
+                "price" => $item_new_price,
+                "image" => array(
+                    "url" => $item_picture,
+                    "alt" => "viraindo tokopedia"
+                )
+            );
+
+            array_push($arrayOfComponentComputer, $objOfComponentComputer);
+
+        }
+
+        while ($rowOfRecommend = $recommendItem->fetch(PDO::FETCH_ASSOC)){
+            extract($rowOfRecommend);
+
+            $objOfRecommend = array(
+                "id" => $item_id,
+                "name" => $item_name,
+                "price" => $item_new_price,
+                "image" => array(
+                    "url" => $item_picture,
+                    "alt" => "viraindo tokopedia"
+                )
+            );
+
+            array_push($arrayOfRecommendItem, $objOfRecommend);
+
+        }
+
         for($x = 1; $x <= 2; $x++){
             
             $arrayOfImageBanner = array(
@@ -82,12 +120,24 @@
         );
 
         $itemUnderPrice = array(
-            "name" => "Gaming Gears Under 300k",
+            "name" => "Gaming Gears under 300k",
             "template" => 2,
             "content" => $arrayOfItemUnderPrice
         );
 
-        array_push($productArr, $image, $e, $itemUnderPrice);
+        $computerComponent = array(
+            "name" => "Komponen Komputer",
+            "template" => 1,
+            "content" => $arrayOfComponentComputer
+        );
+
+        $recommended = array(
+            "name" => "Spesial Untuk Kamu",
+            "template" => 4,
+            "content" => $arrayOfRecommendItem
+        );
+
+        array_push($productArr, $image, $e, $itemUnderPrice, $computerComponent, $recommended);
 		
         echo json_encode($productArr);
     }
