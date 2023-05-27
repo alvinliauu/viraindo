@@ -9,6 +9,7 @@ require __DIR__.'/classes/Database.php';
 require __DIR__.'/AuthMiddleware.php';
 
 $allHeaders = getallheaders();
+print_r($allHeaders);die();
 $db_connection = new Database();
 $conn = $db_connection->dbConnection();
 $auth = new Auth($conn, $allHeaders);
