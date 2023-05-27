@@ -8,17 +8,19 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require __DIR__.'/classes/Database.php';
 require __DIR__.'/AuthMiddleware.php';
 
+$db_connection = new Database();
+$conn = $db_connection->dbConnection();
+$auth = new Auth($conn, $allHeaders);
+
+$valid = json_decode(json_encode($auth->isValid()), true);
+print_r($valid);
+
 $getHeader = apache_request_headers();
 print_r($getHeader);
 
 
 $allHeaders = getallheaders();
 print_r($allHeaders);die();
-$db_connection = new Database();
-$conn = $db_connection->dbConnection();
-$auth = new Auth($conn, $allHeaders);
-
-$valid = json_decode(json_encode($auth->isValid()), true);
 
 if($valid["success"] == 1){
     print_r("true");
