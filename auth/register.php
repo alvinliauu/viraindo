@@ -7,11 +7,12 @@ header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/function.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/connection/databaseconnect.php';
 // require_once '/../function.php';
 
-require __DIR__ . '/classes/Database.php';
+// require __DIR__ . '/classes/Database.php';
 $db_connection = new Database();
-$conn = $db_connection->dbConnection();
+$conn = $db_connection->getConnection();
 
 function msg($success, $status, $message, $extra = [])
 {

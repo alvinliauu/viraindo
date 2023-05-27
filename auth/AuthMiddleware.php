@@ -16,10 +16,6 @@ class Auth extends JwtHandler
 
     public function isValid()
     {
-        $test = array_key_exists('Authorization', $this->headers);
-
-        print_r($test);die();
-
         if (array_key_exists('Authorization', $this->headers) && preg_match('/Bearer\s(\S+)/', $this->headers['Authorization'], $matches)) {
 
             $data = $this->jwtDecodeData($matches[1]);
