@@ -1,22 +1,33 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/connection/databaseconnect.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/auth/AuthMiddleware.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/function.php';
 require '../../vendor/autoload.php';
 
 header('Access-Control-Allow-Origin: https://www.mindli.site');
 
-$hostname = "QZdlXucJJGtO";
-$username = "W5F0XuIPL3c=";
-$password = "Do43Tb9QJXwK";
-$database = "RskwB7tYeSplTkgsShUAsJ4=";
-$decryption_key = "viraindo jaya";
+$allHeaders = getallheaders();
+$db_connection = new Database();
+$conn = $db_connection->getConnection();
+$auth = new Auth($conn, $allHeaders);
 
-$host = decrypt($decryption_key, $hostname);
-$user = decrypt($decryption_key, $username);
-$pass = decrypt($decryption_key, $password);
-$db   = decrypt($decryption_key, $database);
+$valid =  json_decode(json_encode($auth->isValid()), true);
 
-$konek = mysqli_connect($host, $user, $pass, $db);
+if($valid["success"] == 1){
+
+    $hostname = "QZdlXucJJGtO";
+    $username = "W5F0XuIPL3c=";
+    $password = "Do43Tb9QJXwK";
+    $database = "RskwB7tYeSplTkgsShUAsJ4=";
+    $decryption_key = "viraindo jaya";
+
+    $host = decrypt($decryption_key, $hostname);
+    $user = decrypt($decryption_key, $username);
+    $pass = decrypt($decryption_key, $password);
+    $db   = decrypt($decryption_key, $database);
+
+    $konek = mysqli_connect($host, $user, $pass, $db);
 
 // if(isset($_POST['submit'])){
     $err = "";
@@ -88,7 +99,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                     foreach ($differentOfArraySubCategory as $key => $value) {
                         $getDifferentSubCategory = $differentOfArraySubCategory[$key];                    
 
-                        $QueryInsertNewDiffSubCategory = "INSERT INTO tbl_viraindo_sub_category(category_id, sub_category_name, isActive) VALUES ('$GetCategoryId', '$getDifferentSubCategory', '1');";
+                        $QueryInsertNewDiffSubCategory = "INSERT INTO tbl_viraindo_sub_category(category_id, sub_category_name, isActive, updatedOn, updatedBy, updatedCount, insertedOn, insertedBy) VALUES ('$GetCategoryId', '$getDifferentSubCategory', '1');";
                         mysqli_query($konek, $QueryInsertNewDiffSubCategory);
                     }         
                     
@@ -162,7 +173,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             $item_old_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_old_price']);
                             $isActive        = $ArrayOfGetSubCatFromSheet[$diffItem]['isActive'];                
 
-                            $QueryInsertItem = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive)
+                            $QueryInsertItem = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive, updatedOn, updatedBy, updatedCount, insertedOn, insertedBy)
                             VALUES ('$sub_category_id', '$item_name', '$item_picture', '$item_new_price', '$item_old_price', '$isActive');";
                             mysqli_query($konek, $QueryInsertItem);
                         }                                                                                            
@@ -306,7 +317,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                             $item_old_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$key]['item_old_price']);
                             $isActive        = $ArrayOfGetSubCatFromSheet[$key]['isActive'];                                         
                             
-                            $QueryInsertItem = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive)
+                            $QueryInsertItem = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive, updatedOn, updatedBy, updatedCount, insertedOn, insertedBy)
                             VALUES ('$sub_category_id', '$item_name', '$item_picture', '$item_new_price', '$item_old_price', '$isActive');";
                             mysqli_query($konek, $QueryInsertItem);
 
@@ -382,7 +393,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
             }
             else{
 
-                $QueryInsertNewCategory = "INSERT INTO tbl_viraindo_category(category_name, isActive) VALUES ('$getCategoryFromSheet', '1');";
+                $QueryInsertNewCategory = "INSERT INTO tbl_viraindo_category(category_name, isActive, updatedOn, updatedBy, updatedCount, insertedOn, insertedBy) VALUES ('$getCategoryFromSheet', '1');";
                 mysqli_query($konek, $QueryInsertNewCategory);
 
                 $getCategoryFromSheet = $getSheetName[0];
@@ -410,7 +421,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                         foreach ($differentOfArraySubCategory as $key => $value) {
                             $getDifferentSubCategory = $differentOfArraySubCategory[$key];                    
 
-                            $QueryInsertNewDiffSubCategory = "INSERT INTO tbl_viraindo_sub_category(category_id, sub_category_name, isActive) VALUES ('$GetCategoryId', '$getDifferentSubCategory', '1');";
+                            $QueryInsertNewDiffSubCategory = "INSERT INTO tbl_viraindo_sub_category(category_id, sub_category_name, isActive, updatedOn, updatedBy, updatedCount, insertedOn, insertedBy) VALUES ('$GetCategoryId', '$getDifferentSubCategory', '1');";
                             mysqli_query($konek, $QueryInsertNewDiffSubCategory);
                         }         
                         
@@ -484,7 +495,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                                 $item_old_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_old_price']);
                                 $isActive        = $ArrayOfGetSubCatFromSheet[$diffItem]['isActive'];                 
 
-                                $QueryInsertItem = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive)
+                                $QueryInsertItem = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive, updatedOn, updatedBy, updatedCount, insertedOn, insertedBy)
                                 VALUES ('$sub_category_id', '$item_name', '$item_picture', '$item_new_price', '$item_old_price', '$isActive');";
                                 mysqli_query($konek, $QueryInsertItem);
                             }                                                                                            
@@ -628,7 +639,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                                 $item_old_price  = str_replace(",", "", $ArrayOfGetSubCatFromSheet[$diffItem]['item_old_price']);
                                 $isActive        = $ArrayOfGetSubCatFromSheet[$diffItem]['isActive'];      
 
-                                $QueryInsertItem = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive)
+                                $QueryInsertItem = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive, updatedOn, updatedBy, updatedCount, insertedOn, insertedBy)
                                 VALUES ('$sub_category_id', '$item_name', '$item_picture', '$item_new_price', '$item_old_price', '$isActive');";
                                 mysqli_query($konek, $QueryInsertItem);
                             }                                                                                            
@@ -727,7 +738,7 @@ $konek = mysqli_connect($host, $user, $pass, $db);
                     
                     $getDifferentCategory = $differentOfArray[$key];
 
-                    $QueryInsertNewDiffCategory = "INSERT INTO tbl_viraindo_category(category_name, isActive) VALUES ('$getDifferentCategory', '1');";
+                    $QueryInsertNewDiffCategory = "INSERT INTO tbl_viraindo_category(category_name, isActive, updatedOn, updatedBy, updatedCount, insertedOn, insertedBy) VALUES ('$getDifferentCategory', '1');";
                     mysqli_query($konek, $QueryInsertNewDiffCategory);
                 
                 }
@@ -763,6 +774,16 @@ $konek = mysqli_connect($host, $user, $pass, $db);
         // throw new Exception("Error Processing Request", 1);        
     }
 	print_r(json_encode($TheArray));
+} else {
+    $ErrArray = [];
+    $error = new stdClass();
+    $error->code = http_response_code();
+    $error->message = "The token is not valid";
+
+    array_push($ErrArray, $error);
+
+    print_r(json_encode($ErrArray));
+}
 
 
 // }

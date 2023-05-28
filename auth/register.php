@@ -79,8 +79,7 @@ else :
             }
             else{
                 $insert_query = "INSERT INTO tbl_viraindo_user (user_name, user_email, user_password, user_role, isActive, updatedOn, updatedBy, updatedCount, insertedOn, insertedBy) 
-                VALUES(:name, :email, :password, :role, 1, :updatedon, null, 1, :insertedon, null)";
-
+                VALUES(:name, :email, :password, :role, 1, :updatedon, null, 1, :insertedon, null)";                
                 $insert_stmt = $conn->prepare($insert_query);
 
                 // DATA BINDING
