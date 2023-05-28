@@ -18,7 +18,7 @@ $auth = new Auth($conn, $allHeaders);
 $valid =  json_decode(json_encode($auth->isValid()), true);
 
 if($valid["success"] == 1){
-    print_r($valid);
+    print_r(json_encode($valid));
 } else {
     print_r("false");
 };
