@@ -1,9 +1,9 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/connection/databaseconnect.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/auth/AuthMiddleware.php';
-print_r("test");die();
 require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/function.php';
+print_r("test");die();
+require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/auth/AuthMiddleware.php';
 require '../../vendor/autoload.php';
 
 header('Access-Control-Allow-Origin: https://www.mindli.site');
