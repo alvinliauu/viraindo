@@ -3,7 +3,6 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/connection/databaseconnect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/function.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/main/auth/AuthMiddleware.php';
-print_r("test");die();
 require '../../vendor/autoload.php';
 
 header('Access-Control-Allow-Origin: https://www.mindli.site');
