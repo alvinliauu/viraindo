@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // require __DIR__.'/classes/Database.php';
 // require __DIR__.'/AuthMiddleware.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/connection/databaseconnect.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/auth/AuthMiddleware.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/main/auth/AuthMiddleware.php';
 
 $allHeaders = getallheaders();
 $db_connection = new Database();
