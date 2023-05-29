@@ -18,8 +18,7 @@ $datetime = date("Y-m-d h:i:s");
 $name = $valid['user']['user_name'];
 
 if($valid["success"] == 1){
-    print_r("test");
-    die();
+    
     $hostname = "QZdlXucJJGtO";
     $username = "W5F0XuIPL3c=";
     $password = "Do43Tb9QJXwK";
