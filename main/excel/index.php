@@ -1,6 +1,7 @@
 <?php
-print_r("test");die();
+
 require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/connection/databaseconnect.php';
+print_r("test");die();
 require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/auth/AuthMiddleware.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/function.php';
 require '../../vendor/autoload.php';
