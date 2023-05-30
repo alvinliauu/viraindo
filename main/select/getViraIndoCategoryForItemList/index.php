@@ -19,7 +19,7 @@
     $productArr = array();
 
     if($itemCount > 0){
-        print_r($itemCount);die();
+        print_r($stmt);die();
         // $productArr["list"] = array();
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
