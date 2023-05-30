@@ -11,8 +11,8 @@
 
 
     $database = new Database();
-    print_r("test");die();
     $item = new getViraIndoCategoryForItemList($db);
+    print_r("test");die();
     $db = $database->getConnection();
 
     $stmt = $item->getViraIndoCategoryForItemList();
