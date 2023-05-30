@@ -30,7 +30,7 @@
             $explodeItemName = explode("$^$", $row['item_name']);
             $explodeItemPrice = explode("$^$", $row['item_price']);
             $explodeItemPicture = explode("$^$", $row['item_picture']);
-            print_r($explodeItemId);die();
+            
             $results = [];
             foreach ($explodeItemName as $key => $value) {
 
@@ -43,7 +43,7 @@
                 array_push($results, $theArray);
             
             }
-
+            print_r($results);die();
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
