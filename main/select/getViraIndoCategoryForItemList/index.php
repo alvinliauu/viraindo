@@ -44,15 +44,11 @@
                 array_push($results, $theArray);
             
             }
-
-            print_r($sub_category_id);
-            print_r(filter($category_name, 0));
-            die();
             
             $e = array(
-                "id" => $sub_category_id,
-                "name" => $sub_category_name,
-                "filter" => filter($category_name, 0),
+                "id" => $row['sub_category_id'],
+                "name" => $row['sub_category_name'],
+                "filter" => filter($row['category_name'], 0),
                 "item" => $results
             );
             array_push($productArr, $e);
