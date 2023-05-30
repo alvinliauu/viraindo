@@ -17,7 +17,6 @@
     $stmt = $item->getViraIndoCategoryForItemList();
     $itemCount = $stmt->rowCount();
     $productArr = array();
-    print_r("test");die();
 
     if($itemCount > 0){
         
