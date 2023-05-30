@@ -32,6 +32,7 @@
             $explodeItemPicture = explode("$^$", $row['item_picture']);
             
             $results = [];
+            $productArr = [];
             foreach ($explodeItemName as $key => $value) {
 
                 $val = $explodeItemPrice[$key];
