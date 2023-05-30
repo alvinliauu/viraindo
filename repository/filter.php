@@ -28,8 +28,6 @@
     
     $diff = array_diff($e, $arr);
 
-    print_r($diff);die();
-
     foreach ($e as $key => $value) {
 
         if($value == $diff[$key]){
@@ -43,7 +41,7 @@
         array_push($arrayOfCat, $objOfCat);
 
     }
-
+    print_r($arrayOfCat);die();
     // return $arrayOfCat;
 
     
