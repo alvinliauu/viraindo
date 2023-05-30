@@ -1,6 +1,8 @@
 <?php
 
-function filter($category, $arr){
+// function filter($category, $arr){
+
+    $category = "motherboard";
 
     $theArray = [];
     $arrayOfCat = [];
@@ -22,6 +24,8 @@ function filter($category, $arr){
     } elseif ($category == "keyboard") {
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     }
+
+    print_r($e);die();
     
     $diff = array_diff($e, $arr);
 
@@ -39,10 +43,10 @@ function filter($category, $arr){
 
     }
 
-    return $arrayOfCat;
+    // return $arrayOfCat;
 
     
 
-}
+// }
 
 ?>
