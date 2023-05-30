@@ -10,8 +10,8 @@
     include_once '../../../controller/select/getViraIndoCategoryForItemList.php';
 
 
-    print_r("test");die();
     $database = new Database();
+    print_r("test");die();
     $db = $database->getConnection();
     $item = new getViraIndoCategoryForItemList($db);
 
