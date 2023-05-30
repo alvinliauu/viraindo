@@ -1,9 +1,6 @@
 <?php
 
-// function filter($category, $arr){
-
-    $category = "motherboard";
-    $arr = ["Intel", "AMD"];
+function filter($category, $arr){
 
     $theArray = [];
     $arrayOfCat = [];
@@ -41,11 +38,11 @@
         array_push($arrayOfCat, $objOfCat);
 
     }
-    print_r($arrayOfCat);die();
-    // return $arrayOfCat;
+
+    return $arrayOfCat;
 
     
 
-// }
+}
 
 ?>

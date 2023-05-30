@@ -44,6 +44,10 @@
                 array_push($results, $theArray);
             
             }
+
+            print_r($sub_category_id);
+            print_r(filter($category_name, 0));
+            die();
             
             $e = array(
                 "id" => $sub_category_id,
