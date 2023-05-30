@@ -19,14 +19,14 @@
     $productArr = array();
 
     if($itemCount > 0){
-        print_r($stmt);die();
+        
         // $productArr["list"] = array();
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             // create array
             extract($row);
 
-            // print_r($row);
+            print_r($row);die();
             $explodeItemId = explode("$^$", $row['item_id']);
             $explodeItemName = explode("$^$", $row['item_name']);
             $explodeItemPrice = explode("$^$", $row['item_price']);
