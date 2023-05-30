@@ -47,7 +47,7 @@
 
             print_r($sub_category_id);
             print_r($sub_category_name);
-            print_r(filter($category_name, 0));
+            print_r(filter($category_name, []));
             die();
             
             $e = array(
