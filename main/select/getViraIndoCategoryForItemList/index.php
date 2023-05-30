@@ -11,9 +11,9 @@
 
 
     $database = new Database();
+    $db = $database->getConnection();
     $item = new getViraIndoCategoryForItemList($db);
     print_r("test");die();
-    $db = $database->getConnection();
 
     $stmt = $item->getViraIndoCategoryForItemList();
     $itemCount = $stmt->rowCount();
