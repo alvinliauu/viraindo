@@ -9,6 +9,8 @@
     include_once '../../../connection/databaseconnect.php';
     include_once '../../../controller/select/getViraIndoCategoryForItemList.php';
 
+
+    print_r("test");die();
     $database = new Database();
     $db = $database->getConnection();
     $item = new getViraIndoCategoryForItemList($db);
