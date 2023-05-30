@@ -43,7 +43,7 @@
                 array_push($results, $theArray);
             
             }
-            print_r($results);die();
+            
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
@@ -54,7 +54,7 @@
           
             http_response_code(200);
         }
-
+        print_r($productArr);die();
         echo json_encode($productArr);
     }
       
