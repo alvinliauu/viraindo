@@ -13,11 +13,11 @@
     $database = new Database();
     $db = $database->getConnection();
     $item = new getViraIndoCategoryForItemList($db);
-    print_r("test");die();
-
+    
     $stmt = $item->getViraIndoCategoryForItemList();
     $itemCount = $stmt->rowCount();
     $productArr = array();
+    print_r("test");die();
 
     if($itemCount > 0){
         
