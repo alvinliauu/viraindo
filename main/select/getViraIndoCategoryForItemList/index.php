@@ -48,13 +48,13 @@
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
-                // "filter" => filter($category_name, 0),
+                "filter" => filter($category_name, 0),
                 "item" => $results
             );
             array_push($productArr, $e);
           
             http_response_code(200);
-        }print_r($productArr);die();
+        }
         
         echo json_encode($productArr);
     }
