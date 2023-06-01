@@ -23,6 +23,7 @@
     $itemDetail = array();
     $itemLainnya = array();
     $otherItemForDetail = array();
+    $itemDetailArray = array();
 
     if($itemCount > 0){
     
@@ -31,7 +32,6 @@
             extract($row);
 
             $e = array(
-                "template" => 1,
                 "category" => $category_name,
                 "subcategory" => $sub_category_name,
                 "name" => $item_name,
@@ -61,17 +61,25 @@
             );
 
             array_push($itemLainnya, $item);
-
-            $otherItems = array(
-                "template" => 2,
-                "item" => $itemLainnya
-            );
-
-            array_push($otherItemForDetail, $otherItems);
           
             http_response_code(200);
         }
-        array_push($productArr, $itemDetail, $otherItemForDetail);
+
+        $itemDetails = array(
+            "template" => 1,
+            "data" => $itemDetail
+        );
+
+        array_push($itemDetailArray, $itemDetails);
+
+        $otherItems = array(
+            "template" => 2,
+            "item" => $itemLainnya
+        );
+
+        array_push($otherItemForDetail, $otherItems);
+
+        array_push($productArr, $itemDetailArray, $otherItemForDetail);
 
         echo json_encode($productArr);
     }
