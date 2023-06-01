@@ -70,16 +70,15 @@
             "data" => $itemDetail
         );
 
-        array_push($itemDetailArray, $itemDetails);
 
         $otherItems = array(
             "template" => 2,
             "item" => $itemLainnya
         );
 
-        array_push($otherItemForDetail, $otherItems);
 
-        array_push($productArr, $itemDetailArray, $otherItemForDetail);
+
+        array_push($productArr, $itemDetails, $otherItems);
 
         echo json_encode($productArr);
     }
