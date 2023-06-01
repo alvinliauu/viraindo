@@ -16,7 +16,7 @@
     $item = new getViraIndoItemDetail($db, $id);
     
     $stmt = $item->getViraIndoItemDetail();
-    $otherItem = $itemm->getViraIndoItemLainnya();
+    $otherItem = $item->getViraIndoItemLainnya();
     $itemCount = $stmt->rowCount();
 
     $productArr = array();
