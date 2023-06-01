@@ -28,7 +28,7 @@
                             
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->execute();
-            $row = $stmt->fetch_assoc();
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             print_r($row);die();
             return $stmt;                       
