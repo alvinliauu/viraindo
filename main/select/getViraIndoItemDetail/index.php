@@ -67,13 +67,13 @@
 
         $itemDetails = array(
             "template" => 1,
-            "data" => $itemDetail
+            "content" => $itemDetail
         );
 
 
         $otherItems = array(
             "template" => 2,
-            "item" => $itemLainnya
+            "content" => $itemLainnya
         );
 
 
