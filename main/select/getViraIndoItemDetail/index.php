@@ -46,7 +46,7 @@
             http_response_code(200);
         }
 
-        while($rowOfItemLainnya = $stmt->fetch(PDO::FETCH_ASSOC)){
+        while($rowOfItemLainnya = $otherItem->fetch(PDO::FETCH_ASSOC)){
             // create array
             extract($rowOfItemLainnya);
 

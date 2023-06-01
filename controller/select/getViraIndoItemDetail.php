@@ -50,10 +50,8 @@
 
             $stmtKedua = $this->conn->prepare($QueryOfItemLainnya);
             $stmtKedua->execute();
-            $rowtest= $stmtKedua->fetch(PDO::FETCH_ASSOC);
-            print_r($rowtest);die();
+            
             return $stmtKedua;                           
-
         }
 
     }
