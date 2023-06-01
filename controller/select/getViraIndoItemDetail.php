@@ -29,8 +29,9 @@
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->execute();
             $test = $stmt->get_result();
+            $row = $test->fetch_assoc();
 
-            print_r($test);die();
+            print_r($row);die();
             return $stmt;                       
 
         }
