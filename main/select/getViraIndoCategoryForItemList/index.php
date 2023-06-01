@@ -9,11 +9,10 @@
     include_once '../../../connection/databaseconnect.php';
     include_once '../../../controller/select/getViraIndoCategoryForItemList.php';
 
-
     $database = new Database();
     $db = $database->getConnection();
     $item = new getViraIndoCategoryForItemList($db);
-    
+
     $stmt = $item->getViraIndoCategoryForItemList();
     $itemCount = $stmt->rowCount();
     $productArr = array();
@@ -26,13 +25,13 @@
             // create array
             extract($row);
 
+            // print_r($row);
             $explodeItemId = explode("$^$", $row['item_id']);
             $explodeItemName = explode("$^$", $row['item_name']);
             $explodeItemPrice = explode("$^$", $row['item_price']);
             $explodeItemPicture = explode("$^$", $row['item_picture']);
-            
-            $results = [];
 
+            $results = [];
             foreach ($explodeItemName as $key => $value) {
 
                 $val = $explodeItemPrice[$key];
@@ -45,11 +44,6 @@
             
             }
 
-            print_r($sub_category_id);
-            print_r($sub_category_name);
-            print_r(filter($category_name, []));
-            die();
-            
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
@@ -60,7 +54,7 @@
           
             http_response_code(200);
         }
-        
+
         echo json_encode($productArr);
     }
       
