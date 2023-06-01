@@ -29,6 +29,8 @@
             // create array
             extract($row);
 
+
+
             $e = array(
                 "template" => 1,
                 "category" => $category_name,
@@ -50,8 +52,9 @@
             // create array
             extract($rowOfItemLainnya);
 
+            $otherItemForDetail = array();
+
             $item = array(
-                "template" => 2,
                 "name" => $item_name,
                 "price" => $item_new_price,
                 "image" => array(
@@ -61,10 +64,17 @@
             );
 
             array_push($itemLainnya, $item);
+
+            $otherItem = array(
+                "template" => 2,
+                "item" => $itemLainnya
+            );
+
+            array_push($otherItemForDetail, $otherItem);
           
             http_response_code(200);
         }
-        array_push($productArr, $itemDetail, $itemLainnya);
+        array_push($productArr, $itemDetail, $otherItemForDetail);
 
         echo json_encode($productArr);
     }
