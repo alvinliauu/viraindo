@@ -39,7 +39,7 @@
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->execute();
 
-            print_r($stmt);die();
+            print_r("test");die();
 
             $QueryOfItemLainnya = "SELECT TVC.category_name, TVSC.sub_category_name, TVI.item_name, TVI.item_picture, TVI.item_new_price 
             FROM tbl_viraindo_category TVC JOIN tbl_viraindo_sub_category TVSC ON TVC.category_id = TVSC.category_id 
