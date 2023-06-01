@@ -43,7 +43,7 @@
 
             $category_name = $row['category_name'];
 
-            print_r($row);
+            print_r($category_name);
             die();
 
             $QueryOfItemLainnya = "SELECT TVI.item_name, TVI.item_picture, TVI.item_new_price 
