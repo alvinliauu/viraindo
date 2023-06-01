@@ -20,6 +20,8 @@
     $itemCount = $stmt->rowCount();
 
     $productArr = array();
+    $itemDetail = array();
+    $itemLainnya = array();
 
     if($itemCount > 0){
     
@@ -28,6 +30,7 @@
             extract($row);
 
             $e = array(
+                "template" => 1,
                 "category" => $category_name,
                 "subcategory" => $sub_category_name,
                 "name" => $item_name,
@@ -38,12 +41,30 @@
                 )
             );
 
-
-
-            array_push($productArr, $e);
+            array_push($itemDetail, $e);
           
             http_response_code(200);
         }
+
+        while($rowOfItemLainnya = $stmt->fetch(PDO::FETCH_ASSOC)){
+            // create array
+            extract($rowOfItemLainnya);
+
+            $item = array(
+                "template" => 2,
+                "name" => $item_name,
+                "price" => $item_new_price,
+                "image" => array(
+                    "url" => $item_picture,
+                    "alt" => "viraindo"
+                )
+            );
+
+            array_push($itemLainnya, $item);
+          
+            http_response_code(200);
+        }
+        array_push($productArr, $itemDetail, $itemLainnya);
 
         echo json_encode($productArr);
     }
