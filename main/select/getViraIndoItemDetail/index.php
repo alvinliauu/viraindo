@@ -30,8 +30,6 @@
             // create array
             extract($row);
 
-
-
             $e = array(
                 "template" => 1,
                 "category" => $category_name,
@@ -64,12 +62,12 @@
 
             array_push($itemLainnya, $item);
 
-            $otherItem = array(
+            $otherItems = array(
                 "template" => 2,
                 "item" => $itemLainnya
             );
 
-            array_push($otherItemForDetail, $otherItem);
+            array_push($otherItemForDetail, $otherItems);
           
             http_response_code(200);
         }
