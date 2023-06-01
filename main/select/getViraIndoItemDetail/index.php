@@ -22,6 +22,7 @@
     $productArr = array();
     $itemDetail = array();
     $itemLainnya = array();
+    $otherItemForDetail = array();
 
     if($itemCount > 0){
     
@@ -51,8 +52,6 @@
         while($rowOfItemLainnya = $otherItem->fetch(PDO::FETCH_ASSOC)){
             // create array
             extract($rowOfItemLainnya);
-
-            $otherItemForDetail = array();
 
             $item = array(
                 "name" => $item_name,
