@@ -13,6 +13,9 @@
     $jsonInput = json_decode(file_get_contents("php://input"), true);
     $id = $jsonInput['id'];
 
+    print_r($id);
+    die();
+
     $item = new getViraIndoItemDetail($db, $id);
     
     $stmt = $item->getViraIndoItemDetail();
