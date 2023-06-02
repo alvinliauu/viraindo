@@ -1,5 +1,5 @@
 <?php
-    class getViraIndoSearch{
+    class getViraIndoSearchPage{
         // Connection
         private $conn;
         public $id;

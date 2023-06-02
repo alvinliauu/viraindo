@@ -9,7 +9,7 @@
 
     $database = new Database();
     $db = $database->getConnection();
-    $item = new getViraIndoSearch($db);
+    $item = new getViraIndoSearchPage($db);
 
     $stmt = $item->getViraIndoSearchPage();
     $itemCount = $stmt->rowCount();
