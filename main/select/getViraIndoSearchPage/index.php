@@ -5,7 +5,7 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     include_once '../../../connection/databaseconnect.php';
-    include_once '../../../controller/select/getViraIndoSearch.php';
+    include_once '../../../controller/select/getViraIndoSearchPage.php';
 
     $database = new Database();
     $db = $database->getConnection();
