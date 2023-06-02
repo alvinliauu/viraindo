@@ -141,7 +141,7 @@
                 "name" => $sub_category_name
             );
 
-            array_push($arrram, $listOfVga);     
+            array_push($arrvga, $listOfVga);     
         }
         $objOfVga = array(
             "name" => "VGA",
