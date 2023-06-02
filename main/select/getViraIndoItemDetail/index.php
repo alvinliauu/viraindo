@@ -11,9 +11,9 @@
     $db = $database->getConnection();
 
     $jsonInput = json_decode(file_get_contents("php://input"), true);
-    $id = $jsonInput['id'];
+    $name = $jsonInput['name'];
 
-    $item = new getViraIndoItemDetail($db, $id);
+    $item = new getViraIndoItemDetail($db, $name);
     
     $stmt = $item->getViraIndoItemDetail();
     $otherItem = $item->getViraIndoItemLainnya();
@@ -42,7 +42,11 @@
                 )
             );
 
-            array_push($itemDetail, $e);
+            $itemDetails = array(
+                "name" => "Item detail",
+                "template" => 1,
+                "content" => $e
+            );
           
             http_response_code(200);
         }
@@ -65,14 +69,9 @@
             http_response_code(200);
         }
 
-        $itemDetails = array(
-            "template" => 1,
-            "content" => $itemDetail
-        );
-
-
         $otherItems = array(
-            "template" => 2,
+            "name" => "Item lainnya",
+            "template" => 2,            
             "content" => $itemLainnya
         );
 
