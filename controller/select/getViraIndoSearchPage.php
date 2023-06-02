@@ -13,7 +13,7 @@
             }
 
             // GET ALL
-            public function getViraIndoSearch(){
+            public function getViraIndoSearchPage(){
 
             $jsonInput = json_decode(file_get_contents("php://input"), true);            
             $this->name = $jsonInput['name'];
@@ -28,7 +28,7 @@
                     $arrTotal = "";
                     foreach($arr as $index => $count){
                         if($index == 0){
-                            $arrTotal .= "SELECT item_id, item_name FROM tbl_viraindo_item WHERE
+                            $arrTotal .= "SELECT item_id, item_name, item_new_price, item_picture FROM tbl_viraindo_item WHERE
                             item_name like '%$count%' ";
                             continue;
                         }
@@ -37,16 +37,15 @@
                         $arrTotal .= $arrLoop;
                     }           
     
-                    $sqlQuery = "$arrTotal LIMIT 5;";
+                    $sqlQuery = "$arrTotal;";
     
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
                     return $stmt;
                 }
                 else{
-                    $sqlQuery = "SELECT item_id, item_name FROM tbl_viraindo_item WHERE 
-                    item_name like '%$this->name%'
-                    LIMIT 5;";
+                    $sqlQuery = "SELECT item_id, item_name, item_new_price, item_picture FROM tbl_viraindo_item WHERE 
+                    item_name like '%$this->name%';";
                     $stmt = $this->conn->prepare($sqlQuery);
                     
                     $stmt->execute();

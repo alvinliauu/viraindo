@@ -11,7 +11,7 @@
     $db = $database->getConnection();
     $item = new getViraIndoSearch($db);
 
-    $stmt = $item->getViraIndoSearch();
+    $stmt = $item->getViraIndoSearchPage();
     $itemCount = $stmt->rowCount();
     $productArr = array();
 
@@ -25,7 +25,12 @@
             extract($row);
                 $e = array(
                     "id" => $item_id,
-                    "name" => $item_name
+                    "name" => $item_name,
+                    "price" => $item_new_price,
+                    "image" => array(
+                        "url" => $item_picture,
+                        "alt" => "viraindo"
+                    )
                 );
                 array_push($productArr, $e);
           
