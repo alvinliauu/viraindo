@@ -52,7 +52,7 @@
 
             array_push($results, $theArray);
 
-            print_r($results);die();
+            print_r($results);
             
             $e = array(
                 "filter" => filter($category_name, $arr),
