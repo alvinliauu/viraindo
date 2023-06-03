@@ -28,7 +28,7 @@
                     $arrTotal = "";
                     foreach($this->name as $index => $count){
                         if($index == 0){
-                            $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_picture, TVI.item_new_price,
+                            $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_picture, TVI.item_new_price
                             FROM tbl_viraindo_item TVI WHERE TVI.item_name LIKE '%$count%'
                             ";
                             continue;
@@ -38,7 +38,7 @@
                         $arrTotal .= $arrLoop;
                     }     
                     $sqlQuery = "$arrTotal ORDER BY TVI.item_new_price $this->price;";
-                    print_r($sqlQuery);
+                    
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
 
