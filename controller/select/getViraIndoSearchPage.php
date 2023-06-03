@@ -38,7 +38,7 @@
                         $arrTotal .= $arrLoop;
                     }     
                     $sqlQuery = "$arrTotal ORDER BY TVI.item_new_price $this->price;";
-
+                    print_r($sqlQuery);
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
 
