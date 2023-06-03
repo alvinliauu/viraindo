@@ -21,7 +21,7 @@
             $arr[] = "";
         } else {
             foreach ($name as $filt){
-                $name = $filt["name"];
+                $name = $filt["keyword"];
                 
                 $arr[] = $name;
             }
@@ -31,7 +31,9 @@
     if($price == ""){
         $price = "asc";
     }
-
+    print_r($arr);
+    print_r("test");
+    die();
     $item = new getViraIndoSearchPage($db, $arr, $price);
     
     $stmt = $item->getViraIndoItemFilter();
