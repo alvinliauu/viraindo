@@ -24,7 +24,7 @@
             public function getViraIndoItemFilter(){
 
                 if($this->name[0] == true){
-                    
+                    print_r("test");die();
                     $arrTotal = "";
                     foreach($this->name as $index => $count){
                         if($index == 0){
