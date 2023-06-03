@@ -51,7 +51,8 @@
             $theArray = array("id" => $item_id, "name" => $item_name, "price" => $item_price, "image" => array("url" => $item_picture, "alt" => "viraindo"));
 
             array_push($results, $theArray);
-
+            print_r($results);
+            die();
             $e = array(
                 "filter" => filter($category_name, $arr),
                 "item" => $results
