@@ -31,9 +31,7 @@
     if($price == ""){
         $price = "asc";
     }
-    print_r($arr);
-    print_r("test");
-    die();
+    
     $item = new getViraIndoSearchPage($db, $arr, $price);
     
     $stmt = $item->getViraIndoItemFilter();
