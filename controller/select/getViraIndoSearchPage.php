@@ -181,7 +181,6 @@
                     echo "item not found";
                 }
                 else{
-               
         
                     $sqlQuery = "SELECT TVC.category_name, TVSC.sub_category_id, TVSC.sub_category_name
                     FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id

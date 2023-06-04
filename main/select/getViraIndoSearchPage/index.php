@@ -81,7 +81,7 @@
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
-                "filter" => filter($category_name, $arr),
+                "filter" => filterForSearch($arr),
                 "item" => $results
             );
             
