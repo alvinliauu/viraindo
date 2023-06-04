@@ -102,6 +102,9 @@
       
     else{
 
+        $productArr = array();
+        $arrOfCatFilter = array();
+
         $stmtElse = $item->getViraIndoCategoryFilterItemNull();
 
         while($row = $stmtElse->fetch(PDO::FETCH_ASSOC)){
