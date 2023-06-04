@@ -39,6 +39,7 @@
     $itemCount = $stmt->rowCount();
 
     $productArr = array();
+    $arrOfCatFilter = array();
 
     if($itemCount > 0){
     
@@ -66,10 +67,29 @@
             
             }
 
+            $category = array(
+                "template" => 1,
+                "name" => filter($category_name, $arr)
+            );
+    
+            if($price == null){
+                $sorting = array(
+                    "template" => 2,
+                    "name" => "Sort By Default"
+                );
+            } else {
+                $sorting = array(
+                    "template" => 2,
+                    "name" => $price
+                );
+            }
+    
+            array_push($arrOfCatFilter, $category, $sorting);
+
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
-                "filter" => filter($category_name, $arr),
+                "filter" => $arrOfCatFilter,
                 "item" => $results
             );
             array_push($productArr, $e);
@@ -90,10 +110,29 @@
 
             $results = [];
 
+            $category = array(
+                "template" => 1,
+                "name" => filter($category_name, $arr)
+            );
+    
+            if($price == null){
+                $sorting = array(
+                    "template" => 2,
+                    "name" => "Sort By Default"
+                );
+            } else {
+                $sorting = array(
+                    "template" => 2,
+                    "name" => $price
+                );
+            }
+    
+            array_push($arrOfCatFilter, $category, $sorting);
+
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
-                "filter" => filter($category_name, $arr),
+                "filter" => $arrOfCatFilter,
                 "item" => $results
             );
             
