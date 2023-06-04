@@ -31,7 +31,7 @@
                     $arrTotal = "";
 
                     foreach($arr as $index => $count){
-                        print_r("test");die();
+                        
                         if($index == 0){
                             $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_picture, TVI.item_new_price
                             FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
@@ -56,8 +56,6 @@
                             $filterTotal .= $filterLoop;
                         }
                         $allFilter = "$filterTotal)";
-
-                        print_r($arrTotal);die();
 
                         $sqlQuery = "$arrTotal AND TVC.category_name IN $allFilter ORDER BY TVI.item_new_price $this->price;";
                     }
