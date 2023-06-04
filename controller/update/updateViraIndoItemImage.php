@@ -21,14 +21,17 @@
                 $this->id = $jsonInput['id'];
                 $this->image = $jsonInput['image'];
 
+                $id = $this->id;
+                $image = $this->image;
+
                 if($this->id == null){
                     echo "item not found";
                 }
                 else{
 
                     $sqlQuery = "UPDATE tbl_viraindo_item
-                    SET item_picture = $this->image
-                    WHERE item_id = $this->id;";
+                    SET item_picture = $image
+                    WHERE item_id = $id;";
         
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
