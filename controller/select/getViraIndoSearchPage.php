@@ -69,11 +69,32 @@
                     return $stmt;
                 }                
                 else{
-                    $sqlQuery = "SELECT TVI.item_id, TVI.item_name, TVI.item_picture, TVI.item_new_price,
+                    $arrTotal = "";
+
+                    $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_picture, TVI.item_new_price,
                     FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
-                    JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id ORDER BY TVI.item_new_price $this->price;";
+                    JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id";
+
+                    if($this->filter[0] == true){
+                        $filterTotal = "";
+                        foreach($this->filter as $index => $value){
+                            if($index == 0){
+                                $filterTotal .= "('$value'";
+                                continue;
+                            }
+                            $filterLoop = ", '$value'";
+
+                            $filterTotal .= $filterLoop;
+                        }
+                        $allFilter = "$filterTotal)";
+
+                        $sqlQuery = "$arrTotal AND TVC.category_name IN $allFilter ORDER BY TVI.item_new_price $this->price;";
+                    }
+                    else{
+                        $sqlQuery = "$arrTotal ORDER BY TVI.item_new_price $this->price;";
+                    }    
+
                     $stmt = $this->conn->prepare($sqlQuery);
-                    
                     $stmt->execute();
                     return $stmt;
                 }    
