@@ -27,6 +27,8 @@
                 if($this->name[0] == true){
                     
                     $arrTotal = "";
+
+                    print_r($this->name);die();
                     foreach($this->name as $index => $count){
                         if($index == 0){
                             $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_picture, TVI.item_new_price
@@ -38,9 +40,8 @@
                         $arrLoop = "AND TVI.item_name LIKE '%$count%'";                             
                     
                         $arrTotal .= $arrLoop;
-                        print_r($arrTotal);
                     }
-                    die();
+                    
                     if($this->filter[0] == true){
                         $filterTotal = "";
                         foreach($this->filter as $index => $value){
