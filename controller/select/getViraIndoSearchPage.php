@@ -62,9 +62,6 @@
                     else{
                         $sqlQuery = "$arrTotal ORDER BY TVI.item_new_price $this->price;";
                     }                    
-                    
-                    print_r($sqlQuery);
-                    die();
 
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
