@@ -104,36 +104,35 @@
 
         $stmtElse = $item->getViraIndoCategoryFilterItemNull();
 
-        extract($row);
-
-            $results = [];
-
-            $category = array(
-                "template" => 1,
-                "name" => filter($category_name, $arr)
-            );
-    
-            if($price == null){
-                $sorting = array(
-                    "template" => 2,
-                    "name" => "Sort By Default"
-                );
-            } else {
-                $sorting = array(
-                    "template" => 2,
-                    "name" => $price
-                );
-            }
-    
-            array_push($arrOfCatFilter, $category, $sorting);
-
         while($row = $stmtElse->fetch(PDO::FETCH_ASSOC)){
-            // create array            
+            // create array
+            // extract($row);
+
+            // $results = [];
+
+            // $category = array(
+            //     "template" => 1,
+            //     "name" => filter($category_name, $arr)
+            // );
+    
+            // if($price == null){
+            //     $sorting = array(
+            //         "template" => 2,
+            //         "name" => "Sort By Default"
+            //     );
+            // } else {
+            //     $sorting = array(
+            //         "template" => 2,
+            //         "name" => $price
+            //     );
+            // }
+    
+            // array_push($arrOfCatFilter, $category, $sorting);
 
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
-                "filter" => $arrOfCatFilter,
+                "filter" => filter($category_name, $arr),
                 "item" => $results
             );
             
