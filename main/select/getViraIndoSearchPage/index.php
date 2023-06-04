@@ -40,6 +40,7 @@
 
     $productArr = array();
     $results = array();
+    $arrOfCatFilter = array();
 
     if($itemCount > 0){
     
@@ -48,15 +49,33 @@
             // create array
             extract($row);
 
-
-
             $theArray = array("id" => $item_id, "name" => $item_name, "price" => $item_new_price, "image" => array("url" => $item_picture, "alt" => "viraindo"));
 
             array_push($results, $theArray);
             
         }
+
+        $category = array(
+            "template" => 1,
+            "name" => filterForSearch($arr)
+        );
+
+        if($price == null){
+            $sorting = array(
+                "template" => 2,
+                "name" => "Sort By Default"
+            );
+        } else {
+            $sorting = array(
+                "template" => 2,
+                "name" => $price
+            );
+        }
+
+        array_push($arrOfCatFilter, $category, $sorting);
+
         $e = array(
-            "filter" => filterForSearch($arr),
+            "filter" => $arrOfCatFilter,
             "keyword" => $name,
             "count" => $itemCount,
             "item" => $results
@@ -77,8 +96,27 @@
 
             $results = [];
 
+            $category = array(
+                "template" => 1,
+                "name" => filterForSearch($arr)
+            );
+    
+            if($price == null){
+                $sorting = array(
+                    "template" => 2,
+                    "name" => "Sort By Default"
+                );
+            } else {
+                $sorting = array(
+                    "template" => 2,
+                    "name" => $price
+                );
+            }
+    
+            array_push($arrOfCatFilter, $category, $sorting);
+
             $e = array(
-                "filter" => filterForSearch($arr),
+                "filter" => $arrOfCatFilter,
                 "keyword" => $name,
                 "count" => $itemCount,
                 "item" => $results

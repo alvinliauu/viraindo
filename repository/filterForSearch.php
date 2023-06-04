@@ -25,8 +25,6 @@ function filterForSearch($arr){
 
     return $arrayOfCat;
 
-    
-
 }
 
 ?>
