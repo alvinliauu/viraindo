@@ -4,7 +4,7 @@
     header("Access-Control-Max-Age: 3600");
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-    require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/repository/filter.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/repository/filterForSearch.php';
 
     include_once '../../../connection/databaseconnect.php';
     include_once '../../../controller/select/getViraIndoSearchPage.php';
@@ -14,14 +14,15 @@
 
     $jsonInput = json_decode(file_get_contents("php://input"), true);
     $name = $jsonInput['name'];
+    $filter = $jsonInput['filter'];
     $price = $jsonInput['price'];
 
-    if(isset($name)){
-        if(empty($name)){
+    if(isset($filter)){
+        if(empty($filter)){
             $arr[] = "";
         } else {
-            foreach ($name as $filt){
-                $name = $filt["keyword"];
+            foreach ($filter as $filt){
+                $filter = $filt["name"];
                 
                 $arr[] = $name;
             }
@@ -32,7 +33,7 @@
         $price = "asc";
     }
     
-    $item = new getViraIndoSearchPage($db, $arr, $price);
+    $item = new getViraIndoSearchPage($db, $name, $arr, $price);
     
     $stmt = $item->getViraIndoItemFilter();
     $itemCount = $stmt->rowCount();
@@ -51,11 +52,9 @@
             $theArray = array("id" => $item_id, "name" => $item_name, "price" => $item_price, "image" => array("url" => $item_picture, "alt" => "viraindo"));
 
             array_push($results, $theArray);
-
-            print_r($results);
             
             $e = array(
-                "filter" => filter($category_name, $arr),
+                "filter" => filterForSearch($arr),
                 "item" => $results
             );
             array_push($productArr, $e);
