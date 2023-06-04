@@ -26,9 +26,11 @@
 
                 if($this->name[0] == true){
                     
+                    $arr = explode(" ", $this->name);
+
                     $arrTotal = "";
 
-                    foreach($this->name as $index => $count){
+                    foreach($arr as $index => $count){
                         print_r("test");die();
                         if($index == 0){
                             $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_picture, TVI.item_new_price
