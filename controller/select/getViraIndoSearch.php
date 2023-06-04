@@ -42,11 +42,6 @@
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
 
-                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                    print_r($row);
-                    print_r("test");die();
-
                     return $stmt;
                 }
                 else{

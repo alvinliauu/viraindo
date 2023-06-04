@@ -39,6 +39,7 @@
     $itemCount = $stmt->rowCount();
 
     $productArr = array();
+    $results = array();
 
     if($itemCount > 0){
     
@@ -47,7 +48,7 @@
             // create array
             extract($row);
 
-            $results = [];
+
 
             $theArray = array("id" => $item_id, "name" => $item_name, "price" => $item_new_price, "image" => array("url" => $item_picture, "alt" => "viraindo"));
 

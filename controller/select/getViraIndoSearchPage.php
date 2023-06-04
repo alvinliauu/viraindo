@@ -26,53 +26,45 @@
 
                 if($this->name[0] == true){
                     
-                    $sqlQuery = "SELECT * FROM tbl_viraindo_item";
+                    $arr = explode(" ", $this->name);
 
-                    // $arr = explode(" ", $this->name);
+                    $arrTotal = "";
 
-                    // $arrTotal = "";
-
-                    // foreach($arr as $index => $count){
+                    foreach($arr as $index => $count){
                         
-                    //     if($index == 0){
-                    //         $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_picture, TVI.item_new_price
-                    //         FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
-                    //         JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id WHERE TVI.item_name LIKE '%$count%'
-                    //         ";
-                    //         continue;
-                    //     }
-                    //     $arrLoop = "AND TVI.item_name LIKE '%$count%'";                             
+                        if($index == 0){
+                            $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_picture, TVI.item_new_price
+                            FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
+                            JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id WHERE TVI.item_name LIKE '%$count%'
+                            ";
+                            continue;
+                        }
+                        $arrLoop = "AND TVI.item_name LIKE '%$count%'";                             
                     
-                    //     $arrTotal .= $arrLoop;
-                    // }
+                        $arrTotal .= $arrLoop;
+                    }
                     
-                    // if($this->filter[0] == true){
-                    //     $filterTotal = "";
-                    //     foreach($this->filter as $index => $value){
-                    //         if($index == 0){
-                    //             $filterTotal .= "('$value'";
-                    //             continue;
-                    //         }
-                    //         $filterLoop = ", '$value'";
+                    if($this->filter[0] == true){
+                        $filterTotal = "";
+                        foreach($this->filter as $index => $value){
+                            if($index == 0){
+                                $filterTotal .= "('$value'";
+                                continue;
+                            }
+                            $filterLoop = ", '$value'";
 
-                    //         $filterTotal .= $filterLoop;
-                    //     }
-                    //     $allFilter = "$filterTotal)";
+                            $filterTotal .= $filterLoop;
+                        }
+                        $allFilter = "$filterTotal)";
 
-                    //     $sqlQuery = "$arrTotal AND TVC.category_name IN $allFilter ORDER BY TVI.item_new_price $this->price;";
-                    // }
-                    // else{
-                    //     $sqlQuery = "$arrTotal ORDER BY TVI.item_new_price $this->price;";
-                    // }                    
+                        $sqlQuery = "$arrTotal AND TVC.category_name IN $allFilter ORDER BY TVI.item_new_price $this->price;";
+                    }
+                    else{
+                        $sqlQuery = "$arrTotal ORDER BY TVI.item_new_price $this->price;";
+                    }                    
 
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
-
-                    print_r($sqlQuery);
-
-                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                    print_r($row);die();
 
                     return $stmt;
                 }                
