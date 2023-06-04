@@ -28,7 +28,7 @@
                     echo "item not found";
                 }
                 else{
-                    print_r("test");die();
+                    
                     $sqlQuery = "UPDATE tbl_viraindo_item
                     SET item_picture = '$image'
                     WHERE item_id = '$id';";
