@@ -57,6 +57,8 @@
         }
         $e = array(
             "filter" => filterForSearch($arr),
+            "keyword" => $name,
+            "count" => $itemCount,
             "item" => $results
         );
         array_push($productArr, $e);
