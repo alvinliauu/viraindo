@@ -32,6 +32,10 @@
     if($price == ""){
         $price = "asc";
     }
+
+    print_r($name);
+    print_r($filter);
+    die();
     
     $item = new getViraIndoSearchPage($db, $name, $arr, $price);
     
