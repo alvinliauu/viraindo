@@ -24,7 +24,7 @@
             foreach ($filter as $filt){
                 $filter = $filt["name"];
                 
-                $arr[] = $name;
+                $arr[] = $filter;
             }
         }
     }
