@@ -88,7 +88,7 @@
                         }
                         $allFilter = "$filterTotal)";
 
-                        $sqlQuery = "$arrTotal AND TVC.category_name IN $allFilter ORDER BY TVI.item_new_price $this->price;";
+                        $sqlQuery = "$arrTotal WHERE TVC.category_name IN $allFilter ORDER BY TVI.item_new_price $this->price;";
                     }
                     else{
                         $sqlQuery = "$arrTotal ORDER BY TVI.item_new_price $this->price;";
