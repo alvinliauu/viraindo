@@ -104,9 +104,7 @@
 
         $stmtElse = $item->getViraIndoCategoryFilterItemNull();
 
-        while($row = $stmtElse->fetch(PDO::FETCH_ASSOC)){
-            // create array
-            extract($row);
+        extract($row);
 
             $results = [];
 
@@ -128,6 +126,9 @@
             }
     
             array_push($arrOfCatFilter, $category, $sorting);
+
+        while($row = $stmtElse->fetch(PDO::FETCH_ASSOC)){
+            // create array            
 
             $e = array(
                 "id" => $sub_category_id,
