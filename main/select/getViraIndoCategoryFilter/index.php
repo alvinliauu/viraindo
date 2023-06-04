@@ -38,8 +38,6 @@
     $stmt = $item->getViraIndoCategoryFilter();
     $itemCount = $stmt->rowCount();
 
-    $stmtElse = $item->getViraIndoCategoryFilterItemNull();
-
     $productArr = array();
     $arrOfCatFilter = array();
 
@@ -103,6 +101,8 @@
     }
       
     else{
+
+        $stmtElse = $item->getViraIndoCategoryFilterItemNull();
 
         while($row = $stmtElse->fetch(PDO::FETCH_ASSOC)){
             // create array

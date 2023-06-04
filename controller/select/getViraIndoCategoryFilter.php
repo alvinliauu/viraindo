@@ -119,28 +119,7 @@
             }
 
             public function getViraIndoCategoryFilterItemNull(){
-            
-                $jsonInput = json_decode(file_get_contents("php://input"), true);
-                $this->id = $jsonInput['id'];
-                $this->filter = $jsonInput['filter'];
-                $this->price = $jsonInput['price'];
-
-                if(isset($this->filter)){
-                    foreach ($this->filter as $filt){
-                        $name = $filt["name"];
-                        
-                        $arr[] = $name;
-                    }
-                }
-
-                if($this->price == ""){
-                    $this->price = "asc";
-                }
-
-                if($jsonInput == null){
-                    echo "item not found";
-                }
-                else{
+  
                
                     $sqlQuery = "SELECT TVC.category_name, TVSC.sub_category_id, TVSC.sub_category_name
                     FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
@@ -150,9 +129,7 @@
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
                     return $stmt;
-                             
-                }
-
+                 
             }
 
     }
