@@ -106,9 +106,9 @@
 
         while($row = $stmtElse->fetch(PDO::FETCH_ASSOC)){
             // create array
-            // extract($row);
+            extract($row);
 
-            // $results = [];
+            $results = [];
 
             // $category = array(
             //     "template" => 1,
