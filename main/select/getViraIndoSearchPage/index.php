@@ -49,19 +49,19 @@
 
             $results = [];
 
-            $theArray = array("id" => $item_id, "name" => $item_name, "price" => $item_price, "image" => array("url" => $item_picture, "alt" => "viraindo"));
+            $theArray = array("id" => $item_id, "name" => $item_name, "price" => $item_new_price, "image" => array("url" => $item_picture, "alt" => "viraindo"));
 
             array_push($results, $theArray);
             
-            $e = array(
-                "filter" => filterForSearch($arr),
-                "item" => $results
-            );
-            array_push($productArr, $e);
-          
-            http_response_code(200);
         }
-
+        $e = array(
+            "filter" => filterForSearch($arr),
+            "item" => $results
+        );
+        array_push($productArr, $e);
+      
+        http_response_code(200);
+        
         echo json_encode($productArr);
     }
       
