@@ -66,6 +66,8 @@
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
 
+                    print_r($sqlQuery);
+
                     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
                     print_r($row);die();
