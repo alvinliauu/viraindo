@@ -71,7 +71,7 @@
                 else{
                     $arrTotal = "";
 
-                    $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_picture, TVI.item_new_price,
+                    $arrTotal .= "SELECT TVI.item_id, TVI.item_name, TVI.item_picture, TVI.item_new_price
                     FROM tbl_viraindo_item TVI JOIN tbl_viraindo_sub_category TVSC ON TVI.sub_category_id = TVSC.sub_category_id
                     JOIN tbl_viraindo_category TVC ON TVC.category_id = TVSC.category_id";
 
