@@ -39,7 +39,7 @@
                     
                         $arrTotal .= $arrLoop;
                     }
-                    
+                    print_r($arrTotal);die();
                     if($this->filter[0] == true){
                         $filterTotal = "";
                         foreach($this->filter as $index => $value){
