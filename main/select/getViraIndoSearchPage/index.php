@@ -71,7 +71,7 @@
     else{
 
         $stmtElse = $item->getViraIndoItemFilterItemNull();
-
+        print_r("test");die();
         while($row = $stmtElse->fetch(PDO::FETCH_ASSOC)){
             // create array
             extract($row);
