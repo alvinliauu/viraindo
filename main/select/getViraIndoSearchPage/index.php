@@ -70,11 +70,10 @@
       
     else{
 
-        print_r("test");die();
-        $stmtElse = $item->getViraIndoItemFilterItemNull();
-        while($row = $stmtElse->fetch(PDO::FETCH_ASSOC)){
+        // $stmtElse = $item->getViraIndoItemFilterItemNull();
+        // while($row = $stmtElse->fetch(PDO::FETCH_ASSOC)){
             // create array
-            extract($row);
+            // extract($row);
 
             $results = [];
 
@@ -86,7 +85,7 @@
             );
             
             http_response_code(200);
-        }
+        // }
         array_push($productArr, $e);
 
         echo json_encode($productArr);
