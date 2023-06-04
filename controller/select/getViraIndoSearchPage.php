@@ -38,8 +38,9 @@
                         $arrLoop = "AND TVI.item_name LIKE '%$count%'";                             
                     
                         $arrTotal .= $arrLoop;
+                        print_r($arrTotal);
                     }
-                    print_r($arrTotal);die();
+                    die();
                     if($this->filter[0] == true){
                         $filterTotal = "";
                         foreach($this->filter as $index => $value){
