@@ -110,35 +110,36 @@
 
             $results = [];
 
-            // $category = array(
-            //     "template" => 1,
-            //     "name" => filter($category_name, $arr)
-            // );
+            $category = array(
+                "template" => 1,
+                "name" => filter($category_name, $arr)
+            );
     
-            // if($price == null){
-            //     $sorting = array(
-            //         "template" => 2,
-            //         "name" => "Sort By Default"
-            //     );
-            // } else {
-            //     $sorting = array(
-            //         "template" => 2,
-            //         "name" => $price
-            //     );
-            // }
+            if($price == null){
+                $sorting = array(
+                    "template" => 2,
+                    "name" => "Sort By Default"
+                );
+            } else {
+                $sorting = array(
+                    "template" => 2,
+                    "name" => $price
+                );
+            }
     
-            // array_push($arrOfCatFilter, $category, $sorting);
+            array_push($arrOfCatFilter, $category, $sorting);
 
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
-                "filter" => filter($category_name, $arr),
+                "filter" => $arrOfCatFilter,
                 "item" => $results
             );
             
+            array_push($productArr, $e);
+
             http_response_code(200);
         }
-        array_push($productArr, $e);
 
         echo json_encode($productArr);
     }
