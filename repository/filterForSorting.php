@@ -4,9 +4,11 @@ function filterForSorting($arr){
 
     $theArray = [];
     $arrayOfCat = [];
-print_r($arr);die();
+
     $e = ["Price from low to high", "Price from high to low"];
     
+     print_r(in_array($arr, $e));die();
+
     $diff = array_diff($e, $arr);
     
     foreach ($e as $key => $value) {
