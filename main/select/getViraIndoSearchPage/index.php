@@ -5,6 +5,7 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/repository/filterForSearch.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/repository/filterForSorting.php';
 
     include_once '../../../connection/databaseconnect.php';
     include_once '../../../controller/select/getViraIndoSearchPage.php';
