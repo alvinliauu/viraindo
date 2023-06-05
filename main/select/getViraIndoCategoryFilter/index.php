@@ -68,7 +68,7 @@
                 array_push($results, $theArray);
             
             }
-print_r("test");die();
+
             $category = array(
                 "template" => 1,
                 "name" => filter($category_name, $arr)
@@ -78,7 +78,7 @@ print_r("test");die();
                 "template" => 2,
                 "name" => filterForSorting($price)
             );
-    
+            print_r("test");die();
             array_push($arrOfCatFilter, $category, $sorting);
 
             print_r($arrOfCatFilter);die();
