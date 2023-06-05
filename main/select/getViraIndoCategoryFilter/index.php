@@ -16,7 +16,7 @@
     $jsonInput = json_decode(file_get_contents("php://input"), true);
     $id = $jsonInput['id'];
     $filter = $jsonInput['filter'];
-    $price = $jsonInput['price'];
+    $sort = $jsonInput['sort'];
 
     if(isset($filter)){
         if(empty($filter)){
@@ -30,10 +30,12 @@
         }
     }
 
-    if($price == "" || $price == "Price from low to high"){
+    if($sort == "" || $sort == "1"){
         $pricesort = "asc";
-    } elseif ($price == "Price from high to low") {
+        $price = "Price from low to high";
+    } elseif ($sort == "2") {
         $pricesort = "desc";
+        $price = "Price from high to low";
     }
 
     $item = new getViraIndoCategoryFilter($db, $id, $arr, $pricesort);

@@ -6,6 +6,7 @@ function filterForSorting($arr){
     $arrayOfCat = [];
 
     $e = ["Price from low to high", "Price from high to low"];
+    $id = ["1", "2"];
 
     $array = ["$arr"];
 
@@ -13,13 +14,16 @@ function filterForSorting($arr){
     
     foreach ($e as $key => $value) {
 
+        $valueId = $id[$key];
+
         if($value == $diff[$key]){
             $val = "false";
         } else $val = "true";
         
         $objOfCat = new stdClass();
+        $objOfCat->id = $valueId;
         $objOfCat->name = $value;
-        $objOfCat->flag = $val;
+        $objOfCat->selected = $val;
 
         array_push($arrayOfCat, $objOfCat);
 
