@@ -29,7 +29,7 @@
         }
     }
 
-    if($price == ""){
+    if($price == "" || $price == "Sort from A to Z"){
         $price = "asc";
     }
     

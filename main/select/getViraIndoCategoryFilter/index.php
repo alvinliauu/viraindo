@@ -5,6 +5,7 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/repository/filter.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/viraindo/repository/filterForSorting.php';
 
     include_once '../../../connection/databaseconnect.php';
     include_once '../../../controller/select/getViraIndoCategoryFilter.php';
@@ -29,11 +30,13 @@
         }
     }
 
-    if($price == ""){
-        $price = "asc";
+    if($price == "" || $price == "Price from low to high"){
+        $pricesort = "asc";
+    } elseif ($price == "Price from high to low") {
+        $pricesort = "desc";
     }
 
-    $item = new getViraIndoCategoryFilter($db, $id, $arr, $price);
+    $item = new getViraIndoCategoryFilter($db, $id, $arr, $pricesort);
     
     $stmt = $item->getViraIndoCategoryFilter();
     $itemCount = $stmt->rowCount();
@@ -72,17 +75,10 @@
                 "name" => filter($category_name, $arr)
             );
     
-            if($price == null){
-                $sorting = array(
-                    "template" => 2,
-                    "name" => "Sort By Default"
-                );
-            } else {
-                $sorting = array(
-                    "template" => 2,
-                    "name" => $price
-                );
-            }
+            $sorting = array(
+                "template" => 2,
+                "name" => filterForSorting($price)
+            );
     
             array_push($arrOfCatFilter, $category, $sorting);
 
@@ -115,17 +111,10 @@
                 "name" => filter($category_name, $arr)
             );
     
-            if($price == null){
-                $sorting = array(
-                    "template" => 2,
-                    "name" => "Sort By Default"
-                );
-            } else {
-                $sorting = array(
-                    "template" => 2,
-                    "name" => $price
-                );
-            }
+            $sorting = array(
+                "template" => 2,
+                "name" => filterForSorting($price)
+            );
     
             array_push($arrOfCatFilter, $category, $sorting);
 
