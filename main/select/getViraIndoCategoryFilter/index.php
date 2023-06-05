@@ -73,12 +73,12 @@
                 "template" => 1,
                 "name" => filter($category_name, $arr)
             );
-    
+    print_r($price);die();
             $sorting = array(
                 "template" => 2,
                 "name" => filterForSorting($price)
             );
-            print_r("test");die();
+            
             array_push($arrOfCatFilter, $category, $sorting);
 
             print_r($arrOfCatFilter);die();
