@@ -82,6 +82,8 @@
     
             array_push($arrOfCatFilter, $category, $sorting);
 
+            print_r($arrOfCatFilter);die();
+
             $e = array(
                 "id" => $sub_category_id,
                 "name" => $sub_category_name,
