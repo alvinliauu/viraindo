@@ -29,8 +29,10 @@
         }
     }
 
-    if($price == "" || $price == "Sort from A to Z"){
-        $price = "asc";
+    if($price == "" || $price == "Price from low to high"){
+        $pricesort = "asc";
+    } elseif ($price == "Price from high to low") {
+        $pricesort = "desc";
     }
     
     $item = new getViraIndoSearchPage($db, $name, $arr, $price);
@@ -60,17 +62,10 @@
             "name" => filterForSearch($arr)
         );
 
-        if($price == null){
-            $sorting = array(
-                "template" => 2,
-                "name" => "Sort By Default"
-            );
-        } else {
-            $sorting = array(
-                "template" => 2,
-                "name" => $price
-            );
-        }
+        $sorting = array(
+            "template" => 2,
+            "name" => filterForSorting($price)
+        );
 
         array_push($arrOfCatFilter, $category, $sorting);
 
@@ -101,17 +96,10 @@
                 "name" => filterForSearch($arr)
             );
     
-            if($price == null){
-                $sorting = array(
-                    "template" => 2,
-                    "name" => "Sort By Default"
-                );
-            } else {
-                $sorting = array(
-                    "template" => 2,
-                    "name" => $price
-                );
-            }
+            $sorting = array(
+                "template" => 2,
+                "name" => filterForSorting($price)
+            );
     
             array_push($arrOfCatFilter, $category, $sorting);
 
