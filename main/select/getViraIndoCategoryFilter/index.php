@@ -45,7 +45,6 @@
     $arrOfCatFilter = array();
 
     if($itemCount > 0){
-        print_r("test");die();
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             // create array
@@ -69,7 +68,7 @@
                 array_push($results, $theArray);
             
             }
-
+print_r("test");die();
             $category = array(
                 "template" => 1,
                 "name" => filter($category_name, $arr)
