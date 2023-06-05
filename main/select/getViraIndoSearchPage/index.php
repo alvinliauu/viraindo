@@ -62,7 +62,6 @@
             "template" => 1,
             "name" => filterForSearch($arr)
         );
-        print_r("test");die();
 
         $sorting = array(
             "template" => 2,
