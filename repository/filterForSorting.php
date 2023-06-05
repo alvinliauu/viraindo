@@ -6,10 +6,10 @@ function filterForSorting($arr){
     $arrayOfCat = [];
 
     $e = ["Price from low to high", "Price from high to low"];
-    
-     print_r(in_array($arr, $e));die();
 
-    $diff = array_diff($e, $arr);
+    $array = ["$arr"];
+
+    $diff = array_diff($e, $array);
     
     foreach ($e as $key => $value) {
 
