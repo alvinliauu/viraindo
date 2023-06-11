@@ -29,35 +29,35 @@ if($_SERVER["REQUEST_METHOD"] != "POST"):
     $returnData = msg(0,404,'Page Not Found!');
 
 // CHECKING EMPTY FIELDS
-elseif(!isset($data->email) 
+elseif(!isset($data->name) 
     || !isset($data->password)
-    || empty(trim($data->email))
+    || empty(trim($data->name))
     || empty(trim($data->password))
     ):
 
-    $fields = ['fields' => ['email','password']];
+    $fields = ['fields' => ['name','password']];
     $returnData = msg(0,422,'Please Fill in all Required Fields!',$fields);
 
 // IF THERE ARE NO EMPTY FIELDS THEN-
 else:
-    $email = trim($data->email);
+    $name = trim($data->name);
     $password = trim($data->password);
 
     // CHECKING THE EMAIL FORMAT (IF INVALID FORMAT)
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)):
-        $returnData = msg(0,422,'Invalid Email Address!');
+    // if(!filter_var($email, FILTER_VALIDATE_EMAIL)):
+    //     $returnData = msg(0,422,'Invalid Email Address!');
     
     // IF PASSWORD IS LESS THAN 8 THE SHOW THE ERROR
-    elseif(strlen($password) < 8):
+    if(strlen($password) < 8):
         $returnData = msg(0,422,'Your password must be at least 8 characters long!');
 
     // THE USER IS ABLE TO PERFORM THE LOGIN ACTION
     else:
         try{
             
-            $fetch_user_by_email = "SELECT * FROM `tbl_viraindo_user` WHERE `user_email`=:email";
-            $query_stmt = $conn->prepare($fetch_user_by_email);
-            $query_stmt->bindValue(':email', $email,PDO::PARAM_STR);
+            $fetch_user_by_name = "SELECT * FROM `tbl_viraindo_user` WHERE `user_name`=:name";
+            $query_stmt = $conn->prepare($fetch_user_by_name);
+            $query_stmt->bindValue(':name', $name,PDO::PARAM_STR);
             $query_stmt->execute();
 
             // IF THE USER IS FOUNDED BY EMAIL
@@ -88,7 +88,7 @@ else:
 
             // IF THE USER IS NOT FOUNDED BY EMAIL THEN SHOW THE FOLLOWING ERROR
             else:
-                $returnData = msg(0,422,'Invalid Email Address!');
+                $returnData = msg(0,422,'Invalid Name!');
             endif;
         }
         catch(PDOException $e){
