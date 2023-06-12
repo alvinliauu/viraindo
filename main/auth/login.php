@@ -17,8 +17,6 @@ function msg($success,$status,$message,$extra = []){
     ],$extra);
 }
 
-print_r(encrypt($key, "#super4dmin"));die();
-
 $db_connection = new Database();
 $conn = $db_connection->getConnection();
 
