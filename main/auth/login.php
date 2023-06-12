@@ -17,6 +17,8 @@ function msg($success,$status,$message,$extra = []){
     ],$extra);
 }
 
+print_r("test");die();
+
 $db_connection = new Database();
 $conn = $db_connection->getConnection();
 
