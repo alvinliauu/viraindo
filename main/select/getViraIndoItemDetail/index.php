@@ -32,6 +32,7 @@
             extract($row);
 
             $e = array(
+                "id" => $item_id,
                 "category" => $category_name,
                 "subcategory" => $sub_category_name,
                 "name" => $item_name,
@@ -56,6 +57,7 @@
             extract($rowOfItemLainnya);
 
             $item = array(
+                "id" => $item_id,
                 "name" => $item_name,
                 "price" => $item_new_price,
                 "image" => array(
