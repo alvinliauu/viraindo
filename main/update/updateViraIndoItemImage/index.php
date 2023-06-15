@@ -25,6 +25,7 @@ if ($itemCount > 0) {
 
     echo json_encode($msg);
 } else {
+    header("HTTP/1.0 404 Not Found");
     $msg = array(
         "message" => "nothing updated",
         "code" => 404
