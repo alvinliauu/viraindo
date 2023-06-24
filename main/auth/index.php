@@ -760,7 +760,7 @@ $imagebase64 = "data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAADXCAIAAAAGH
     if($err){
         
         $error = new stdClass();
-        $error->code = http_response_code();
+        $error->code = http_response_code(404);
         $error->message = "The parameter is not valid";
 
         array_push($TheArray, $error);
