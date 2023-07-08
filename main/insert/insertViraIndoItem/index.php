@@ -13,40 +13,23 @@ $item = new insertViraIndoItem($db);
 
 $stmt = $item->insertViraIndoItem();
 
-print_r($stmt);
-die();
-
-// $itemCount = $stmt->rowCount();
-$productArr = array();
-
-if ($itemCount > 0) {
-
-    // $productArr["list"] = array();
-
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        // create array
-        extract($row);
-
-        $results = [];
-
-        $e = array(
-            "id" => $item_id,
-            "name" => $item_name,
-            "price" => $item_new_price,
-            "oldprice" => $item_old_price,
-            "image" => array(
-                "url" => $item_picture,
-                "alt" => "viraindo"
-            )
-        );
-
-        array_push($productArr, $e);
-
-        http_response_code(200);
-    }
-
-    echo json_encode($productArr);
+if($stmt) {
+    http_response_code(200);
+    
+    $e = array(
+        "response" => "success",
+        "code" => 200,
+        "message" => "the item inserted"
+    );
+    array_push($result, $e);
 } else {
     http_response_code(404);
-    echo json_encode($productArr);
+    $e = array(
+        "response" => "failed",
+        "code" => 404,
+        "message" => "the item failed to insert"
+    );
+    array_push($result, $e);
 }
+
+echo json_encode($result);
