@@ -34,9 +34,13 @@ class insertViraIndoItem{
 
         $stmt = $this->conn->prepare($sqlQuery);
         // $stmt->bindValue(":category_id", $categoryId);
-        $stmt->execute();
-        
-        return $stmt;
+        $exec = $stmt->execute();
+
+        if($exec){
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
