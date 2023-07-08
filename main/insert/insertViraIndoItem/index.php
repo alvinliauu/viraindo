@@ -13,8 +13,6 @@ $item = new insertViraIndoItem($db);
 
 $stmt = $item->insertViraIndoItem();
 
-$result = array();
-
 if($stmt == 1) {
     http_response_code(200);
     
@@ -23,7 +21,7 @@ if($stmt == 1) {
         "code" => 200,
         "message" => "the item inserted"
     );
-    array_push($result, $e);
+
 } else {
     http_response_code(404);
     $e = array(
@@ -31,7 +29,7 @@ if($stmt == 1) {
         "code" => 404,
         "message" => "the item failed to insert"
     );
-    array_push($result, $e);
+
 }
 
-echo json_encode($result);
+echo json_encode($e);
