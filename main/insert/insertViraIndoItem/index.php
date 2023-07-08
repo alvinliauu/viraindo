@@ -13,6 +13,8 @@ $item = new insertViraIndoItem($db);
 
 $stmt = $item->insertViraIndoItem();
 
+$result = array();
+
 if($stmt == 1) {
     http_response_code(200);
     
