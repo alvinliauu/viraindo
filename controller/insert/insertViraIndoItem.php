@@ -27,7 +27,7 @@ class insertViraIndoItem{
         $this->price = $jsonInput["price"];
         $this->subcategory = $jsonInput["subcategory"];
         $this->image = $jsonInput["image"];
-        $this->insertby = $jsonInput["insertBy"];
+        $this->insertby = $jsonInput["insertby"];
 
         $sqlQuery = "INSERT INTO tbl_viraindo_item (sub_category_id, item_name, item_picture, item_new_price, item_old_price, isActive, updatedOn, updatedBy, updatedCount, insertedOn, insertedBy)
         VALUES ('$this->subcategory', '$this->name', '$this->image', '$this->price', '$this->price', '1', '$date', '$this->insertby', '1', '$date', '$this->insertby')"; 
