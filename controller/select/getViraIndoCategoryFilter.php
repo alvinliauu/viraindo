@@ -24,6 +24,9 @@
             // GET ALL
             public function getViraIndoCategoryFilter(){
 
+                print_r($this->price);
+                die();
+
                 if($this->filter[0] == true){
                     
                     $arrTotal = "";
