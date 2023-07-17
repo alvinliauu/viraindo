@@ -57,9 +57,6 @@
                     
                     $stmt->execute();
 
-                    print_r($sqlQuery);
-                    die();
-
                     return $stmt;
                 }                    
 
