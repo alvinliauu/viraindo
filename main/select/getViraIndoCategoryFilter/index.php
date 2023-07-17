@@ -31,14 +31,20 @@
     }
 
     if($sort == "" || $sort == "1"){
-        $pricesort = "asc";
-        $price = "Price from low to high";
+        $sort = 'ORDER BY TVI.item_name ASC';
+        $sortcategory = "Sort A - Z";
     } elseif ($sort == "2") {
-        $pricesort = "desc";
-        $price = "Price from high to low";
+        $sort = 'ORDER BY TVI.item_name DESC';
+        $sortcategory = "Sort Z - A";
+    } elseif ($sort == "3") {
+        $sort = 'ORDER BY TVI.item_new_price ASC';
+        $sortcategory = "Price from low to high";
+    } elseif ($sort == "4") {
+        $sort = 'ORDER BY TVI.item_new_price DESC';
+        $sortcategory = "Price from high to low";
     }
 
-    $item = new getViraIndoCategoryFilter($db, $id, $arr, $pricesort);
+    $item = new getViraIndoCategoryFilter($db, $id, $arr, $sort);
     
     $stmt = $item->getViraIndoCategoryFilter();
     $itemCount = $stmt->rowCount();
@@ -114,7 +120,7 @@
     
             $sorting = array(
                 "template" => 2,
-                "name" => filterForSorting($price)
+                "name" => filterForSorting($sortcategory)
             );
     
             array_push($arrOfCatFilter, $category, $sorting);

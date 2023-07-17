@@ -5,8 +5,8 @@ function filterForSorting($arr){
     $theArray = [];
     $arrayOfCat = [];
 
-    $e = ["Price from low to high", "Price from high to low"];
-    $id = [1, 2];
+    $e = ["Sort A - Z", "Sort Z - A", "Price from low to high", "Price from high to low"];
+    $id = [1, 2, 3, 4];
 
     $array = ["$arr"];
 
