@@ -38,9 +38,19 @@
                     echo "item not found";
                 }
                 else{
+
+                    $getItemOldPrice = "SELECT * FROM tbl_viraindo_item";
+
+                    $stmt = $this->conn->prepare($getItemOldPrice);
+                    $stmt->execute();
+
+                    print_r($stmt);
+
+                    die();
+
                     
                     $sqlQuery = "UPDATE tbl_viraindo_item
-                    SET sub_cateogry_id = '$subcategory', item_name = '$name', item_price = '$price', item_image = '$image'
+                    SET sub_cateogry_id = '$subcategory', item_name = '$name', item_new_price = '$price', item_image = '$image'
                     WHERE item_id = '$id';";
         
                     $stmt = $this->conn->prepare($sqlQuery);
