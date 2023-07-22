@@ -24,6 +24,9 @@
             // GET ALL
             public function getViraIndoItemFilter(){
 
+                print_r($this->price);
+                die();
+
                 if($this->name[0] == true){
                     
                     $arr = explode(" ", $this->name);
