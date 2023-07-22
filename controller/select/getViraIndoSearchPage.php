@@ -23,10 +23,6 @@
 
             // GET ALL
             public function getViraIndoItemFilter(){
-
-                print_r($this->price);
-                die();
-
                 if($this->name[0] == true){
                     
                     $arr = explode(" ", $this->name);
@@ -65,9 +61,7 @@
                     else{
                         $sqlQuery = "$arrTotal $this->price;";
                     }                    
-
-                    print_r($sqlQuery);die();
-
+                    
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
 
