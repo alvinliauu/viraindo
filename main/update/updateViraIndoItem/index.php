@@ -15,7 +15,7 @@ $stmt = $item->updateViraIndoItem();
 
 $itemCount = $stmt->rowCount();
 
-print_r($itemCount);
+print_r($stmt->fetch(PDO::FETCH_ASSOC));
 die();
 
 $msg = array();
