@@ -44,7 +44,7 @@
         $sortcategory = "Price from high to low";
     }
     
-    $item = new getViraIndoSearchPage($db, $name, $arr, $pricesort);
+    $item = new getViraIndoSearchPage($db, $name, $arr, $sort);
     
     $stmt = $item->getViraIndoItemFilter();
     $itemCount = $stmt->rowCount();
