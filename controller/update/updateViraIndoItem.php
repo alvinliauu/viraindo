@@ -39,18 +39,24 @@
                 }
                 else{
 
-                    $getItemOldPrice = "SELECT * FROM tbl_viraindo_item";
+                    $getItemOldPrice = "SELECT * FROM tbl_viraindo_item WHERE item_id = '$id'";
 
                     $stmt = $this->conn->prepare($getItemOldPrice);
                     $stmt->execute();
 
+                    $item = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    print_r($item);
+
+                    die();
                     
-                    // $sqlQuery = "UPDATE tbl_viraindo_item
-                    // SET sub_cateogry_id = '$subcategory', item_name = '$name', item_new_price = '$price', item_image = '$image'
-                    // WHERE item_id = '$id';";
+                    
+                    $sqlQuery = "UPDATE tbl_viraindo_item
+                    SET sub_cateogry_id = '$subcategory', item_name = '$name', item_new_price = '$price', item_image = '$image'
+                    WHERE item_id = '$id';";
         
-                    // $stmt = $this->conn->prepare($sqlQuery);
-                    // $stmt->execute();
+                    $stmt = $this->conn->prepare($sqlQuery);
+                    $stmt->execute();
                     return $stmt;
                                 
                 }
