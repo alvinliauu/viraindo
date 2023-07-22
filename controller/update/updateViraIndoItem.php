@@ -42,9 +42,9 @@
                     $getItemOldPrice = "SELECT * FROM tbl_viraindo_item";
 
                     $stmt = $this->conn->prepare($getItemOldPrice);
-                    // $stmt->execute();
+                    $getItem = $stmt->execute();
 
-                    print_r($stmt->execute());
+                    print_r($getItem);
 
                     die();
 
