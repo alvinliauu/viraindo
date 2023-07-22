@@ -12,6 +12,11 @@ $db = $database->getConnection();
 $item = new updateViraIndoItem($db);
 
 $stmt = $item->updateViraIndoItem();
+
+
+print_r($stmt);
+die();
+
 $itemCount = $stmt->rowCount();
 
 $msg = array();

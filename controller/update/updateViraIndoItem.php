@@ -42,19 +42,15 @@
                     $getItemOldPrice = "SELECT * FROM tbl_viraindo_item";
 
                     $stmt = $this->conn->prepare($getItemOldPrice);
-                    $getItem = $stmt->execute();
-
-                    print_r($getItem);
-
-                    die();
+                    $stmt->execute();
 
                     
-                    $sqlQuery = "UPDATE tbl_viraindo_item
-                    SET sub_cateogry_id = '$subcategory', item_name = '$name', item_new_price = '$price', item_image = '$image'
-                    WHERE item_id = '$id';";
+                    // $sqlQuery = "UPDATE tbl_viraindo_item
+                    // SET sub_cateogry_id = '$subcategory', item_name = '$name', item_new_price = '$price', item_image = '$image'
+                    // WHERE item_id = '$id';";
         
-                    $stmt = $this->conn->prepare($sqlQuery);
-                    $stmt->execute();
+                    // $stmt = $this->conn->prepare($sqlQuery);
+                    // $stmt->execute();
                     return $stmt;
                                 
                 }
