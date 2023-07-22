@@ -33,26 +33,42 @@
                 $price = $this->price;
                 $subcategory = $this->subcategory;
                 $image = $this->image;
+                $updatedby = $this->updatedby;
 
                 if($id == null){
                     echo "item not found";
                 }
                 else{
 
-                    $getItemOldPrice = "SELECT * FROM tbl_viraindo_item WHERE item_id = '$id'";
+                    $getItem = "SELECT * FROM tbl_viraindo_item WHERE item_id = '$id'";
 
-                    $stmt = $this->conn->prepare($getItemOldPrice);
-                    $stmt->execute();
+                    $stmtItem = $this->conn->prepare($getItem);
+                    $stmtItem->execute();
 
-                    $item = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $item = $stmtItem->fetch(PDO::FETCH_ASSOC);
 
-                    print_r($item);
+                    $oldprice = $item['item_new_price'];
+                    $date = date('Y-m-d');
 
-                    die();
-                    
+                    if (empty($id)){
+                        $id = $item['item_id'];
+                    }
+                    if (empty($name)) {
+                        $name = $item['item_name'];
+                    } 
+                    if (empty($price)) {
+                        $price = $item['item_new_price'];
+                        $oldprice = $item['item_old_price'];
+                    }
+                    if (empty($subcategory)) {
+                        $subcategory = $item['sub_category_id'];
+                    }
+                    if (empty($image)) {
+                        $image = $item['image'];
+                    }                    
                     
                     $sqlQuery = "UPDATE tbl_viraindo_item
-                    SET sub_cateogry_id = '$subcategory', item_name = '$name', item_new_price = '$price', item_image = '$image'
+                    SET sub_cateogry_id = '$subcategory', item_name = '$name', item_new_price = '$price', item_old_price = '$oldprice', item_image = '$image', updatedOn = '$date', updatedBy = '$updatedby'
                     WHERE item_id = '$id';";
         
                     $stmt = $this->conn->prepare($sqlQuery);
