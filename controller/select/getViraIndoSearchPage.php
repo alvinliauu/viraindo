@@ -63,6 +63,8 @@
                         $sqlQuery = "$arrTotal $this->price;";
                     }                    
 
+                    print_r($sqlQuery);die();
+
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
 
