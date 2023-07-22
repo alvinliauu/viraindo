@@ -73,7 +73,7 @@
 
         $sorting = array(
             "template" => 2,
-            "name" => filterForSorting($price)
+            "name" => filterForSorting($sortcategory)
         );
 
         array_push($arrOfCatFilter, $category, $sorting);
