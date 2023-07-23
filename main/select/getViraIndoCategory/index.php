@@ -17,6 +17,7 @@
     $vga = $items->getViraIndoVgaCard();
     $mouse = $items->getViraIndoMouse();
     $keyboard = $items->getViraIndoKeyboard();
+    $notebook = $items->getViraIndoNotebook();
 
     $rowCount = $motherboard->rowCount();
 
@@ -192,7 +193,27 @@
             "category" => $arrkeyboard
         );
 
-        array_push($productArr, $objOfMotherboard, $objOfProcessor, $objOfSsd, $objOfHdd, $objOfRam, $objOfVga, $objOfMouse, $objOfKeyboard);
+        //Keyboard
+        while ($rowOfNotebook = $notebook->fetch(PDO::FETCH_ASSOC)){
+            extract($rowOfNotebook);
+
+            $listOfNotebook = array(
+                "id" => $sub_category_id,
+                "name" => $sub_category_name
+            );
+
+            array_push($arrnotebook, $listOfNotebook);     
+        }
+        $objOfKeyboard = array(
+            "name" => "Notebook",
+            "image" => array(
+                "url" => "https://cdn-icons-png.flaticon.com/512/3020/3020826.png",
+                "alt" => "notebook"
+            ),
+            "category" => $arrnotebook
+        );
+
+        array_push($productArr, $objOfMotherboard, $objOfProcessor, $objOfSsd, $objOfHdd, $objOfRam, $objOfVga, $objOfMouse, $objOfKeyboard, $objOfNotebook);
 		
         echo json_encode($productArr);
     }
