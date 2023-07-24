@@ -52,19 +52,19 @@ $itemCount = $stmt->rowCount();
 $productArr = array();
 $arrOfCatFilter = array();
 
-function strposa($haystack, $needles = array(), $offset = 0)
-{
-    $chr = array();
-    foreach ($needles as $needle) {
-        $res = strpos($haystack, $needle, $offset);
-        if ($res !== false) $chr[$needle] = $res;
-    }
-    if (empty($chr)) return false;
-    return min($chr);
-}
+// function strposa($haystack, $needles = array(), $offset = 0)
+// {
+//     $chr = array();
+//     foreach ($needles as $needle) {
+//         $res = strpos($haystack, $needle, $offset);
+//         if ($res !== false) $chr[$needle] = $res;
+//     }
+//     if (empty($chr)) return false;
+//     return min($chr);
+// }
 
-$start = array('(intel', '(AMD');
-$end = ")";
+// $start = array('(intel', '(AMD');
+// $end = ")";
 
 if ($itemCount > 0) {
 
