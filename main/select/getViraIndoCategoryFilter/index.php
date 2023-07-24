@@ -72,9 +72,6 @@ if ($itemCount > 0) {
         // create array
         extract($row);
 
-        print_r($row['category_name']);
-        die();
-
         // print_r($row);
         $explodeItemId = explode("$^$", $row['item_id']);
         $explodeItemName = explode("$^$", $row['item_name']);
@@ -83,22 +80,22 @@ if ($itemCount > 0) {
 
         foreach ($explodeItemName as $key => $value) {
 
-            if ($row['category_name'] == 'notebook') {
+            // if ($row['category_name'] == 'notebook') {
 
-                $start_pos = strposa($value, $start, 1);
-                $end_pos = strpos($value, $end, $start_pos);
+            //     $start_pos = strposa($value, $start, 1);
+            //     $end_pos = strpos($value, $end, $start_pos);
 
-                $substring = substr($value, $start_pos, $end_pos - $start_pos + strlen($end));
-            } else {
-                $substring = "";
-            }
+            //     $substring = substr($value, $start_pos, $end_pos - $start_pos + strlen($end));
+            // } else {
+            //     $substring = "";
+            // }
 
 
             $val = $explodeItemPrice[$key];
             $itemPict = $explodeItemPicture[$key];
             $itemId = $explodeItemId[$key];
 
-            $theArray = array("id" => $itemId, "name" => $value, "description" => $substring, "price" => $val, "image" => array("url" => $itemPict));
+            $theArray = array("id" => $itemId, "name" => $value, "price" => $val, "image" => array("url" => $itemPict));
 
             array_push($results, $theArray);
         }
