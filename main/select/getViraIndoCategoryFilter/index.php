@@ -72,10 +72,6 @@ if ($itemCount > 0) {
         // create array
         extract($row);
 
-        print_r($row);
-
-        die();
-
         // print_r($row);
         $explodeItemId = explode("$^$", $row['item_id']);
         $explodeItemName = explode("$^$", $row['item_name']);
@@ -103,6 +99,9 @@ if ($itemCount > 0) {
 
             array_push($results, $theArray);
         }
+
+        echo json_decode($results);
+        die();
 
         $category = array(
             "template" => 1,
