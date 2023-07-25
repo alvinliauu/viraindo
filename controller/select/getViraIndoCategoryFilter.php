@@ -45,6 +45,9 @@
 
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
+                    
+                    print_r("1");
+                    
                     return $stmt;
                 }                
                 else{
