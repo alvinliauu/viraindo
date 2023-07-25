@@ -102,9 +102,6 @@ if ($itemCount > 0) {
             array_push($results, $theArray);
         }
 
-        print_r($results);
-        die();
-
         $category = array(
             "template" => 1,
             "name" => filter($category_name, $arr)
