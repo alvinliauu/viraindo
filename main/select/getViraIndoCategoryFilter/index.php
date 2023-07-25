@@ -52,6 +52,8 @@ $itemCount = $stmt->rowCount();
 $productArr = array();
 $arrOfCatFilter = array();
 
+$results = array();
+
 // function strposa($haystack, $needles = array(), $offset = 0)
 // {
 //     $chr = array();
