@@ -74,10 +74,6 @@ if ($itemCount > 0) {
         // create array
         extract($row);
 
-        print_r($row);
-        
-        die();
-
         $explodeItemId = explode("$^$", $row['item_id']);
         $explodeItemName = explode("$^$", $row['item_name']);
         $explodeItemPrice = explode("$^$", $row['item_price']);
