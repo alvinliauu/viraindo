@@ -21,6 +21,8 @@ function filter($category, $arr){
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
     } elseif ($category == "keyboard") {
         $e = ["1STPLAYER", "A4Tech", "AOC", "Aula", "Cooler Master", "Corsair", "Ducky", "Digital Alliance", "Logitech", "Powerlogic", "Razer", "Rexus", "SteelSeries", "HyperX"];
+    } elseif ($category == "notebook") {
+        $e = ["Acer Notebook", "Asus Notebook", "Dell Notebook", "HP Notebook", "Apple Notebook", "Lenovo Notebook"];
     }
     
     $diff = array_diff($e, $arr);
