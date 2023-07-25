@@ -65,7 +65,7 @@ function strposa($haystack, $needles = array(), $offset = 0)
     return min($chr);
 }
 
-$start = array('(intel', '(AMD');
+$start = array('(Intel', '(AMD', '(intel');
 $end = ")";
 
 if ($itemCount > 0) {
