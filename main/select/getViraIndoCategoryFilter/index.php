@@ -74,7 +74,7 @@ if ($itemCount > 0) {
         // create array
         extract($row);
 
-        print_r($row);
+        print_r($row['$category_name']);
         die();
 
         $explodeItemId = explode("$^$", $row['item_id']);
