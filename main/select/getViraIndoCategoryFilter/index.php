@@ -102,7 +102,7 @@ if ($itemCount > 0) {
             array_push($results, $theArray);
         }
 
-        echo json_decode($results);
+        print_r($results);
         die();
 
         $category = array(
