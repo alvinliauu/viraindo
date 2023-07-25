@@ -79,6 +79,8 @@ if ($itemCount > 0) {
         $explodeItemPrice = explode("$^$", $row['item_price']);
         $explodeItemPicture = explode("$^$", $row['item_picture']);
 
+        print_r($row['$category_name']);
+
         foreach ($explodeItemName as $key => $value) {
 
             if ($row['$category_name'] == 'notebook' || $row['category_name'] == 'Notebook') {
