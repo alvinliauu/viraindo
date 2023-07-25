@@ -101,9 +101,6 @@ if ($itemCount > 0) {
             array_push($results, $theArray);
         }
 
-        print_r($results);
-        die();
-
         $category = array(
             "template" => 1,
             "name" => filter($category_name, $arr)
@@ -115,6 +112,9 @@ if ($itemCount > 0) {
         );
 
         array_push($arrOfCatFilter, $category, $sorting);
+
+        print_r($arrOfCatFilter);
+        die();
 
         $e = array(
             "id" => $sub_category_id,
