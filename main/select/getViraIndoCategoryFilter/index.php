@@ -74,8 +74,6 @@ if ($itemCount > 0) {
         // create array
         extract($row);
 
-        print_r($row['category_name']);
-        die();
         $explodeItemId = explode("$^$", $row['item_id']);
         $explodeItemName = explode("$^$", $row['item_name']);
         $explodeItemPrice = explode("$^$", $row['item_price']);
@@ -83,16 +81,17 @@ if ($itemCount > 0) {
 
         foreach ($explodeItemName as $key => $value) {
 
-            if ($row['category_name'] == 'notebook') {
-
+            if ($row['category_name'] == 'Notebook' || $row['$category_name'] == 'notebook') {
+                print_r("true");
                 $start_pos = strposa($value, $start, 1);
                 $end_pos = strpos($value, $end, $start_pos);
 
                 $substring = substr($value, $start_pos, $end_pos - $start_pos + strlen($end));
             } else {
+                print_r("false");
                 $substring = "";
             }
-
+            die();
 
             $val = $explodeItemPrice[$key];
             $itemPict = $explodeItemPicture[$key];
