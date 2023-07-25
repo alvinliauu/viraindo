@@ -54,19 +54,19 @@ $arrOfCatFilter = array();
 
 $results = array();
 
-// function strposa($haystack, $needles = array(), $offset = 0)
-// {
-//     $chr = array();
-//     foreach ($needles as $needle) {
-//         $res = strpos($haystack, $needle, $offset);
-//         if ($res !== false) $chr[$needle] = $res;
-//     }
-//     if (empty($chr)) return false;
-//     return min($chr);
-// }
+function strposa($haystack, $needles = array(), $offset = 0)
+{
+    $chr = array();
+    foreach ($needles as $needle) {
+        $res = strpos($haystack, $needle, $offset);
+        if ($res !== false) $chr[$needle] = $res;
+    }
+    if (empty($chr)) return false;
+    return min($chr);
+}
 
-// $start = array('(intel', '(AMD');
-// $end = ")";
+$start = array('(intel', '(AMD');
+$end = ")";
 
 if ($itemCount > 0) {
 
@@ -82,28 +82,25 @@ if ($itemCount > 0) {
 
         foreach ($explodeItemName as $key => $value) {
 
-            // if ($row['category_name'] == 'notebook') {
+            if ($row['category_name'] == 'notebook') {
 
-            //     $start_pos = strposa($value, $start, 1);
-            //     $end_pos = strpos($value, $end, $start_pos);
+                $start_pos = strposa($value, $start, 1);
+                $end_pos = strpos($value, $end, $start_pos);
 
-            //     $substring = substr($value, $start_pos, $end_pos - $start_pos + strlen($end));
-            // } else {
-            //     $substring = "";
-            // }
+                $substring = substr($value, $start_pos, $end_pos - $start_pos + strlen($end));
+            } else {
+                $substring = "";
+            }
 
 
             $val = $explodeItemPrice[$key];
             $itemPict = $explodeItemPicture[$key];
             $itemId = $explodeItemId[$key];
 
-            $theArray = array("id" => $itemId, "name" => $value, "price" => $val, "image" => array("url" => $itemPict));
+            $theArray = array("id" => $itemId, "name" => $value, "description" => $substring, "price" => $val, "image" => array("url" => $itemPict));
 
             array_push($results, $theArray);
         }
-
-        print_r($results);
-        die();
 
         $category = array(
             "template" => 1,
