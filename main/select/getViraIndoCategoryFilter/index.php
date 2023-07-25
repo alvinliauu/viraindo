@@ -74,12 +74,14 @@ if ($itemCount > 0) {
         // create array
         extract($row);
 
+        print_r($row['$category_name']);
+        die();
+
         $explodeItemId = explode("$^$", $row['item_id']);
         $explodeItemName = explode("$^$", $row['item_name']);
         $explodeItemPrice = explode("$^$", $row['item_price']);
         $explodeItemPicture = explode("$^$", $row['item_picture']);
 
-        print_r($row['$category_name']);
 
         foreach ($explodeItemName as $key => $value) {
 
