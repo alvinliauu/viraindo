@@ -82,7 +82,7 @@ if ($itemCount > 0) {
 
         foreach ($explodeItemName as $key => $value) {
 
-            if ($row['$category_name'] == 'notebook') {
+            if ($row['category_name'] == 'Notebook') {
 
                 $start_pos = strposa($value, $start, 1);
                 $end_pos = strpos($value, $end, $start_pos);
