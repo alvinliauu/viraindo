@@ -32,6 +32,7 @@
         $arrvga = [];
         $arrmouse = [];
         $arrkeyboard = [];
+        $arrnotebook = [];
 		
         //Motherboard
         while ($rowOfMotherboard = $motherboard->fetch(PDO::FETCH_ASSOC)){
