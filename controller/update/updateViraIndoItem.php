@@ -66,15 +66,9 @@
                     if (empty($image)) {
                         $image = $item['image'];
                     }                    
-
-                    print_r($name);
-                    print_r("\n");
-                    print_r($price);
-
-                    die();
                     
                     $sqlQuery = "UPDATE tbl_viraindo_item
-                    SET sub_cateogry_id = '$subcategory', item_name = '$name', item_new_price = '$price', item_old_price = '$oldprice', item_image = '$image', updatedOn = '$date', updatedBy = '$updatedby'
+                    SET sub_category_id = '$subcategory', item_name = '$name', item_new_price = '$price', item_old_price = '$oldprice', item_image = '$image', updatedOn = '$date', updatedBy = '$updatedby'
                     WHERE item_id = '$id';";
         
                     $stmt = $this->conn->prepare($sqlQuery);
