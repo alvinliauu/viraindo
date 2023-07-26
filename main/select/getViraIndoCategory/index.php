@@ -204,7 +204,7 @@
 
             array_push($arrnotebook, $listOfNotebook);     
         }
-        $objOfKeyboard = array(
+        $objOfNotebook = array(
             "name" => "Notebook",
             "image" => array(
                 "url" => "https://cdn-icons-png.flaticon.com/512/3020/3020826.png",
