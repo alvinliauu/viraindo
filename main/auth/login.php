@@ -78,6 +78,7 @@ else:
                     $returnData = [
                         'success' => 1,
                         'message' => 'You have successfully logged in.',
+                        'name' => $row['user_name'],
                         'role' => $row['user_role'],
                         'token' => $token
                     ];

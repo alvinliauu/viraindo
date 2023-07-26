@@ -73,6 +73,15 @@
         
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();
+
+                    $HistoryQuery = "INSERT INTO tbl_viraindo_history (item_name, item_new_price, item_old_price, action, action_by, action_date)
+                    VALUES ('$name', '$price', '$oldprice', 'update item', '$updatedby', '$date');";
+            
+                    $stmtHistory = $this->conn->prepare($HistoryQuery);
+                    $stmtHistory->execute();
+                    $stmtHistory->fetch(PDO::FETCH_ASSOC);
+
+                    
                     return $stmt;
                                 
                 }
