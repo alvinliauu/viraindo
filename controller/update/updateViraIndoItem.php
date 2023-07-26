@@ -47,6 +47,9 @@
 
                     $item = $stmtItem->fetch(PDO::FETCH_ASSOC);
 
+                    print_r($item);
+                    die();
+
                     $oldprice = $item['item_new_price'];
                     $date = date('Y-m-d');
 
