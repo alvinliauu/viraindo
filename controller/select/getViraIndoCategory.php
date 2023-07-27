@@ -75,7 +75,7 @@
 
         public function getViraIndoNotebook(){
             $sqlQuery = "SELECT TVSC.sub_category_id, TVSC.sub_category_name FROM tbl_viraindo_category TVC JOIN tbl_viraindo_sub_category TVSC
-            ON TVC.category_id = TVSC.category_id WHERE TVC.category_name = 'notebook';";
+            ON TVC.category_id = TVSC.category_id WHERE TVC.category_name = 'Notebook';";
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->execute();
             return $stmt;

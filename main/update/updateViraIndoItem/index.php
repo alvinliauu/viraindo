@@ -9,6 +9,7 @@ include_once '../../../controller/update/updateViraIndoItem.php';
 
 $database = new Database();
 $db = $database->getConnection();
+
 $item = new updateViraIndoItem($db);
 
 $stmt = $item->updateViraIndoItem();
