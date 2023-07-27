@@ -27,7 +27,7 @@ class insertViraIndoItem{
         $this->price = $jsonInput["price"];
         $this->subcategory = $jsonInput["subcategory"];
         $this->image = $jsonInput["image"];
-        $this->insertby = $jsonInput["insertby"];
+        $this->insertby = $jsonInput["user"];
 
         $insertby = $this->insertby;
         $name = $this->name;

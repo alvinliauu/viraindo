@@ -18,7 +18,7 @@
 
                 $jsonInput = json_decode(file_get_contents("php://input"), true);            
                 $this->id = $jsonInput['id'];
-                $this->deletedby = $jsonInput['deletedby'];
+                $this->deletedby = $jsonInput['user'];
 
                 $id = $this->id;
                 $deletedby = $this->deletedby;

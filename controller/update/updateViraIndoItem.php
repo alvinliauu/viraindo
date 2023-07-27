@@ -26,7 +26,7 @@
                 $this->price = $jsonInput['price'];
                 $this->subcategory = $jsonInput['subcategory'];
                 $this->image = $jsonInput['image'];
-                $this->updatedby = $jsonInput['updatedby'];
+                $this->updatedby = $jsonInput['user'];
 
                 $id = $this->id;
                 $name = $this->name;

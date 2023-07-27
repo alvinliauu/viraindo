@@ -26,7 +26,7 @@ class insertViraIndoSubCategory{
         $jsonInput = json_decode(file_get_contents("php://input"), true);
         $this->name = $jsonInput["name"];
         $this->categoryid = $jsonInput["categoryid"];
-        $this->insertby = $jsonInput["insertby"];
+        $this->insertby = $jsonInput["user"];
 
         $insertby = $this->insertby;
         $name = $this->name;

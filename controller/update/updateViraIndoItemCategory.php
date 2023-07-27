@@ -19,7 +19,7 @@
                 $jsonInput = json_decode(file_get_contents("php://input"), true);            
                 $this->id = $jsonInput['id'];
                 $this->name = $jsonInput['name'];
-                $this->updatedby = $jsonInput['updatedby'];
+                $this->updatedby = $jsonInput['user'];
 
                 $id = $this->id;
                 $name = $this->name;
