@@ -1,5 +1,5 @@
 <?php
-    class updateViraIndoItemCategory{
+    class updateViraIndoCategory{
         // Connection
         private $conn;
         public $id;
@@ -14,7 +14,7 @@
             }
 
             // GET ALL
-            public function updateViraIndoItemCategory(){
+            public function updateViraIndoCategory(){
 
                 $jsonInput = json_decode(file_get_contents("php://input"), true);            
                 $this->id = $jsonInput['id'];
@@ -28,13 +28,15 @@
                 $date = date('Y-m-d H:i:s');
 
                 if($id == null){
-                    echo "item not found";
+                    echo "category not found";
                 }
                 else{
                     
-                    $sqlQuery = "UPDATE tbl_viraindo_item
-                    SET item_category = '$name'
-                    WHERE item_id = '$id';";
+                    $sqlQuery = "UPDATE tbl_viraindo_category
+                    SET category_name = '$name',
+                    updatedOn = '$date',
+                    updatedBy = '$updatedby'
+                    WHERE category_id = '$id';";
         
                     $stmt = $this->conn->prepare($sqlQuery);
                     $stmt->execute();

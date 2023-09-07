@@ -5,13 +5,13 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 include_once '../../../connection/databaseconnect.php';
-include_once '../../../controller/update/updateViraIndoItemCategory.php';
+include_once '../../../controller/update/updateViraIndoCategory.php';
 
 $database = new Database();
 $db = $database->getConnection();
-$item = new updateViraIndoItemCategory($db);
+$item = new updateViraIndoCategory($db);
 
-$stmt = $item->updateViraIndoItemCategory();
+$stmt = $item->updateViraIndoCategory();
 $itemCount = $stmt->rowCount();
 
 $msg = array();
@@ -19,7 +19,7 @@ $msg = array();
 if ($itemCount > 0) {
 
     $msg = array(
-        "message" => "the item category successfully updated",
+        "message" => "the category successfully updated",
         "code" => 200
     );
 
