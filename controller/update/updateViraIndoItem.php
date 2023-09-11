@@ -67,7 +67,13 @@
                         $image = $item['image'];
                     }                    
 
-                    print_r($price);
+                    print_r($image);
+                    print_r("<br>");
+                    print_r($oldprice);
+                    print_r("<br>");
+                    print_r($subcategory);
+                    print_r("<br>");
+                    print_r($name);
                     die();
                     
                     $sqlQuery = "UPDATE tbl_viraindo_item
