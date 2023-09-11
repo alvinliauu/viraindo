@@ -66,15 +66,6 @@
                     if (empty($image)) {
                         $image = $item['image'];
                     }                    
-
-                    print_r($image);
-                    print_r("<br>");
-                    print_r($oldprice);
-                    print_r("<br>");
-                    print_r($subcategory);
-                    print_r("<br>");
-                    print_r($name);
-                    die();
                     
                     $sqlQuery = "UPDATE tbl_viraindo_item
                     SET sub_category_id = '$subcategory', item_name = '$name', item_new_price = '$price', item_old_price = '$oldprice', item_picture = '$image', updatedOn = '$date', updatedBy = '$updatedby'
@@ -89,7 +80,6 @@
                     $stmtHistory = $this->conn->prepare($HistoryQuery);
                     $stmtHistory->execute();
                     $stmtHistory->fetch(PDO::FETCH_ASSOC);
-
                     
                     return $stmt;
                                 
