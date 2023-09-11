@@ -16,9 +16,6 @@ $stmt = $item->updateViraIndoItem();
 
 $itemCount = $stmt->rowCount();
 
-print_r($itemCount);
-die();
-
 $msg = array();
 
 if ($itemCount > 0) {
